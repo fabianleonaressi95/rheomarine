@@ -73,11 +73,10 @@ velocity signature — **not** verified against the paywalled paper;
 exact fluid recipes remain an open item, as does the anomalous set3
 bottom density (~1038 kg/m³).
 
-## Literature (`papers/`)
+## Literature
 
-Reference papers on MP transport, aggregation and North Adriatic
-rheology (see `papers/RheoMarine_Dossier_Unico.pdf`).
-
+- [Priority literature review for RheoMarine-SLO (25 November 2026)](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md) — critical synthesis of HFR validation and Gulf circulation, HFR-driven particle tracking, rheological settling/stratification, methodological limitations, and implications for the RISTANC work plan.
+- Reference papers and dossier: `papers/` (including `papers/RheoMarine_Dossier_Unico.pdf`).
 
 ## RISTANC call documents
 
@@ -99,7 +98,6 @@ Reviews and working documents:
 - [Section C draft — RheoMarine-SLO (English)](docs/ristanc/application-support/SECTION_C_DRAFT_RHEOMARINE_SLO_EN.md)
 - [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
 - Application preparation files: `docs/ristanc/application-support/`
-
 
 ## RISTANC readiness and territorial evidence
 
