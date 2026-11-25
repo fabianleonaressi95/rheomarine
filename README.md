@@ -73,6 +73,16 @@ velocity signature — **not** verified against the paywalled paper;
 exact fluid recipes remain an open item, as does the anomalous set3
 bottom density (~1038 kg/m³).
 
+## Scientific model and validation protocol
+
+The modelling design is maintained separately from the application narrative:
+
+- [Central research question and falsifiable hypotheses](docs/science/RESEARCH_QUESTION_AND_HYPOTHESES.md)
+- [M0/M1/M2 mathematical and computational specification](docs/model/M0_M1_M2_MODEL_SPECIFICATION.md)
+- [Independent validation, metrics and uncertainty protocol](docs/validation/INDEPENDENT_VALIDATION_PROTOCOL.md)
+
+These documents define the scientific workstream independently of the ongoing HFR ingestion implementation. The HFR module should provide documented model-ready surface-current fields, QC/coverage masks and provenance; it should not implement or assume the particle-physics modules. The specifications explicitly distinguish surface transport from vertical circulation and seabed deposition, and laboratory proxies from natural marine EPS.
+
 ## Literature review and scientific basis
 
 The project's working scientific review is maintained directly in Markdown; it is the readable, citable synthesis and the first point of reference for project decisions. It is not necessary to start from a compiled PDF dossier.
