@@ -58,11 +58,16 @@ class VelocityField:
         if mask is not None:
             object.__setattr__(self, "valid", np.asarray(mask, dtype=bool))
 
-    def sample(self, positions: NDArray[np.float64], time: float) -> NDArray[np.float64]:
+    def sample(
+        self, positions: NDArray[np.float64], time: float,
+        max_time_gap: float | None = None,
+    ) -> NDArray[np.float64]:
         """Bilinearly interpolate velocity in space and linearly in time.
 
-        Raises ValueError if a particle is outside forcing coverage or any
-        interpolation corner fails QC. No extrapolation or gap filling occurs.
+        Raises ValueError if a particle is outside forcing coverage, any
+        interpolation corner fails QC, or the bracketing observation interval
+        exceeds max_time_gap. By default, intervals above 1.5 times the median
+        sampling interval are treated as data gaps.
         """
         p = np.asarray(positions, dtype=float)
         if p.ndim != 2 or p.shape[1] != 2:
@@ -75,7 +80,17 @@ class VelocityField:
 
         it1 = min(int(np.searchsorted(self.times, time, side="right")), len(self.times)-1)
         it0 = max(it1 - 1, 0)
-        wt = (time - self.times[it0]) / (self.times[it1] - self.times[it0])
+        bracket_gap = float(self.times[it1] - self.times[it0])
+        gap_limit = (1.5 * float(np.median(np.diff(self.times)))
+                     if max_time_gap is None else float(max_time_gap))
+        if not np.isfinite(gap_limit) or gap_limit <= 0:
+            raise ValueError("max_time_gap must be finite and positive")
+        if it0 != it1 and bracket_gap > gap_limit:
+            raise ValueError(
+                f"requested time lies in an HFR forcing gap ({bracket_gap:g} "
+                f"exceeds max_time_gap={gap_limit:g})"
+            )
+        wt = (time - self.times[it0]) / bracket_gap
         ix1 = np.clip(np.searchsorted(self.x, p[:, 0], side="right"), 1, len(self.x)-1)
         iy1 = np.clip(np.searchsorted(self.y, p[:, 1], side="right"), 1, len(self.y)-1)
         ix0, iy0 = ix1 - 1, iy1 - 1
@@ -219,7 +234,7 @@ def simulate_m0(
         if ids.size == 0:
             history[step+1] = pos
             continue
-        velocity = forcing.sample(pos[ids], t)
+        velocity = forcing.sample(pos[ids], t, max_time_gap=gap_limit)
         noise = np.sqrt(2*h) * (rng.standard_normal((ids.size, 2)) @ chol.T)
         candidate = pos[ids] + velocity*h + noise
 
