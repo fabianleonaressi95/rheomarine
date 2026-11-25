@@ -1,5 +1,6 @@
 {
   "n_traj": 108,
+  "min_zone_samples": 10,
   "interface_bounds_m": {
     "set1_1": [
       0.0323,
@@ -38,138 +39,353 @@
       0.0554
     ]
   },
+  "layer_order_mapping": {
+    "set1_1": "AS_over_XG",
+    "set1_2": "AS_over_XG",
+    "set1_3": "AS_over_XG",
+    "set2_1": "AS_over_XG",
+    "set2_2": "AS_over_XG",
+    "set2_3": "AS_over_XG",
+    "set3_1": "XG_over_AS",
+    "set3_2": "XG_over_AS",
+    "set3_3": "XG_over_AS"
+  },
+  "mapping_note": "inferred from Mendeley dataset description (6x AS-over-XG, 3x XG-over-AS) + set3 inverted velocity signature; NOT verified against the paywalled Water Research paper",
   "density_profiles": {
     "set1_1": {
-      "rho_top_kgm3": 1023.712,
-      "rho_bot_kgm3": 1025.013,
-      "delta_rho": 1.3009999999999309,
-      "z_range": [
-        -0.031,
-        0.038
-      ]
+      "layer_order_inferred": "AS_over_XG",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.03233,
+        "z_max": 0.0385523529411765,
+        "rho_upper": 1024.0,
+        "rho_lower": 1025.1,
+        "rho_at_interface": 1024.1637285714285,
+        "n_above": 8,
+        "n_below": 10,
+        "delta_rho": 1.099999999999909
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.031,
+        "z_max": 0.038,
+        "rho_upper": 1023.857,
+        "rho_lower": 1024.9015,
+        "rho_at_interface": 1024.378,
+        "n_above": 31,
+        "n_below": 38,
+        "delta_rho": 1.044499999999971
+      }
     },
     "set1_2": {
-      "rho_top_kgm3": 1023.531,
-      "rho_bot_kgm3": 1025.0735,
-      "delta_rho": 1.5425000000000182,
-      "z_range": [
-        -0.021,
-        0.048
-      ]
+      "layer_order_inferred": "AS_over_XG",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.02172,
+        "z_max": 0.0491623529411765,
+        "rho_upper": 1023.6,
+        "rho_lower": 1025.05,
+        "rho_at_interface": 1023.7363428571429,
+        "n_above": 6,
+        "n_below": 12,
+        "delta_rho": 1.4499999999999318
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.021,
+        "z_max": 0.048,
+        "rho_upper": 1023.582,
+        "rho_lower": 1024.9585,
+        "rho_at_interface": 1024.023,
+        "n_above": 21,
+        "n_below": 48,
+        "delta_rho": 1.3764999999999645
+      }
     },
     "set1_3": {
-      "rho_top_kgm3": 1024.095,
-      "rho_bot_kgm3": 1026.3505,
-      "delta_rho": 2.2554999999999836,
-      "z_range": [
-        -0.021,
-        0.048
-      ]
+      "layer_order_inferred": "AS_over_XG",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.02171,
+        "z_max": 0.0491723529411765,
+        "rho_upper": 1024.35,
+        "rho_lower": 1026.0,
+        "rho_at_interface": 1024.5639571428571,
+        "n_above": 6,
+        "n_below": 12,
+        "delta_rho": 1.650000000000091
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.021,
+        "z_max": 0.048,
+        "rho_upper": 1024.16,
+        "rho_lower": 1026.1480000000001,
+        "rho_at_interface": 1024.739,
+        "n_above": 21,
+        "n_below": 48,
+        "delta_rho": 1.9880000000000564
+      }
     },
     "set2_1": {
-      "rho_top_kgm3": 1024.703,
-      "rho_bot_kgm3": 1028.2795,
-      "delta_rho": 3.5765000000001237,
-      "z_range": [
-        -0.039,
-        0.03
-      ]
+      "layer_order_inferred": "AS_over_XG",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.0402,
+        "z_max": 0.0298,
+        "rho_upper": 1024.6,
+        "rho_lower": 1027.6,
+        "rho_at_interface": 1024.4548571428572,
+        "n_above": 10,
+        "n_below": 8,
+        "delta_rho": 3.0
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.039,
+        "z_max": 0.03,
+        "rho_upper": 1024.719,
+        "rho_lower": 1027.3215,
+        "rho_at_interface": 1025.144,
+        "n_above": 39,
+        "n_below": 30,
+        "delta_rho": 2.6024999999999636
+      }
     },
     "set2_2": {
-      "rho_top_kgm3": 1025.132,
-      "rho_bot_kgm3": 1029.2935,
-      "delta_rho": 4.161499999999933,
-      "z_range": [
-        -0.013,
-        0.056
-      ]
+      "layer_order_inferred": "AS_over_XG",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.0139,
+        "z_max": 0.0561,
+        "rho_upper": 1024.85,
+        "rho_lower": 1029.1,
+        "rho_at_interface": 1025.626,
+        "n_above": 4,
+        "n_below": 14,
+        "delta_rho": 4.25
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.013,
+        "z_max": 0.056,
+        "rho_upper": 1025.018,
+        "rho_lower": 1029.144,
+        "rho_at_interface": 1025.59,
+        "n_above": 13,
+        "n_below": 56,
+        "delta_rho": 4.125999999999976
+      }
     },
     "set2_3": {
-      "rho_top_kgm3": 1024.5,
-      "rho_bot_kgm3": 1030.4,
-      "delta_rho": 5.900000000000091,
-      "z_range": [
-        -0.027,
-        0.042
-      ]
+      "layer_order_inferred": "AS_over_XG",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.0276,
+        "z_max": 0.0424,
+        "rho_upper": 1024.6,
+        "rho_lower": 1030.2,
+        "rho_at_interface": 1029.0397142857141,
+        "n_above": 7,
+        "n_below": 11,
+        "delta_rho": 5.600000000000136
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.027,
+        "z_max": 0.042,
+        "rho_upper": 1024.503,
+        "rho_lower": 1030.4,
+        "rho_at_interface": 1029.904,
+        "n_above": 27,
+        "n_below": 42,
+        "delta_rho": 5.897000000000162
+      }
     },
     "set3_1": {
-      "rho_top_kgm3": 1029.36,
-      "rho_bot_kgm3": 1037.8,
-      "delta_rho": 8.440000000000055,
-      "z_range": [
-        -0.012,
-        0.057
-      ]
+      "layer_order_inferred": "XG_over_AS",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.01338,
+        "z_max": 0.05662,
+        "rho_upper": 1029.2,
+        "rho_lower": 1037.4,
+        "rho_at_interface": 1029.7210857142857,
+        "n_above": 4,
+        "n_below": 14,
+        "delta_rho": 8.200000000000045
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.012,
+        "z_max": 0.057,
+        "rho_upper": 1029.277,
+        "rho_lower": 1037.778,
+        "rho_at_interface": 1029.711,
+        "n_above": 12,
+        "n_below": 57,
+        "delta_rho": 8.500999999999976
+      }
     },
     "set3_2": {
-      "rho_top_kgm3": 1030.104,
-      "rho_bot_kgm3": 1037.398,
-      "delta_rho": 7.293999999999869,
-      "z_range": [
-        -0.004,
-        0.065
-      ]
+      "layer_order_inferred": "XG_over_AS",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.005,
+        "z_max": 0.065,
+        "rho_upper": 1029.6,
+        "rho_lower": 1036.9,
+        "rho_at_interface": 1030.4,
+        "n_above": 1,
+        "n_below": 16,
+        "delta_rho": 7.300000000000182
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.004,
+        "z_max": 0.065,
+        "rho_upper": 1029.473,
+        "rho_lower": 1037.19,
+        "rho_at_interface": 1029.636,
+        "n_above": 4,
+        "n_below": 65,
+        "delta_rho": 7.717000000000098
+      }
     },
     "set3_3": {
-      "rho_top_kgm3": 1030.701,
-      "rho_bot_kgm3": 1038.096,
-      "delta_rho": 7.394999999999982,
-      "z_range": [
-        -0.033,
-        0.036
-      ]
+      "layer_order_inferred": "XG_over_AS",
+      "mapping_confidence": "inferred_not_paper_verified",
+      "measured": {
+        "n": 18,
+        "z_min": -0.03394,
+        "z_max": 0.03606,
+        "rho_upper": 1031.0,
+        "rho_lower": 1037.4,
+        "rho_at_interface": 1031.7915142857141,
+        "n_above": 9,
+        "n_below": 9,
+        "delta_rho": 6.400000000000091
+      },
+      "fitted": {
+        "n": 70,
+        "z_min": -0.033,
+        "z_max": 0.036,
+        "rho_upper": 1030.709,
+        "rho_lower": 1037.3465,
+        "rho_at_interface": 1031.274,
+        "n_above": 33,
+        "n_below": 36,
+        "delta_rho": 6.6375000000000455
+      }
     }
   },
-  "retardation_by_set": {
+  "iw_consistency": {
     "set1_1": {
-      "n": 12,
-      "R_below_mean": 0.8206300628329246,
-      "R_below_median": 0.9029292656689897
+      "w_below_IW1_med": 0.017845061366275464,
+      "w_lower_IW2_med": 0.01631052780158323,
+      "ratio_IW2_over_IW1below": 0.9140079412900043
     },
     "set1_2": {
-      "n": 12,
-      "R_below_mean": 0.7252097740068217,
-      "R_below_median": 0.7536355106217801
+      "w_below_IW1_med": 0.009704527955477195,
+      "w_lower_IW2_med": 0.010338636480741709,
+      "ratio_IW2_over_IW1below": 1.0653415115267535
     },
     "set1_3": {
-      "n": 12,
-      "R_below_mean": 0.47746203927631314,
-      "R_below_median": 0.21826158399840453
+      "w_below_IW1_med": 0.003762217769080088,
+      "w_lower_IW2_med": 0.0037867120814386885,
+      "ratio_IW2_over_IW1below": 1.006510604611968
     },
     "set2_1": {
-      "n": 12,
-      "R_below_mean": 0.8341172528399312,
-      "R_below_median": 0.8986486211222205
+      "w_below_IW1_med": 0.018775081884907303,
+      "w_lower_IW2_med": 0.017676359100903205,
+      "ratio_IW2_over_IW1below": 0.9414797341103834
     },
     "set2_2": {
-      "n": 12,
-      "R_below_mean": 0.6812516892271686,
-      "R_below_median": 0.7096236084319689
+      "w_below_IW1_med": 0.00898014536756737,
+      "w_lower_IW2_med": 0.010344052069690463,
+      "ratio_IW2_over_IW1below": 1.1518802476237153
     },
     "set2_3": {
-      "n": 11,
-      "R_below_mean": 0.5982816229495289,
-      "R_below_median": 0.3184126964042993
+      "w_below_IW1_med": 0.00568562160084282,
+      "w_lower_IW2_med": 0.007146959937522672,
+      "ratio_IW2_over_IW1below": 1.257023495278551
     },
     "set3_1": {
-      "n": 12,
-      "R_below_mean": 1.2356730708616475,
-      "R_below_median": 1.0869690131383534
+      "w_below_IW1_med": 0.022803132555006482,
+      "w_lower_IW2_med": 0.024371029928447113,
+      "ratio_IW2_over_IW1below": 1.068757981810547
     },
     "set3_2": {
-      "n": 12,
-      "R_below_mean": 1.9564160151589318,
-      "R_below_median": 1.3693506934698831
+      "w_below_IW1_med": 0.025891941667045663,
+      "w_lower_IW2_med": 0.026043058088765714,
+      "ratio_IW2_over_IW1below": 1.0058364267795483
     },
     "set3_3": {
-      "n": 7,
-      "R_below_mean": 5.637942978357468,
-      "R_below_median": 4.374684926985068
+      "w_below_IW1_med": 0.011504589095383964,
+      "w_lower_IW2_med": 0.009640979811888103,
+      "ratio_IW2_over_IW1below": 0.8380116605604275
+    }
+  },
+  "retardation_by_set_IW1": {
+    "set1_1": {
+      "n": 6,
+      "R_below_median": 0.6596409340494397,
+      "R_below_mean": 0.6409472203269638
+    },
+    "set1_2": {
+      "n": 6,
+      "R_below_median": 0.364291032591717,
+      "R_below_mean": 0.34948220649708417
+    },
+    "set1_3": {
+      "n": 6,
+      "R_below_median": 0.13956628879029007,
+      "R_below_mean": 0.14349688188139617
+    },
+    "set2_1": {
+      "n": 6,
+      "R_below_median": 0.6699389060266946,
+      "R_below_mean": 0.6458834809093553
+    },
+    "set2_2": {
+      "n": 6,
+      "R_below_median": 0.3331260735343623,
+      "R_below_mean": 0.32524903050992876
+    },
+    "set2_3": {
+      "n": 6,
+      "R_below_median": 0.20320128175825983,
+      "R_below_mean": 0.20682878471088492
+    },
+    "set3_1": {
+      "n": 6,
+      "R_below_median": 1.3749801511171247,
+      "R_below_mean": 1.4829205796123073
+    },
+    "set3_2": {
+      "n": 6,
+      "R_below_median": 2.569404175768889,
+      "R_below_mean": 2.929723582690133
+    },
+    "set3_3": {
+      "n": 6,
+      "R_below_median": 5.408721587666625,
+      "R_below_mean": 6.036287976086977
     }
   },
   "notes": [
-    "w = dz/dt from averaged centroid position, Savitzky-free moving average; zones defined by visible interface bounds",
-    "set -> fluid composition mapping is in the source paper (Mrokowska et al. 2025, Water Res. 280:123487), not in the dataset files"
+    "w = dz/dt from ensemble-averaged centroid tracks; kinematic analysis, not single-particle dynamics",
+    "IW1 = interface-crossing window: zone speeds and R_below_vs_above computed only here",
+    "IW2 = lower-layer window (inferred): speeds are uniform and match IW1 below-interface values; zone split NOT applied because its z origin does not share the interface reference",
+    "density z sorted explicitly; z=0 at visible interface, z>0 downward (assumed same convention as tracks)",
+    "set3 bottom densities ~1037-1038 kg/m3 are far above AS42 (~1029); cannot be explained by XG <=1.5 g/L -- recipe verification against the paper still required"
   ]
 }

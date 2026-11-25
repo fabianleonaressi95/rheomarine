@@ -48,24 +48,30 @@ R≈0.60 vs PS R≈0.24). CR alone is weaker and shows the same broad
 material ordering. These are equal-weight averages over available
 particle specifications, not particle-count-weighted estimates.
 
-`scripts/analyze_ds2_stratified.py` — splits each averaged centroid
-trajectory at the visible interface bounds (from
-`README_MPs_sinking_dynamics.txt`) into above / interface / below zones
-and computes median sinking speed per zone, plus the density contrast
-Δρ across the interface from the tanh-fitted density profiles:
+`scripts/analyze_ds2_stratified.py` (v2) — resamples each ensemble-averaged
+centroid track onto a uniform time grid (source timestamps are jittered),
+splits IW1 tracks at the visible interface bounds into above / interface /
+below zones, and reports IW2 as a lower-layer reference window. Density
+profiles are explicitly sorted by z before computing layer densities:
 
-- `data/ds2_stratified/ds2_interface_transit.csv` (108 trajectories)
+- `data/ds2_stratified/ds2_interface_transit.csv` (108 trajectories,
+  zone-coverage flags)
+- `data/ds2_stratified/ds2_set_iw_particle_summary.csv` (set × IW ×
+  particle-type medians)
 - `data/ds2_stratified/ds2_interface_summary.json`
+- `analysis/DS2_V2_NOTES.md` — interpretation decisions and caveats
 
-Findings: particles crossing into the lower layer are retarded by a
-factor that grows with Δρ — set1_3 (Δρ≈+2.3 kg/m³) R_below≈0.22,
-set2_3 (Δρ≈+5.9) R_below≈0.32 — while the set3 series (largest Δρ,
-≈+7–8 kg/m³) shows R_below > 1 (up to ~4), i.e. particles accelerate
-below the interface, consistent with an inverted (AS-over-XG)
-configuration where the viscous layer sits on top. The exact
-set → fluid-pair mapping is only in the source paper
-(Mrokowska et al. 2025, Water Res. 280:123487), not in the dataset
-files — open item.
+Findings (IW1, `R = w_below/w_above`): sets 1–2 (inferred AS-over-XG)
+show strong retardation growing with Δρ — set1_3 R≈0.14, set2_3
+R≈0.20 — while set3 (inferred inverted XG-over-AS) shows acceleration
+below the interface (R up to ≈5.4 in set3_3). IW2 speeds match the IW1
+below-interface values within ~±25% for 8/9 sets, confirming IW2 samples
+only the lower layer. Rods (R) are more affected than spheres (S) in
+both regimes. Layer-order assignment is inferred from the Mendeley
+dataset description (6× AS-over-XG, 3× XG-over-AS) plus the set3
+velocity signature — **not** verified against the paywalled paper;
+exact fluid recipes remain an open item, as does the anomalous set3
+bottom density (~1038 kg/m³).
 
 ## Literature (`papers/`)
 
