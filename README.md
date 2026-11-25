@@ -71,3 +71,12 @@ files — open item.
 
 Reference papers on MP transport, aggregation and North Adriatic
 rheology (see `papers/RheoMarine_Dossier_Unico.pdf`).
+
+
+## RISTANC call documents
+
+Official v2 source PDFs are stored in `docs/references/ristanc/`:
+- [Guidelines for Applicants v2](docs/references/ristanc/01callguidelinesforapplicantsristancv5.pdf)
+- [Q&A v2](docs/references/ristanc/qa-ristanc-v2.pdf)
+- [Operational audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
+- [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
