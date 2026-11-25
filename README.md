@@ -77,3 +77,33 @@ bottom density (~1038 kg/m³).
 
 Reference papers on MP transport, aggregation and North Adriatic
 rheology (see `papers/RheoMarine_Dossier_Unico.pdf`).
+
+
+## RISTANC call documents
+
+Primary sources (valid version 2):
+- [Guidelines for Applicants](docs/references/ristanc/01callguidelinesforapplicantsristancv5.pdf)
+- [Application Form (DOCX)](docs/references/ristanc/02applicationformristancv5.docx)
+- [Evaluation Criteria](docs/references/ristanc/03evaluationcriteriaristancv5.pdf)
+- [Ethical Aspects](docs/references/ristanc/04ethical-aspectsristancv5.pdf)
+- [Current Q&A (5 November 2026)](https://www.ristanc.eu/storage/doc/202611/qa-ristancen-gbv3.pdf)
+- [Archived earlier Q&A (20 October 2026)](docs/references/ristanc/archive/qa-ristanc-202610-20.pdf)
+
+Reviews and working documents:
+- [Call requirements audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
+- [Evaluation criteria review](docs/references/ristanc/RISTANC_EVALUATION_REVIEW_2026-11-25.md)
+- [Ethical and open-science review](docs/references/ristanc/RISTANC_ETHICS_REVIEW_2026-11-25.md)
+- [Application form — full text extraction](docs/references/ristanc/02_APPLICATION_FORM_FULL_TEXT.md)
+- [Application form — field map](docs/references/ristanc/02_APPLICATION_FORM_FIELD_MAP.md)
+- [Application form — cross-check](docs/references/ristanc/RISTANC_APPLICATION_FORM_CROSSCHECK_2026-11-25.md)
+- [Section C draft — RheoMarine-SLO (English)](docs/ristanc/application-support/SECTION_C_DRAFT_RHEOMARINE_SLO_EN.md)
+- [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
+- Application preparation files: `docs/ristanc/application-support/`
+
+
+## RISTANC readiness and territorial evidence
+
+- [Application readiness and evidence dossier](docs/ristanc/application-support/APPLICATION_READINESS_EVIDENCE_DOSSIER_2026-11-25.md)
+- [Slovenian territorial-sea HFR data audit](docs/ristanc/application-support/HFR_SLOVENIAN_TERRITORIAL_SEA_DATA_AUDIT_2026-11-25.md)
+- [Applicant competence evidence annex (draft)](docs/ristanc/application-support/APPLICANT_COMPETENCE_EVIDENCE_ANNEX_DRAFT.md)
+- [Laboratory provider shortlist and tailored quotation requests](docs/ristanc/application-support/LABORATORY_PROVIDER_SHORTLIST_AND_REQUESTS.md)
