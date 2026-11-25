@@ -1,7 +1,8 @@
 # rheomarine
 
-Microplastic settling in non-Newtonian / rheologically stratified seawater —
-experimental data + analysis.
+Mathematical and computational modelling of microplastic transport,
+biological aggregation and rheological effects in the North Adriatic
+Sea — experimental data + analysis.
 
 ## Data sources (Mendeley Data, CC BY 4.0, IG PAS)
 
@@ -63,3 +64,8 @@ configuration where the viscous layer sits on top. The exact
 set → fluid-pair mapping is only in the source paper
 (Mrokowska et al. 2025, Water Res. 280:123487), not in the dataset
 files — open item.
+
+## Literature (root PDFs)
+
+Reference papers on MP transport, aggregation and North Adriatic
+rheology uploaded alongside this analysis (see `RheoMarine_Dossier_Unico.pdf`).
