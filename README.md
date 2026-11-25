@@ -99,4 +99,5 @@ Reviews and working documents:
 
 - [Application readiness and evidence dossier](docs/ristanc/application-support/APPLICATION_READINESS_EVIDENCE_DOSSIER_2026-11-25.md)
 - [Slovenian territorial-sea HFR data audit](docs/ristanc/application-support/HFR_SLOVENIAN_TERRITORIAL_SEA_DATA_AUDIT_2026-11-25.md)
-
+- [Applicant competence evidence annex (draft)](docs/ristanc/application-support/APPLICANT_COMPETENCE_EVIDENCE_ANNEX_DRAFT.md)
+- [Laboratory provider shortlist and tailored quotation requests](docs/ristanc/application-support/LABORATORY_PROVIDER_SHORTLIST_AND_REQUESTS.md)
