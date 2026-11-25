@@ -75,8 +75,18 @@ rheology (see `papers/RheoMarine_Dossier_Unico.pdf`).
 
 ## RISTANC call documents
 
-Official v2 source PDFs are stored in `docs/references/ristanc/`:
-- [Guidelines for Applicants v2](docs/references/ristanc/01callguidelinesforapplicantsristancv5.pdf)
-- [Current Q&A (5 November 2026) — official PDF](https://www.ristanc.eu/storage/doc/202611/qa-ristancen-gbv3.pdf)\n- [Current Q&A review](docs/references/ristanc/RISTANC_QA_2026-11-05_REVIEW.md)\n- [Archived earlier Q&A PDF (20 October 2026)](docs/references/ristanc/archive/qa-ristanc-202610-20.pdf)
-- [Operational audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
+Primary sources (valid version 2):
+- [Guidelines for Applicants](docs/references/ristanc/01callguidelinesforapplicantsristancv5.pdf)
+- [Application Form (DOCX)](docs/references/ristanc/02applicationformristancv5.docx)
+- [Evaluation Criteria](docs/references/ristanc/03evaluationcriteriaristancv5.pdf)
+- [Ethical Aspects](docs/references/ristanc/04ethical-aspectsristancv5.pdf)
+- [Current Q&A (5 November 2026)](https://www.ristanc.eu/storage/doc/202611/qa-ristancen-gbv3.pdf)
+- [Archived earlier Q&A (20 October 2026)](docs/references/ristanc/archive/qa-ristanc-202610-20.pdf)
+
+Reviews and working documents:
+- [Call requirements audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
+- [Evaluation criteria review](docs/references/ristanc/RISTANC_EVALUATION_REVIEW_2026-11-25.md)
+- [Ethical and open-science review](docs/references/ristanc/RISTANC_ETHICS_REVIEW_2026-11-25.md)
 - [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
+- Application preparation files: `docs/ristanc/application-support/`
+
