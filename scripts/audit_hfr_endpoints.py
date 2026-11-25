@@ -39,30 +39,40 @@ def das(site, dataset, timeout):
             "elapsed_seconds": elapsed, "bytes": len(body), "metadata": fields}
 
 def subset(site, dataset, days, timeout):
-    end = datetime.now(timezone.utc).replace(microsecond=0)
+    # data feed lags real time by ~1-2 h; requesting 'now' as the end
+    # makes ERDDAP return 404, so clamp the window end backwards
+    end = (datetime.now(timezone.utc) - timedelta(hours=3)
+           ).replace(microsecond=0)
     start = end - timedelta(days=days)
     s = start.strftime("%Y-%m-%dT%H:%M:%SZ")
     e = end.strftime("%Y-%m-%dT%H:%M:%SZ")
     dims = f"[({s}):1:({e})]" + DIMS
     query = ",".join(name + dims for name in ("EWCT", "NSCT", "QCflag"))
-    url = f"{BASE}/{dataset}.csv0?{quote(query, safe='[],():,.-TZ_')}"
+    # this ERDDAP rejects unencoded brackets/parens -> encode everything
+    url = f"{BASE}/{dataset}.csv0?{quote(query, safe='')}"
     body, elapsed, status = fetch(url, timeout)
-    rows = list(csv.DictReader(io.StringIO(body.decode("utf-8-sig", "replace"))))
+    # csv0 has NO header row; columns are time,depth,lat,lon then the
+    # requested vars in order (EWCT, NSCT, QCflag)
+    rdr = csv.reader(io.StringIO(body.decode("utf-8-sig", "replace")))
+    rows = [r for r in rdr if r]
     if not rows:
         raise RuntimeError("HTTP response contained no CSV data rows")
-    times = [r.get("time", "") for r in rows if r.get("time")]
-    def valid(name):
-        return sum(r.get(name, "") not in ("", "NaN", "nan", "-32.767", "-127") for r in rows)
+    times = [r[0] for r in rows if len(r) > 0 and r[0]]
+    def col(i):
+        return [r[i] for r in rows if len(r) > i]
+    ewct, nsct, qcf = col(4), col(5), col(6)
+    def valid(vals):
+        return sum(v not in ("", "NaN", "nan", "-32.767", "-127")
+                   for v in vals)
     flags = {}
-    for r in rows:
-        v = r.get("QCflag", "")
+    for v in qcf:
         flags[v] = flags.get(v, 0) + 1
     return {"site": site, "window_days": days, "requested_start_utc": s,
             "requested_end_utc": e, "http_status": status,
             "elapsed_seconds": elapsed, "bytes": len(body), "data_rows": len(rows),
             "first_returned_time": min(times) if times else None,
             "last_returned_time": max(times) if times else None,
-            "EWCT_valid": valid("EWCT"), "NSCT_valid": valid("NSCT"),
+            "EWCT_valid": valid(ewct), "NSCT_valid": valid(nsct),
             "QCflag_counts": flags, "request_url": url}
 
 def main():
