@@ -1,0 +1,175 @@
+{
+  "n_traj": 108,
+  "interface_bounds_m": {
+    "set1_1": [
+      0.0323,
+      0.038
+    ],
+    "set1_2": [
+      0.0267,
+      0.035
+    ],
+    "set1_3": [
+      0.0317,
+      0.0371
+    ],
+    "set2_1": [
+      0.0252,
+      0.0325
+    ],
+    "set2_2": [
+      0.0239,
+      0.0335
+    ],
+    "set2_3": [
+      0.0376,
+      0.0399
+    ],
+    "set3_1": [
+      0.0184,
+      0.0295
+    ],
+    "set3_2": [
+      0.03,
+      0.04
+    ],
+    "set3_3": [
+      0.0389,
+      0.0554
+    ]
+  },
+  "density_profiles": {
+    "set1_1": {
+      "rho_top_kgm3": 1023.712,
+      "rho_bot_kgm3": 1025.013,
+      "delta_rho": 1.3009999999999309,
+      "z_range": [
+        -0.031,
+        0.038
+      ]
+    },
+    "set1_2": {
+      "rho_top_kgm3": 1023.531,
+      "rho_bot_kgm3": 1025.0735,
+      "delta_rho": 1.5425000000000182,
+      "z_range": [
+        -0.021,
+        0.048
+      ]
+    },
+    "set1_3": {
+      "rho_top_kgm3": 1024.095,
+      "rho_bot_kgm3": 1026.3505,
+      "delta_rho": 2.2554999999999836,
+      "z_range": [
+        -0.021,
+        0.048
+      ]
+    },
+    "set2_1": {
+      "rho_top_kgm3": 1024.703,
+      "rho_bot_kgm3": 1028.2795,
+      "delta_rho": 3.5765000000001237,
+      "z_range": [
+        -0.039,
+        0.03
+      ]
+    },
+    "set2_2": {
+      "rho_top_kgm3": 1025.132,
+      "rho_bot_kgm3": 1029.2935,
+      "delta_rho": 4.161499999999933,
+      "z_range": [
+        -0.013,
+        0.056
+      ]
+    },
+    "set2_3": {
+      "rho_top_kgm3": 1024.5,
+      "rho_bot_kgm3": 1030.4,
+      "delta_rho": 5.900000000000091,
+      "z_range": [
+        -0.027,
+        0.042
+      ]
+    },
+    "set3_1": {
+      "rho_top_kgm3": 1029.36,
+      "rho_bot_kgm3": 1037.8,
+      "delta_rho": 8.440000000000055,
+      "z_range": [
+        -0.012,
+        0.057
+      ]
+    },
+    "set3_2": {
+      "rho_top_kgm3": 1030.104,
+      "rho_bot_kgm3": 1037.398,
+      "delta_rho": 7.293999999999869,
+      "z_range": [
+        -0.004,
+        0.065
+      ]
+    },
+    "set3_3": {
+      "rho_top_kgm3": 1030.701,
+      "rho_bot_kgm3": 1038.096,
+      "delta_rho": 7.394999999999982,
+      "z_range": [
+        -0.033,
+        0.036
+      ]
+    }
+  },
+  "retardation_by_set": {
+    "set1_1": {
+      "n": 12,
+      "R_below_mean": 0.8206300628329246,
+      "R_below_median": 0.9029292656689897
+    },
+    "set1_2": {
+      "n": 12,
+      "R_below_mean": 0.7252097740068217,
+      "R_below_median": 0.7536355106217801
+    },
+    "set1_3": {
+      "n": 12,
+      "R_below_mean": 0.47746203927631314,
+      "R_below_median": 0.21826158399840453
+    },
+    "set2_1": {
+      "n": 12,
+      "R_below_mean": 0.8341172528399312,
+      "R_below_median": 0.8986486211222205
+    },
+    "set2_2": {
+      "n": 12,
+      "R_below_mean": 0.6812516892271686,
+      "R_below_median": 0.7096236084319689
+    },
+    "set2_3": {
+      "n": 11,
+      "R_below_mean": 0.5982816229495289,
+      "R_below_median": 0.3184126964042993
+    },
+    "set3_1": {
+      "n": 12,
+      "R_below_mean": 1.2356730708616475,
+      "R_below_median": 1.0869690131383534
+    },
+    "set3_2": {
+      "n": 12,
+      "R_below_mean": 1.9564160151589318,
+      "R_below_median": 1.3693506934698831
+    },
+    "set3_3": {
+      "n": 7,
+      "R_below_mean": 5.637942978357468,
+      "R_below_median": 4.374684926985068
+    }
+  },
+  "notes": [
+    "w = dz/dt from averaged centroid position, Savitzky-free moving average; zones defined by visible interface bounds",
+    "set -> fluid composition mapping is in the source paper (Mrokowska et al. 2025, Water Res. 280:123487), not in the dataset files"
+  ]
+}
