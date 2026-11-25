@@ -87,8 +87,8 @@ These documents define the scientific workstream independently of the ongoing HF
 
 The project's working scientific review is maintained directly in Markdown; it is the readable, citable synthesis and the first point of reference for project decisions. It is not necessary to start from a compiled PDF dossier.
 
-- **[Priority literature review — RheoMarine-SLO](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md)** — critical synthesis of ten first-pass technical readings, with Marchetto et al. (2022) retained as an additional priority Northern Adriatic field study pending detailed reading: HFR validation and Gulf circulation; HFR-NAdr station history; HFR-driven microplastic tracking; particle-tracking good practice; rheological settling and stratification; dataset methods; limitations and implications for WP1–WP4.
-- The review includes an access audit that distinguishes full-text readings from abstracts, institutional records and dataset metadata. It also identifies three further North Adriatic papers for the next reading pass.
+- **[Priority literature review — RheoMarine-SLO](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md)** — critical synthesis of the technical readings, including the detailed review of Marchetto et al. (2022) and the primary Slovenian field study by Gajšt et al. (2016): HFR validation and Gulf circulation; HFR-NAdr station history; HFR-driven microplastic tracking; particle-tracking good practice; rheological settling and stratification; dataset methods; Northern Adriatic field observations; limitations and implications for WP1–WP4.
+- The review includes an access audit that distinguishes full-text readings from publisher-visible article sections, abstracts, institutional records and dataset metadata. It also identifies further North Adriatic hydrodynamic papers for subsequent reading.
 - Source papers and datasets are retained under `papers/` and linked from the relevant entries in the Markdown review. The PDF dossier is supplementary archival material, not the project's documentation entry point.
 
 ## RISTANC call documents
