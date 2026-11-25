@@ -1,7 +1,7 @@
 # Priority literature review for RheoMarine-SLO
 **Prepared:** 25 November 2026  
 **Purpose:** scientific basis for the RISTANC v5 proposal and the 26 November OGS discussion.  
-**Scope:** targeted review of the ten priority references selected from the working bibliography. This is a critical synthesis, not a claim that every publisher full text was accessible.
+**Scope:** critical synthesis of the ten technical priority readings completed in the first pass, with Marchetto et al. (2022) retained as an additional priority local-field study in the verified bibliography and queued for the next full-text reading pass. This is not a claim that every publisher full text was accessible.
 
 ## Executive synthesis
 
@@ -19,10 +19,10 @@ These points support the current M0/M1/M2 design: M0 hydrodynamic baseline; M1 i
 
 ### 1.1 Cosoli et al. (2010): validation of coastal HFR currents
 
-**Reference:** Cosoli, S. et al. (2010), *A real-time coastal observing system in the Gulf of Trieste: HF radar current measurements and validation*, Journal of Atmospheric and Oceanic Technology.  
+**Verified reference:** Cosoli, S., Mazzoldi, A., & Gačić, M. (2010). *Validation of Surface Current Measurements in the Northern Adriatic Sea from High-Frequency Radars*. Journal of Atmospheric and Oceanic Technology, 27(5), 908–919. DOI: [10.1175/2009JTECHO680.1](https://doi.org/10.1175/2009JTECHO680.1). The title, authors, journal, volume, issue, pages and DOI match the [American Meteorological Society publisher record](https://journals.ametsoc.org/view/journals/atot/27/5/2009jtecho680_1.xml).  
 **Full text consulted:** [OGS repository PDF](https://ricerca.ogs.it/retrieve/a5d78ee5-101e-4863-b5a9-69063bc6177f/1520-0426-2009jtecho680_1.pdf).
 
-The study compares near-surface HFR currents (representative of roughly the upper 0.5 m) with ADCP measurements at approximately 2.5 m over about 40 days in 2005. Reported radial RMS differences vary by measurement pattern (about 8.4–20.5 cm/s); vector correlation reaches approximately 0.78, with a mean veering around 6 degrees. Vertical shear associated with wind forcing explains a substantial part of the mismatch between the HFR and deeper ADCP observations. Strong northeasterly wind events can reduce radar coverage and lead to current-speed underestimation, reported in some cases up to about 50%.
+The study concerns the coastal area offshore of the Venice Lagoon, not the Gulf of Trieste. It compares HFR currents representative of approximately the first metre of the water column with ADCP measurements at about 2.5 m during a 40-day deployment in August–October 2005. Depending on radar site and antenna-pattern treatment, radial RMS differences span approximately 8.4–20.5 cm/s; the surface-vector comparison reports vector correlation up to 0.78 and a veering angle of about 6 degrees. The authors estimate that wind-driven shear can explain a substantial fraction of the surface–subsurface mismatch. Strong northeasterly wind pulses also degrade radar coverage and can produce substantial current underestimation, reported up to about 50%.
 
 **Use for RheoMarine:** this is a warning against treating HFR vectors as error-free or vertically representative. The numerical error values are specific to the 2005 configuration and cannot be transferred as a calibration claim to the present IZOL/PIRA data. The project should report QC-filtered coverage, compare only genuinely collocated/temporally compatible observations, and separate measurement error from vertical representativeness.
 
@@ -115,6 +115,12 @@ These were identified during the review and are recommended for the next reading
 
 These three papers have been identified but are not represented as fully reviewed in this document.
 
+### 4.1 Marchetto et al. (2022): local microplastic field evidence — priority reading
+
+**Verified reference:** Marchetto, D., de Ferri, L., Latella, A., & Pojana, G. (2022). *Micro- and mesoplastics in sea surface water from a Northern Adriatic coastal area*. Environmental Science and Pollution Research, 29(25), 37471–37497. DOI: [10.1007/s11356-021-17874-9](https://doi.org/10.1007/s11356-021-17874-9).
+
+This paper is explicitly marked as a priority reading in the verified Appendix B. It is retained in the priority list because it provides geographically relevant field evidence on micro- and mesoplastics in Northern Adriatic surface waters. It was not part of the ten-paper first-pass full-text/abstract synthesis above; its detailed sampling design, analytical methods, particle-size classes, spatial/temporal representativeness and reported concentrations must be extracted from the article before using numerical findings in the proposal. No quantitative result from this paper is asserted here.
+
 ## 5. Consequences for the RheoMarine-SLO work plan
 
 | Work element | Literature-based requirement | Practical implication |
@@ -162,7 +168,7 @@ At minimum, report:
 
 | Reference | Access in this review | Main use |
 |---|---|---|
-| Cosoli et al. (2010) | Full text | HFR validation, vertical shear, wind-related coverage/error |
+| Cosoli et al. (2010) | Full text and publisher metadata | HFR validation, vertical shear, wind-related coverage/error; Venice Lagoon coastal area |
 | Cosoli et al. (2013) | Full text | Gulf circulation, temporal coverage, interpolation, river/wind influence |
 | HFR-NAdr network record | Network metadata | Station configuration and temporal changes |
 | Capodici et al. (2024) | Full text | HFR-driven tracking and in-situ microplastic comparison |
@@ -172,5 +178,6 @@ At minimum, report:
 | Mrokowska & Krztoń-Maziopa (2024), Data in Brief | Full text | Experimental design and DS1 dataset |
 | Mrokowska et al. (2025), stratification dataset | Dataset metadata/data resource | DS2 experimental structure |
 | HFR-NAdr network record | Metadata | Local network configuration |
+| Marchetto et al. (2022) | Bibliographic metadata verified; full-text analysis pending | Northern Adriatic field evidence; retained as priority reading |
 
-**Editorial note:** the original working bibliography numbers and full author lists should be cross-checked against the source PDFs/DOI records before this review is converted into a formal manuscript bibliography. The access audit above is intentional: it distinguishes full-text reading from abstract/metadata-level consultation.
+**Editorial note:** bibliographic metadata for Cosoli et al. (2010) have been reconciled against the publisher's primary record. The title previously used in this review was incorrect and has been replaced. Marchetto et al. (2022) remains a priority item because Appendix B marks it as such; it is explicitly identified above as pending detailed reading rather than being presented as already reviewed. The access audit distinguishes full-text reading from abstract/metadata-level consultation.
