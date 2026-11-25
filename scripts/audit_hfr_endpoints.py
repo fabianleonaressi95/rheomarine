@@ -32,7 +32,7 @@ def das(site, dataset, timeout):
     for key in ("time_coverage_start", "time_coverage_end", "date_created",
                 "date_modified", "last_calibration_date", "testOutOfDate",
                 "update_interval", "institution"):
-        m = re.search(r'(?:String|Float64)\\s+' + re.escape(key) + r'\\s+"?([^";\\n]+)"?;', raw)
+        m = re.search(r'(?:String|Float64)\s+' + re.escape(key) + r'\s+"?([^";\n]+)"?;', raw)
         if m:
             fields[key] = m.group(1).strip()
     return {"site": site, "url": url, "http_status": status,
