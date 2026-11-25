@@ -90,6 +90,7 @@ Reviews and working documents:
 - [Application form — full text extraction](docs/references/ristanc/02_APPLICATION_FORM_FULL_TEXT.md)
 - [Application form — field map](docs/references/ristanc/02_APPLICATION_FORM_FIELD_MAP.md)
 - [Application form — cross-check](docs/references/ristanc/RISTANC_APPLICATION_FORM_CROSSCHECK_2026-11-25.md)
+- [Section C draft — RheoMarine-SLO (English)](docs/ristanc/application-support/SECTION_C_DRAFT_RHEOMARINE_SLO_EN.md)
 - [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
 - Application preparation files: `docs/ristanc/application-support/`
 
