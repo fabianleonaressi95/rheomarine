@@ -65,7 +65,7 @@ set → fluid-pair mapping is only in the source paper
 (Mrokowska et al. 2025, Water Res. 280:123487), not in the dataset
 files — open item.
 
-## Literature (root PDFs)
+## Literature (`papers/`)
 
 Reference papers on MP transport, aggregation and North Adriatic
-rheology uploaded alongside this analysis (see `RheoMarine_Dossier_Unico.pdf`).
+rheology (see `papers/RheoMarine_Dossier_Unico.pdf`).
