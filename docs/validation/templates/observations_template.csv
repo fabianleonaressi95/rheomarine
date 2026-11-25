@@ -1,0 +1,1 @@
+obs_id,dataset_id,instrument_id,obs_type,time_utc,time_original,tz_original,longitude,latitude,depth_m,depth_reference,u_east,v_north,speed,direction,direction_convention,qc_flag,qc_meaning,uncertainty,avg_interval_s,sample_interval_s,missing_reason,source_dataset,source_file,retrieved_utc,licence,raw_value
