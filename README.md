@@ -109,3 +109,5 @@ Reviews and working documents:
 - Reproducible short-window benchmark: `python scripts/audit_hfr_endpoints.py --days 1 7 --timeout 120`
 - [Applicant competence evidence annex (draft)](docs/ristanc/application-support/APPLICANT_COMPETENCE_EVIDENCE_ANNEX_DRAFT.md)
 - [Laboratory provider shortlist and tailored quotation requests](docs/ristanc/application-support/LABORATORY_PROVIDER_SHORTLIST_AND_REQUESTS.md)
+- [OGS meeting brief — 26 November 2026](docs/ristanc/application-support/OGS_MEETING_BRIEF_2026-11-26.md)
+- [Funding pathways beyond RISTANC](docs/ristanc/application-support/FUNDING_PATHWAYS_BEYOND_RISTANC_2026-11-25.md)
