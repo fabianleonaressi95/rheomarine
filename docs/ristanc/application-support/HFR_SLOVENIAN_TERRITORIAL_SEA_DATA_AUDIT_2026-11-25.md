@@ -11,9 +11,9 @@ A concrete public data route exists through the Slovenian HFR stations at **Izol
 1. **NIB — HF radar system in the Gulf of Trieste:** https://www.nib.si/mbp/en/oceanographic-data-and-measurements/other-oceanographic-data/hf-radar-2  
    NIB states that the network consists of four nodes: Izola (NIB), Piran (ARSO), Aurisina (OGS) and Trieste (ARPA FVG), with measurements combined into a current-vector representation for the Gulf of Trieste.
 2. **Izola HFR-NAdr dataset (NIB):** https://erddap.hfrnode.eu/erddap/griddap/EUHFR_NRTcurrent_HFR-NAdr-IZOL_v3.html  
-   Dataset ID: `EUHFR_NRTcurrent_HFR-NAdr-IZOL_v3`. Metadata snapshot inspected on 25 November 2026 reports start of coverage 2022-10-16, a 30-minute nominal resolution, grid bounds 45.52685–45.78333°N and 13.375–13.78056°E, and a metadata time-coverage end of 2026-10-01 15:00 UTC. The metadata page's timestamp is not a guarantee of uninterrupted data availability after that time.
+   Dataset ID: `EUHFR_NRTcurrent_HFR-NAdr-IZOL_v3`. Live metadata inspected on 25 November 2026 report start of coverage 2022-10-16, latest observation 2026-11-25 13:00 UTC, nominal 30-minute resolution, grid bounds 45.52685–45.78333°N and 13.375–13.78056°E, and last_calibration_date 2023-01-01. The latter is an old calibration date exposed by the catalogue and requires confirmation from NIB; it does not alone prove measurement inaccuracy.
 3. **Piran HFR-NAdr dataset (ARSO):** https://erddap.hfrnode.eu/erddap/griddap/EUHFR_NRTcurrent_HFR-NAdr-PIRA_v3.html  
-   Dataset ID: `EUHFR_NRTcurrent_HFR-NAdr-PIRA_v3`. Metadata inspected on 25 November 2026 reports start of coverage 2021-01-01, nominal 30-minute resolution and the same broad grid bounds. Different catalogue snapshots surfaced different last-observation timestamps (1 October and 21 November 2026); the application must therefore refer to the live dataset and record the actual download time rather than quote a stale end date.
+   Dataset ID: `EUHFR_NRTcurrent_HFR-NAdr-PIRA_v3`. Live metadata inspected on 25 November 2026 report start of coverage 2021-01-01, latest observation 2026-11-25 13:00 UTC, nominal 30-minute resolution, the same broad grid bounds, and last_calibration_date 2015-01-10. This is a notably old calibration date exposed by the catalogue and requires confirmation from ARSO; it does not alone prove measurement inaccuracy.
 4. **ARPA FVG network description:** https://monitor.meteo.fvg.it/radar_marino.php?ln=-en  
    Describes the four-node HFR-NAdr network and the merged surface-current/wave products.
 5. **OGS Gulf of Trieste Marine Observatory:** https://www.ogs.it/en/gulf-trieste-marine-observatory  
@@ -59,3 +59,8 @@ Before fixing the pilot polygon or analysis window:
 | OGS is a project partner | **Not claimed** | No partnership is confirmed; public network data do not imply a collaboration |
 
 **Conclusion:** the territorial link is now supported by identifiable Slovenian observation infrastructure and public datasets. The remaining technical task is a reproducible coverage/QC extraction, not finding a hypothetical data source.
+
+
+## Live endpoint and calibration follow-up (25 November 2026)
+
+A separate live check now records the current metadata, the old calibration dates, and a reproducible short-window response/QC benchmark: [HFR live endpoint and calibration-metadata check](HFR_LIVE_ENDPOINT_AND_CALIBRATION_CHECK_2026-11-25.md). The benchmark script is `scripts/audit_hfr_endpoints.py`. The full multi-year request is not a suitable responsiveness test. Endpoint latency, cell-level completeness, QC acceptance and coastal-sector overlap remain pending execution and analysis. Do not describe the feed as stopped: the current metadata advertise same-day observations at 13:00 UTC on 25 November 2026.
