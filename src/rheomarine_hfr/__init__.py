@@ -14,6 +14,7 @@ from .adapter import (
     load_erddap_netcdf,
     to_velocity_fields,
 )
+from .trajectory import simulate_qc_aware
 
 __all__ = [
     "EARTH_RADIUS_M",
@@ -23,5 +24,6 @@ __all__ = [
     "equirectangular_grid",
     "hfr_valid_mask",
     "load_erddap_netcdf",
+    "simulate_qc_aware",
     "to_velocity_fields",
 ]
