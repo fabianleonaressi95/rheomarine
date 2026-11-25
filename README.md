@@ -94,3 +94,9 @@ Reviews and working documents:
 - [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
 - Application preparation files: `docs/ristanc/application-support/`
 
+
+## RISTANC readiness and territorial evidence
+
+- [Application readiness and evidence dossier](docs/ristanc/application-support/APPLICATION_READINESS_EVIDENCE_DOSSIER_2026-11-25.md)
+- [Slovenian territorial-sea HFR data audit](docs/ristanc/application-support/HFR_SLOVENIAN_TERRITORIAL_SEA_DATA_AUDIT_2026-11-25.md)
+
