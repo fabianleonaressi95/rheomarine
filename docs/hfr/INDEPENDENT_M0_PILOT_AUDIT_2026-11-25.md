@@ -12,7 +12,7 @@ The original simulate_qc_aware checked the current particle stencil at the two b
 
 The audited implementation moves this logic into rheomarine_hfr.trajectory.simulate_qc_aware. It checks the start stencil, computes a trial forward-Euler step, checks the endpoint stencil at the next observed timestamp, and commits the step only if both checks pass. Otherwise it marks the particle qc_stopped and retains its last accepted position.
 
-Four synthetic regression tests cover invalid endpoints, valid endpoints, invalid starts, and empty cohorts.
+Four synthetic regression tests cover invalid endpoints, valid endpoints, invalid starts, and empty cohorts. This is an endpoint guard, not yet a continuous pathwise barrier test: a sufficiently long step could in principle cross an invalid cell and end in a valid stencil. A follow-up should substep or sample the path at a spatial resolution tied to grid spacing.
 
 ### 2. Displacement must be stratified by QC status
 
@@ -52,4 +52,5 @@ The pilot demonstrates an executable processing chain on archived surface-curren
 3. Re-run IZOL and PIRA from the exact NetCDF files matching the recorded SHA-256 values.
 4. Compare endpoint-QC attrition and active-only displacement with the baseline summaries.
 5. Repeat with an open/absorbing crop boundary or a larger domain to quantify boundary sensitivity.
-6. Only then use the pilot as a preliminary computational result in the project dossier.
+6. Add a pathwise QC barrier test (not only endpoint tests), with substeps bounded by grid spacing.
+7. Only then use the pilot as a preliminary computational result in the project dossier.
