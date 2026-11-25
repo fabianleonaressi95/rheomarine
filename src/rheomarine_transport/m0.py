@@ -139,6 +139,7 @@ def simulate_m0(
     boundary: BoundaryMode = "reflect",
     surface_loss_rate: float = 0.0,
     seed: int = 0,
+    max_forcing_gap: float | None = None,
 ) -> SimulationResult:
     """Advance passive particles using Euler-Maruyama.
 
@@ -146,6 +147,12 @@ def simulate_m0(
     coordinate_units**2 / time_unit. surface_loss_rate is an optional
     first-order hazard (1/time_unit); it removes particles from the modelled
     surface layer, not from the ocean and not as measured seabed deposition.
+
+    max_forcing_gap is the largest permitted interval between adjacent HFR
+    timestamps, in the same time unit as forcing.times. By default it is
+    1.5 times the median sampling interval. Any integration step whose time
+    interval intersects a larger observational gap is rejected. Set an
+    explicit value only when justified by the forcing product and study design.
     """
     p0 = np.asarray(initial_positions, dtype=float)
     if p0.ndim != 2 or p0.shape[1] != 2 or not np.all(np.isfinite(p0)):
@@ -154,6 +161,12 @@ def simulate_m0(
         raise ValueError("simulation interval must lie within forcing time coverage")
     if dt <= 0 or surface_loss_rate < 0:
         raise ValueError("dt must be positive and surface_loss_rate non-negative")
+    median_interval = float(np.median(np.diff(forcing.times)))
+    gap_limit = 1.5 * median_interval if max_forcing_gap is None else float(max_forcing_gap)
+    if not np.isfinite(gap_limit) or gap_limit <= 0:
+        raise ValueError("max_forcing_gap must be finite and positive")
+    forcing_gaps = np.diff(forcing.times)
+    large_gap_indices = np.flatnonzero(forcing_gaps > gap_limit)
     if boundary not in ("reflect", "absorb"):
         raise ValueError("boundary must be 'reflect' or 'absorb'")
     if np.any(p0[:, 0] < forcing.x[0]) or np.any(p0[:, 0] > forcing.x[-1]) \
@@ -186,7 +199,22 @@ def simulate_m0(
 
     for step in range(len(times)-1):
         t = float(times[step])
-        h = float(times[step+1] - t)
+        t_next = float(times[step+1])
+        h = t_next - t
+        # Do not integrate across an observational gap, even if both step
+        # endpoints happen to lie in otherwise well-sampled intervals.
+        if large_gap_indices.size:
+            gap_left = forcing.times[large_gap_indices]
+            gap_right = forcing.times[large_gap_indices + 1]
+            crosses_gap = (gap_left < t_next) & (gap_right > t)
+            if np.any(crosses_gap):
+                j = int(np.flatnonzero(crosses_gap)[0])
+                raise ValueError(
+                    "simulation step intersects an HFR forcing gap "
+                    f"({gap_left[j]:g} to {gap_right[j]:g}; "
+                    f"duration {gap_right[j]-gap_left[j]:g} exceeds "
+                    f"max_forcing_gap={gap_limit:g})"
+                )
         ids = np.flatnonzero(active)
         if ids.size == 0:
             history[step+1] = pos
