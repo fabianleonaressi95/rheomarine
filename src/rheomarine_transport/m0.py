@@ -78,19 +78,26 @@ class VelocityField:
                 or np.any(p[:, 1] < self.y[0]) or np.any(p[:, 1] > self.y[-1]):
             raise ValueError("particle lies outside forcing coverage")
 
-        it1 = min(int(np.searchsorted(self.times, time, side="right")), len(self.times)-1)
-        it0 = max(it1 - 1, 0)
-        bracket_gap = float(self.times[it1] - self.times[it0])
-        gap_limit = (1.5 * float(np.median(np.diff(self.times)))
-                     if max_time_gap is None else float(max_time_gap))
-        if not np.isfinite(gap_limit) or gap_limit <= 0:
-            raise ValueError("max_time_gap must be finite and positive")
-        if it0 != it1 and bracket_gap > gap_limit:
-            raise ValueError(
-                f"requested time lies in an HFR forcing gap ({bracket_gap:g} "
-                f"exceeds max_time_gap={gap_limit:g})"
-            )
-        wt = (time - self.times[it0]) / bracket_gap
+        exact = int(np.searchsorted(self.times, time, side="left"))
+        if exact < len(self.times) and self.times[exact] == time:
+            # An observation at the requested instant is usable even when
+            # the neighbouring interval on either side is a large data gap.
+            it0 = it1 = exact
+            wt = 0.0
+        else:
+            it1 = min(exact, len(self.times)-1)
+            it0 = max(it1 - 1, 0)
+            bracket_gap = float(self.times[it1] - self.times[it0])
+            gap_limit = (1.5 * float(np.median(np.diff(self.times)))
+                         if max_time_gap is None else float(max_time_gap))
+            if not np.isfinite(gap_limit) or gap_limit <= 0:
+                raise ValueError("max_time_gap must be finite and positive")
+            if bracket_gap > gap_limit:
+                raise ValueError(
+                    f"requested time lies in an HFR forcing gap ({bracket_gap:g} "
+                    f"exceeds max_time_gap={gap_limit:g})"
+                )
+            wt = (time - self.times[it0]) / bracket_gap
         ix1 = np.clip(np.searchsorted(self.x, p[:, 0], side="right"), 1, len(self.x)-1)
         iy1 = np.clip(np.searchsorted(self.y, p[:, 1], side="right"), 1, len(self.y)-1)
         ix0, iy0 = ix1 - 1, iy1 - 1
