@@ -40,11 +40,13 @@ non-spherical particles:
 - `data/ds1_rheology_settling/ds1_analysis_summary.json`
 
 Findings: retardation is strongly **material-dependent** — at XG 1 g/L,
-PS/PET/PA particles are nearly arrested (R ≈ 0.04–0.20) while POM
-sinks ~4–6× faster relative to its AS baseline (R ≈ 0.24–0.29);
-irregular (I) particles are the least affected shape. At XG 0.5 g/L
-the ordering persists (POM R≈0.60 vs PS R≈0.24). CR alone is much
-weaker and shows the same material ordering.
+POM retains about 24% of its AS-baseline settling speed (R ≈ 0.24),
+whereas PS/PET/PA retain roughly 5–7% (R ≈ 0.05–0.07). POM is therefore
+less retarded than the other reported materials, but it is still slower
+than its own AS baseline. At XG 0.5 g/L the ordering persists (POM
+R≈0.60 vs PS R≈0.24). CR alone is weaker and shows the same broad
+material ordering. These are equal-weight averages over available
+particle specifications, not particle-count-weighted estimates.
 
 `scripts/analyze_ds2_stratified.py` — splits each averaged centroid
 trajectory at the visible interface bounds (from
