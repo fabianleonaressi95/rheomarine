@@ -1,0 +1,280 @@
+{
+  "generated_at_utc": "2026-11-25T17:40:09.438053+00:00",
+  "engine": "QC-aware forward Euler surface advection, K=0",
+  "files": [
+    {
+      "site": "IZOL",
+      "input_file": "data/hfr/raw/EUHFR_NRTcurrent_HFR-NAdr-IZOL_v3_7d.nc",
+      "input_sha256": "d37844f5f0f6c9844e3a585fd75d0b6e4ed0c3625d79f3cd492b5ad9c1adef5d",
+      "n_raw_timestamps": 337,
+      "time_range_utc": [
+        "2026-11-18T14:00:00+00:00",
+        "2026-11-25T14:00:00+00:00"
+      ],
+      "parameters": {
+        "max_gap_s": 3600.0,
+        "integration_step": "one forcing interval (observed timestamps only)",
+        "n_side": 8,
+        "seed": 42,
+        "diffusivity": 0.0,
+        "boundary": "reflect",
+        "accepted_qc_flags": [
+          1
+        ],
+        "subregion_block_cells": 4,
+        "subregion_mean_cell_validity": 0.8843,
+        "subregion_lat_range": [
+          45.55385208129883,
+          45.5943489074707
+        ],
+        "subregion_lon_range": [
+          13.529499053955078,
+          13.58743667602539
+        ]
+      },
+      "segments": [
+        {
+          "segment": 0,
+          "start_utc": "2026-11-18T14:00:00+00:00",
+          "end_utc": "2026-11-21T00:00:00+00:00",
+          "duration_h": 58.0,
+          "n_timestamps": 117,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 1983.9,
+          "displacement_active_max_m": 3507.8,
+          "displacement_all_initial_median_m": 1983.9,
+          "displacement_all_initial_max_m": 3507.8
+        },
+        {
+          "segment": 1,
+          "start_utc": "2026-11-21T06:00:00+00:00",
+          "end_utc": "2026-11-21T12:30:00+00:00",
+          "duration_h": 6.5,
+          "n_timestamps": 14,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 562.3,
+          "displacement_active_max_m": 1766.3,
+          "displacement_all_initial_median_m": 562.3,
+          "displacement_all_initial_max_m": 1766.3
+        },
+        {
+          "segment": 2,
+          "start_utc": "2026-11-21T15:00:00+00:00",
+          "end_utc": "2026-11-21T16:30:00+00:00",
+          "duration_h": 1.5,
+          "n_timestamps": 4,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 375.2,
+          "displacement_active_max_m": 609.8,
+          "displacement_all_initial_median_m": 375.2,
+          "displacement_all_initial_max_m": 609.8
+        },
+        {
+          "segment": 3,
+          "start_utc": "2026-11-21T19:00:00+00:00",
+          "end_utc": "2026-11-22T02:30:00+00:00",
+          "duration_h": 7.5,
+          "n_timestamps": 16,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 1386.4,
+          "displacement_active_max_m": 3073.5,
+          "displacement_all_initial_median_m": 1386.4,
+          "displacement_all_initial_max_m": 3073.5
+        },
+        {
+          "segment": 4,
+          "start_utc": "2026-11-22T07:30:00+00:00",
+          "end_utc": "2026-11-22T08:30:00+00:00",
+          "duration_h": 1.0,
+          "n_timestamps": 3,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 254.1,
+          "displacement_active_max_m": 738.8,
+          "displacement_all_initial_median_m": 254.1,
+          "displacement_all_initial_max_m": 738.8
+        },
+        {
+          "segment": 5,
+          "start_utc": "2026-11-22T15:30:00+00:00",
+          "end_utc": "2026-11-25T14:00:00+00:00",
+          "duration_h": 70.5,
+          "n_timestamps": 142,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 3339.4,
+          "displacement_active_max_m": 5554.8,
+          "displacement_all_initial_median_m": 3339.4,
+          "displacement_all_initial_max_m": 5554.8
+        }
+      ]
+    },
+    {
+      "site": "PIRA",
+      "input_file": "data/hfr/raw/EUHFR_NRTcurrent_HFR-NAdr-PIRA_v3_7d.nc",
+      "input_sha256": "908ee53dc53ec65d272f89596a6a91ac75f8c1bd434dd6126d68a15e4aafc353",
+      "n_raw_timestamps": 325,
+      "time_range_utc": [
+        "2026-11-18T14:01:00+00:00",
+        "2026-11-25T15:00:00+00:00"
+      ],
+      "parameters": {
+        "max_gap_s": 3600.0,
+        "integration_step": "one forcing interval (observed timestamps only)",
+        "n_side": 8,
+        "seed": 42,
+        "diffusivity": 0.0,
+        "boundary": "reflect",
+        "accepted_qc_flags": [
+          1
+        ],
+        "subregion_block_cells": 4,
+        "subregion_mean_cell_validity": 0.934,
+        "subregion_lat_range": [
+          45.55385208129883,
+          45.5943489074707
+        ],
+        "subregion_lon_range": [
+          13.568123817443848,
+          13.62606143951416
+        ]
+      },
+      "segments": [
+        {
+          "segment": 0,
+          "start_utc": "2026-11-18T14:01:00+00:00",
+          "end_utc": "2026-11-20T17:30:00+00:00",
+          "duration_h": 51.483,
+          "n_timestamps": 102,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 17,
+          "qc_stopped_count": 47,
+          "exited_count": 0,
+          "displacement_active_median_m": 3473.9,
+          "displacement_active_max_m": 4656.7,
+          "displacement_all_initial_median_m": 3008.6,
+          "displacement_all_initial_max_m": 4656.7
+        },
+        {
+          "segment": 1,
+          "start_utc": "2026-11-20T19:00:00+00:00",
+          "end_utc": "2026-11-21T00:30:00+00:00",
+          "duration_h": 5.5,
+          "n_timestamps": 12,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 853.8,
+          "displacement_active_max_m": 1783.6,
+          "displacement_all_initial_median_m": 853.8,
+          "displacement_all_initial_max_m": 1783.6
+        },
+        {
+          "segment": 2,
+          "start_utc": "2026-11-21T06:30:00+00:00",
+          "end_utc": "2026-11-21T21:30:00+00:00",
+          "duration_h": 15.0,
+          "n_timestamps": 30,
+          "n_particles": 39,
+          "valid_fraction_t0": 0.75,
+          "alive_count": 26,
+          "qc_stopped_count": 13,
+          "exited_count": 0,
+          "displacement_active_median_m": 2297.9,
+          "displacement_active_max_m": 3690.1,
+          "displacement_all_initial_median_m": 1531.8,
+          "displacement_all_initial_max_m": 3690.1
+        },
+        {
+          "segment": 3,
+          "start_utc": "2026-11-21T23:00:00+00:00",
+          "end_utc": "2026-11-22T11:30:00+00:00",
+          "duration_h": 12.5,
+          "n_timestamps": 23,
+          "n_particles": 10,
+          "valid_fraction_t0": 0.625,
+          "alive_count": 0,
+          "qc_stopped_count": 10,
+          "exited_count": 0,
+          "displacement_active_median_m": null,
+          "displacement_active_max_m": null,
+          "displacement_all_initial_median_m": 0.0,
+          "displacement_all_initial_max_m": 0.0
+        },
+        {
+          "segment": 4,
+          "start_utc": "2026-11-22T12:30:00+00:00",
+          "end_utc": "2026-11-22T13:30:00+00:00",
+          "duration_h": 1.0,
+          "n_timestamps": 3,
+          "n_particles": 49,
+          "valid_fraction_t0": 0.9375,
+          "alive_count": 49,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 438.8,
+          "displacement_active_max_m": 595.8,
+          "displacement_all_initial_median_m": 438.8,
+          "displacement_all_initial_max_m": 595.8
+        },
+        {
+          "segment": 5,
+          "start_utc": "2026-11-22T16:30:00+00:00",
+          "end_utc": "2026-11-24T08:00:00+00:00",
+          "duration_h": 39.5,
+          "n_timestamps": 80,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 1123.9,
+          "displacement_active_max_m": 3165.9,
+          "displacement_all_initial_median_m": 1123.9,
+          "displacement_all_initial_max_m": 3165.9
+        },
+        {
+          "segment": 6,
+          "start_utc": "2026-11-24T09:11:00+00:00",
+          "end_utc": "2026-11-25T13:00:00+00:00",
+          "duration_h": 27.817,
+          "n_timestamps": 55,
+          "n_particles": 64,
+          "valid_fraction_t0": 1.0,
+          "alive_count": 64,
+          "qc_stopped_count": 0,
+          "exited_count": 0,
+          "displacement_active_median_m": 2619.9,
+          "displacement_active_max_m": 4736.0,
+          "displacement_all_initial_median_m": 2619.9,
+          "displacement_all_initial_max_m": 4736.0
+        }
+      ]
+    }
+  ]
+}

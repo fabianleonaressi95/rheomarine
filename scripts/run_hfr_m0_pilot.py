@@ -73,13 +73,16 @@ def best_block(mask2d: np.ndarray, block: int) -> tuple[slice, slice, float]:
 
 
 def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
-             seed: int, boundary: str, output_dir: Path) -> dict:
+             seed: int, boundary: str, output_dir: Path,
+             qc_flags=(1,)) -> dict:
     ds = load_erddap_netcdf(str(path))
-    fields = to_velocity_fields(ds, max_gap_s=max_gap_s)
+    fields = to_velocity_fields(ds, max_gap_s=max_gap_s,
+                                accepted_qc_flags=qc_flags)
     # restrict the pilot to the highest-coverage sub-region: documented,
     # reproducible, and consistent with the "smallest defensible pilot
     # polygon" requirement in the RISTANC data audit
-    full_mask = hfr_valid_mask(ds.qcflag, ds.u, ds.v)
+    full_mask = hfr_valid_mask(ds.qcflag, ds.u, ds.v,
+                               accepted_qc_flags=qc_flags)
     iy, ix, block_validity = best_block(full_mask, block)
     fields = [crop_field(f, iy, ix) for f in fields]
     import re
@@ -137,7 +140,7 @@ def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
                        "integration_step": "one forcing interval (observed timestamps only)",
                        "n_side": n_side, "seed": seed,
                        "diffusivity": 0.0, "boundary": boundary,
-                       "accepted_qc_flags": [1],
+                       "accepted_qc_flags": list(qc_flags),
                        "subregion_block_cells": block,
                        "subregion_mean_cell_validity": round(block_validity, 4),
                        "subregion_lat_range": [float(ds.latitude[iy][0]),
@@ -164,7 +167,13 @@ def main() -> None:
     p.add_argument("--boundary", choices=["reflect", "absorb"],
                    default="reflect",
                    help="crop-window closure; artificial, not a coastline")
+    p.add_argument("--qc-flags", default="1",
+                   help="comma-separated QCflag values accepted as valid "
+                        "(provider semantics: 0=none,1=good,2=probably_good,"
+                        "3=correctable_bad,4=bad,5=changed,6=below_detection,"
+                        "7=nominal,8=interpolated,9=missing)")
     a = p.parse_args()
+    qc_flags = tuple(int(v) for v in a.qc_flags.split(",") if v.strip())
 
     outdir = Path(a.out)
     outdir.mkdir(parents=True, exist_ok=True)
@@ -175,7 +184,8 @@ def main() -> None:
         for path in sorted(Path(".").glob(pattern)):
             entry = run_file(path, max_gap_s=a.max_gap_s,
                              n_side=a.n_side, block=a.block, seed=a.seed,
-                             boundary=a.boundary, output_dir=outdir)
+                             boundary=a.boundary, output_dir=outdir,
+                             qc_flags=qc_flags)
             report["files"].append(entry)
             stem = path.stem.replace("EUHFR_NRTcurrent_HFR-NAdr-", "")
             (outdir / f"{stem}_summary.json").write_text(

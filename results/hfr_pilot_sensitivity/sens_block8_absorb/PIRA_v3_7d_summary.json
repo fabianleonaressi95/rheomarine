@@ -1,0 +1,113 @@
+{
+  "site": "PIRA",
+  "input_file": "data/hfr/raw/EUHFR_NRTcurrent_HFR-NAdr-PIRA_v3_7d.nc",
+  "input_sha256": "908ee53dc53ec65d272f89596a6a91ac75f8c1bd434dd6126d68a15e4aafc353",
+  "n_raw_timestamps": 325,
+  "time_range_utc": [
+    "2026-11-18T14:01:00+00:00",
+    "2026-11-25T15:00:00+00:00"
+  ],
+  "parameters": {
+    "max_gap_s": 10800.0,
+    "integration_step": "one forcing interval (observed timestamps only)",
+    "n_side": 8,
+    "seed": 42,
+    "diffusivity": 0.0,
+    "boundary": "absorb",
+    "accepted_qc_flags": [
+      1
+    ],
+    "subregion_block_cells": 8,
+    "subregion_mean_cell_validity": 0.8181,
+    "subregion_lat_range": [
+      45.55385208129883,
+      45.64834213256836
+    ],
+    "subregion_lon_range": [
+      13.529499053955078,
+      13.66468620300293
+    ]
+  },
+  "segments": [
+    {
+      "segment": 0,
+      "start_utc": "2026-11-18T14:01:00+00:00",
+      "end_utc": "2026-11-21T00:30:00+00:00",
+      "duration_h": 58.483,
+      "n_timestamps": 114,
+      "n_particles": 60,
+      "valid_fraction_t0": 0.9375,
+      "alive_count": 0,
+      "qc_stopped_count": 36,
+      "exited_count": 24,
+      "displacement_active_median_m": null,
+      "displacement_active_max_m": null,
+      "displacement_all_initial_median_m": 2084.2,
+      "displacement_all_initial_max_m": 9928.3
+    },
+    {
+      "segment": 1,
+      "start_utc": "2026-11-21T06:30:00+00:00",
+      "end_utc": "2026-11-21T21:30:00+00:00",
+      "duration_h": 15.0,
+      "n_timestamps": 30,
+      "n_particles": 18,
+      "valid_fraction_t0": 0.5312,
+      "alive_count": 0,
+      "qc_stopped_count": 13,
+      "exited_count": 5,
+      "displacement_active_median_m": null,
+      "displacement_active_max_m": null,
+      "displacement_all_initial_median_m": 142.7,
+      "displacement_all_initial_max_m": 2468.2
+    },
+    {
+      "segment": 2,
+      "start_utc": "2026-11-21T23:00:00+00:00",
+      "end_utc": "2026-11-22T11:30:00+00:00",
+      "duration_h": 12.5,
+      "n_timestamps": 23,
+      "n_particles": 9,
+      "valid_fraction_t0": 0.3125,
+      "alive_count": 0,
+      "qc_stopped_count": 9,
+      "exited_count": 0,
+      "displacement_active_median_m": null,
+      "displacement_active_max_m": null,
+      "displacement_all_initial_median_m": 0.0,
+      "displacement_all_initial_max_m": 948.2
+    },
+    {
+      "segment": 3,
+      "start_utc": "2026-11-22T12:30:00+00:00",
+      "end_utc": "2026-11-22T13:30:00+00:00",
+      "duration_h": 1.0,
+      "n_timestamps": 3,
+      "n_particles": 18,
+      "valid_fraction_t0": 0.4688,
+      "alive_count": 17,
+      "qc_stopped_count": 1,
+      "exited_count": 0,
+      "displacement_active_median_m": 412.7,
+      "displacement_active_max_m": 602.9,
+      "displacement_all_initial_median_m": 405.5,
+      "displacement_all_initial_max_m": 602.9
+    },
+    {
+      "segment": 4,
+      "start_utc": "2026-11-22T16:30:00+00:00",
+      "end_utc": "2026-11-25T15:00:00+00:00",
+      "duration_h": 70.5,
+      "n_timestamps": 136,
+      "n_particles": 27,
+      "valid_fraction_t0": 0.4688,
+      "alive_count": 0,
+      "qc_stopped_count": 16,
+      "exited_count": 11,
+      "displacement_active_median_m": null,
+      "displacement_active_max_m": null,
+      "displacement_all_initial_median_m": 2496.1,
+      "displacement_all_initial_max_m": 6317.5
+    }
+  ]
+}
