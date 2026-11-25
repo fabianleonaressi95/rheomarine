@@ -18,8 +18,12 @@ HFR adapter:
 
 The adapter is responsible for converting coordinates, timestamps and velocity
 to a single documented unit system. The transport engine performs no implicit
-unit conversion, gap filling, extrapolation or QC repair. A sample whose
-bilinear stencil touches an invalid cell raises an error.
+unit conversion, temporal gap filling, extrapolation or QC repair. A sample whose
+bilinear stencil touches an invalid cell raises an error. Temporal interpolation
+is rejected when bracketing observations are separated by more than 1.5 median
+sampling intervals by default; callers may provide an explicitly justified
+`max_forcing_gap`. Integration steps intersecting a larger gap fail rather than
+bridging it.
 
 ## Numerical method
 
@@ -67,8 +71,11 @@ python -m unittest discover -s tests -v
 
 The tests cover constant-velocity analytic advection, zero-flow stationarity,
 absorbing and reflecting boundaries, strict QC-mask behaviour, no temporal
-extrapolation, and first-order loss bookkeeping. These are code-verification
-tests, not observational validation of coastal transport.
+extrapolation, rejection of direct sampling and integration across large HFR
+gaps, and first-order loss bookkeeping. These are code-verification tests, not
+observational validation of coastal transport. The expanded suite has not yet
+been executed in this editing session; passing status must be established by a
+real Python test run before merge.
 
 ## HFR handoff
 
