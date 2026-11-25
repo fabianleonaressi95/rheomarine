@@ -92,6 +92,17 @@ class TestM0(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "lies in an HFR forcing gap"):
             field.sample(np.array([[5.0, 5.0]]), 5.0)
 
+
+    def test_exact_observation_at_gap_boundary_remains_usable(self):
+        x = np.linspace(0.0, 10.0, 11)
+        y = np.linspace(0.0, 10.0, 11)
+        times = np.array([0.0, 1.0, 10.0, 11.0])
+        velocity = np.zeros((4, 11, 11, 2))
+        velocity[2, ..., 0] = 3.0
+        field = VelocityField(x, y, times, velocity)
+        sampled = field.sample(np.array([[5.0, 5.0]]), 10.0)
+        np.testing.assert_allclose(sampled, [[3.0, 0.0]])
+
     def test_first_order_surface_loss_is_bookkept(self):
         field = constant_field()
         result = simulate_m0(field, np.repeat([[5.0, 5.0]], 1000, axis=0),
