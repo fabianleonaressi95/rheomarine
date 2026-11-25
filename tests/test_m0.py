@@ -60,6 +60,28 @@ class TestM0(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "outside forcing coverage"):
             field.sample(np.array([[5.0, 5.0]]), 11.0)
 
+
+    def test_simulation_refuses_to_cross_large_observation_gap(self):
+        x = np.linspace(0.0, 10.0, 11)
+        y = np.linspace(0.0, 10.0, 11)
+        times = np.array([0.0, 1.0, 10.0, 11.0])
+        velocity = np.zeros((4, 11, 11, 2))
+        field = VelocityField(x, y, times, velocity)
+        with self.assertRaisesRegex(ValueError, "intersects an HFR forcing gap"):
+            simulate_m0(field, np.array([[5.0, 5.0]]),
+                        start_time=0.5, end_time=10.5, dt=1.0)
+
+    def test_explicit_max_forcing_gap_can_be_configured(self):
+        x = np.linspace(0.0, 10.0, 11)
+        y = np.linspace(0.0, 10.0, 11)
+        times = np.array([0.0, 1.0, 10.0, 11.0])
+        velocity = np.zeros((4, 11, 11, 2))
+        field = VelocityField(x, y, times, velocity)
+        with self.assertRaisesRegex(ValueError, "intersects an HFR forcing gap"):
+            simulate_m0(field, np.array([[5.0, 5.0]]),
+                        start_time=1.0, end_time=10.0, dt=1.0,
+                        max_forcing_gap=2.0)
+
     def test_first_order_surface_loss_is_bookkept(self):
         field = constant_field()
         result = simulate_m0(field, np.repeat([[5.0, 5.0]], 1000, axis=0),
