@@ -73,7 +73,7 @@ def best_block(mask2d: np.ndarray, block: int) -> tuple[slice, slice, float]:
 
 
 def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
-             seed: int, output_dir: Path) -> dict:
+             seed: int, boundary: str, output_dir: Path) -> dict:
     ds = load_erddap_netcdf(str(path))
     fields = to_velocity_fields(ds, max_gap_s=max_gap_s)
     # restrict the pilot to the highest-coverage sub-region: documented,
@@ -94,8 +94,8 @@ def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
                              "end_utc": None, "n_particles": 0,
                              "note": "no QC-valid release cells"})
             continue
-        final_pos, alive, qc_stopped = simulate_qc_aware(field, pos0,
-                                                         seed=seed)
+        final_pos, alive, qc_stopped, exited = simulate_qc_aware(
+            field, pos0, seed=seed, boundary=boundary)
         disp = np.linalg.norm(final_pos - pos0, axis=1)
         active_disp = disp[alive]
         segments.append({
@@ -108,6 +108,7 @@ def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
             "valid_fraction_t0": round(float(field.valid[0].mean()), 4),
             "alive_count": int(alive.sum()),
             "qc_stopped_count": int(qc_stopped.sum()),
+            "exited_count": int(exited.sum()),
             "displacement_active_median_m": (
                 round(float(np.median(active_disp)), 1) if active_disp.size else None
             ),
@@ -122,7 +123,8 @@ def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
             output_dir / f"{site}_seg{i}_final_positions.npz",
             displacement_m=disp,
             final_positions=final_pos, initial_positions=pos0,
-            alive=alive, qc_stopped=qc_stopped, times=field.times)
+            alive=alive, qc_stopped=qc_stopped, exited=exited,
+            times=field.times)
     return {
         "site": site,
         "input_file": str(path),
@@ -134,7 +136,7 @@ def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
         "parameters": {"max_gap_s": max_gap_s,
                        "integration_step": "one forcing interval (observed timestamps only)",
                        "n_side": n_side, "seed": seed,
-                       "diffusivity": 0.0, "boundary": "reflect",
+                       "diffusivity": 0.0, "boundary": boundary,
                        "accepted_qc_flags": [1],
                        "subregion_block_cells": block,
                        "subregion_mean_cell_validity": round(block_validity, 4),
@@ -159,6 +161,9 @@ def main() -> None:
     p.add_argument("--block", type=int, default=4,
                    help="pilot sub-region is the best block x block cell window")
     p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--boundary", choices=["reflect", "absorb"],
+                   default="reflect",
+                   help="crop-window closure; artificial, not a coastline")
     a = p.parse_args()
 
     outdir = Path(a.out)
@@ -170,7 +175,7 @@ def main() -> None:
         for path in sorted(Path(".").glob(pattern)):
             entry = run_file(path, max_gap_s=a.max_gap_s,
                              n_side=a.n_side, block=a.block, seed=a.seed,
-                             output_dir=outdir)
+                             boundary=a.boundary, output_dir=outdir)
             report["files"].append(entry)
             stem = path.stem.replace("EUHFR_NRTcurrent_HFR-NAdr-", "")
             (outdir / f"{stem}_summary.json").write_text(

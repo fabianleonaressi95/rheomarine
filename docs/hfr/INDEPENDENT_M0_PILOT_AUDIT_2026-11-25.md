@@ -54,3 +54,57 @@ The pilot demonstrates an executable processing chain on archived surface-curren
 5. Repeat with an open/absorbing crop boundary or a larger domain to quantify boundary sensitivity.
 6. Add a pathwise QC barrier test (not only endpoint tests), with substeps bounded by grid spacing.
 7. Only then use the pilot as a preliminary computational result in the project dossier.
+
+## Resolution of the validation gate (same day, second pass)
+
+All gate items were executed on this branch:
+
+1. **Test suite run for real** — Python 3.10.12, numpy 2.2.6, scipy
+   1.15.3. `PYTHONPATH=src python -m unittest discover -s tests -v`
+   → **31 tests, OK** (25 baseline + 4 endpoint-QC + 2 new pathwise/
+   boundary tests). No test was declared passed without this log.
+2. **Inputs verified** — `sha256sum data/hfr/raw/*_7d.nc` reproduces
+   the baseline hashes exactly: IZOL
+   `d37844f5f0f6c9844e3a585fd75d0b6e4ed0c3625d79f3cd492b5ad9c1adef5d`,
+   PIRA `908ee53dc53ec65d272f89596a6a91ac75f8c1bd434dd6126d68a15e4aafc353`.
+3. **Pathwise QC barrier implemented** — `simulate_qc_aware` now
+   substeps each accepted interval at ≤ half the smallest grid spacing
+   (cap 32) and requires a fully valid stencil at every interior path
+   point at both bracketing times; unverifiable steps are rejected.
+   The start stencil is checked at both bracketing times (the engine
+   interpolates velocity between them). New synthetic test proves a
+   step with valid start+endpoint is still rejected when the path
+   crosses an invalid node zone. `exited` (boundary removal) is now
+   tracked separately from `qc_stopped`.
+4. **Pilots regenerated** — outputs in `results/hfr_pilot_audit/`
+   (block 4, reflect), `results/hfr_pilot_audit_block8/` (block 8,
+   reflect), `results/hfr_pilot_audit_absorb/` (block 4, absorb).
+   Baseline `results/hfr_pilot/` preserved untouched.
+5. **Boundary sensitivity quantified** — under `absorb` essentially the
+   entire cohort exits the 4×4 crop within days (IZOL 64/64 and PIRA
+   64/64 exited in the longest segment); under the wider 8×8 window
+   PIRA's longest segment loses all 27 released particles to QC.
+   Reflecting-boundary results are closed-box sensitivity experiments,
+   not coastal retention estimates.
+6. **Active vs cohort displacement separated** — JSON now reports
+   `displacement_active_*` (null when no particle remains) alongside
+   `displacement_all_initial_*`.
+
+### Regenerated headline numbers (longest segment, 70.5 h)
+
+| Site | block/boundary | alive / qc_stopped / exited | active-only median displacement |
+|------|----------------|------------------------------|----------------------------------|
+| IZOL | 4, reflect | 64 / 0 / 0 | 3.34 km |
+| IZOL | 8, reflect | 64 / 0 / 0 | 7.03 km |
+| IZOL | 4, absorb  | 0 / 0 / 64 | — |
+| PIRA | 4, reflect | 64 / 0 / 0 | 2.56 km |
+| PIRA | 8, reflect | 0 / 27 / 0 | — |
+| PIRA | 4, absorb  | 0 / 0 / 64 | — |
+
+Remaining limitations: the pathwise check validates the straight-line
+Euler path at sub-cell resolution but assumes the velocity is constant
+within an interval (true for the K=0 forward-Euler step); under
+`reflect` a path that would bounce off the artificial boundary is
+checked as a straight line — acceptable for this sensitivity pilot but
+documented, not exact. The 4×4/8×8 windows remain computational
+selections, not validated pilot polygons.
