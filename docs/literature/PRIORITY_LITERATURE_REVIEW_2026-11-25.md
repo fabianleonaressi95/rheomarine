@@ -1,7 +1,7 @@
 # Priority literature review for RheoMarine-SLO
 **Prepared:** 25 November 2026  
 **Purpose:** scientific basis for the RISTANC v5 proposal and the 26 November OGS discussion.  
-**Scope:** targeted review of the ten priority references selected from the working bibliography. This is a critical synthesis, not a claim that every publisher full text was accessible.
+**Scope:** critical synthesis of the first-pass technical readings, now supplemented by detailed examination of Marchetto et al. (2022) and the primary regional field study by Gajšt et al. (2016). Access is distinguished explicitly: publisher full text/visible article sections, indexed abstract, metadata and dataset material are not treated as equivalent.
 
 ## Executive synthesis
 
@@ -19,10 +19,10 @@ These points support the current M0/M1/M2 design: M0 hydrodynamic baseline; M1 i
 
 ### 1.1 Cosoli et al. (2010): validation of coastal HFR currents
 
-**Reference:** Cosoli, S. et al. (2010), *A real-time coastal observing system in the Gulf of Trieste: HF radar current measurements and validation*, Journal of Atmospheric and Oceanic Technology.  
+**Verified reference:** Cosoli, S., Mazzoldi, A., & Gačić, M. (2010). *Validation of Surface Current Measurements in the Northern Adriatic Sea from High-Frequency Radars*. Journal of Atmospheric and Oceanic Technology, 27(5), 908–919. DOI: [10.1175/2009JTECHO680.1](https://doi.org/10.1175/2009JTECHO680.1). The title, authors, journal, volume, issue, pages and DOI match the [American Meteorological Society publisher record](https://journals.ametsoc.org/view/journals/atot/27/5/2009jtecho680_1.xml).  
 **Full text consulted:** [OGS repository PDF](https://ricerca.ogs.it/retrieve/a5d78ee5-101e-4863-b5a9-69063bc6177f/1520-0426-2009jtecho680_1.pdf).
 
-The study compares near-surface HFR currents (representative of roughly the upper 0.5 m) with ADCP measurements at approximately 2.5 m over about 40 days in 2005. Reported radial RMS differences vary by measurement pattern (about 8.4–20.5 cm/s); vector correlation reaches approximately 0.78, with a mean veering around 6 degrees. Vertical shear associated with wind forcing explains a substantial part of the mismatch between the HFR and deeper ADCP observations. Strong northeasterly wind events can reduce radar coverage and lead to current-speed underestimation, reported in some cases up to about 50%.
+The study concerns the coastal area offshore of the Venice Lagoon, not the Gulf of Trieste. It compares HFR currents representative of approximately the first metre of the water column with ADCP measurements at about 2.5 m during a 40-day deployment in August–October 2005. Depending on radar site and antenna-pattern treatment, radial RMS differences span approximately 8.4–20.5 cm/s; the surface-vector comparison reports vector correlation up to 0.78 and a veering angle of about 6 degrees. The authors estimate that wind-driven shear can explain a substantial fraction of the surface–subsurface mismatch. Strong northeasterly wind pulses also degrade radar coverage and can produce substantial current underestimation, reported up to about 50%.
 
 **Use for RheoMarine:** this is a warning against treating HFR vectors as error-free or vertically representative. The numerical error values are specific to the 2005 configuration and cannot be transferred as a calibration claim to the present IZOL/PIRA data. The project should report QC-filtered coverage, compare only genuinely collocated/temporally compatible observations, and separate measurement error from vertical representativeness.
 
@@ -115,6 +115,12 @@ These were identified during the review and are recommended for the next reading
 
 These three papers have been identified but are not represented as fully reviewed in this document.
 
+### 4.1 Marchetto et al. (2022): local microplastic field evidence — priority reading
+
+**Verified reference:** Marchetto, D., de Ferri, L., Latella, A., & Pojana, G. (2022). *Micro- and mesoplastics in sea surface water from a Northern Adriatic coastal area*. Environmental Science and Pollution Research, 29(25), 37471–37497. DOI: [10.1007/s11356-021-17874-9](https://doi.org/10.1007/s11356-021-17874-9).
+
+This paper is explicitly marked as a priority reading in the verified Appendix B. It is retained in the priority list because it provides geographically relevant field evidence on micro- and mesoplastics in Northern Adriatic surface waters. It was not part of the ten-paper first-pass full-text/abstract synthesis above; its detailed sampling design, analytical methods, particle-size classes, spatial/temporal representativeness and reported concentrations must be extracted from the article before using numerical findings in the proposal. No quantitative result from this paper is asserted here.
+
 ## 5. Consequences for the RheoMarine-SLO work plan
 
 | Work element | Literature-based requirement | Practical implication |
@@ -162,7 +168,7 @@ At minimum, report:
 
 | Reference | Access in this review | Main use |
 |---|---|---|
-| Cosoli et al. (2010) | Full text | HFR validation, vertical shear, wind-related coverage/error |
+| Cosoli et al. (2010) | Full text and publisher metadata | HFR validation, vertical shear, wind-related coverage/error; Venice Lagoon coastal area |
 | Cosoli et al. (2013) | Full text | Gulf circulation, temporal coverage, interpolation, river/wind influence |
 | HFR-NAdr network record | Network metadata | Station configuration and temporal changes |
 | Capodici et al. (2024) | Full text | HFR-driven tracking and in-situ microplastic comparison |
@@ -172,5 +178,43 @@ At minimum, report:
 | Mrokowska & Krztoń-Maziopa (2024), Data in Brief | Full text | Experimental design and DS1 dataset |
 | Mrokowska et al. (2025), stratification dataset | Dataset metadata/data resource | DS2 experimental structure |
 | HFR-NAdr network record | Metadata | Local network configuration |
+| Marchetto et al. (2022) | Article text/sections consulted; sampling design and reported results reviewed | Venice Lagoon inlet field observations; comparison with Slovenian literature; not pilot-site validation |\n| Gajšt et al. (2016) | Publisher article page and indexed abstract/results consulted; full PDF access not confirmed | Primary historical surface-microplastic observations from Slovenian waters; 17 trawls over 20 months; 406,000 particles/km²; >80% PE |
 
-**Editorial note:** the original working bibliography numbers and full author lists should be cross-checked against the source PDFs/DOI records before this review is converted into a formal manuscript bibliography. The access audit above is intentional: it distinguishes full-text reading from abstract/metadata-level consultation.
+## 9. Northern Adriatic microplastic field evidence: Marchetto and Gajšt
+
+### 9.1 Marchetto et al. (2022): Venice Lagoon inlet observations
+
+Marchetto, D., de Ferri, L., Latella, A., & Pojana, G. (2022). *Micro- and mesoplastics in sea surface water from a Northern Adriatic coastal area*. Environmental Science and Pollution Research, 29, 37471–37497. DOI: [10.1007/s11356-021-17874-9](https://doi.org/10.1007/s11356-021-17874-9).
+
+The study sampled two transects in the coastal waters in front of the Venice Lagoon inlet near Malamocco, in October and December 2015. A manta net with 0.3 mm mesh was used, covering the reported 0.3–10 mm particle interval. Five tows were performed along each transect. The reported mean areal densities were 51.4 × 10³ particles/km² in October and 121.9 × 10³ particles/km² in December. The combined size distribution was dominated by the 0.3–1 mm fraction (70.3%), followed by 1–5 mm (27.5%) and 5–10 mm (2.2%). PE and PP were the most frequently identified polymers, with campaign-dependent proportions.
+
+The authors discuss wind-driven mixing, seasonal circulation, coastal transport and possible resuspension as processes relevant to the observed variability. These are interpretations of the field observations, not direct measurements of the fate of each particle or of seabed deposition.
+
+**Use for RheoMarine:** methodological and regional context for surface sampling, size classes, polymer composition and the sensitivity of observed concentrations to environmental conditions. The Venice observations are not direct data for the Slovenian pilot and must not be used as its calibration or present-day baseline.
+
+The paper's comparison table reports Slovenian observations from Gajšt et al. (2016). Those figures must be attributed to the original Gajšt study, not treated as measurements collected by Marchetto et al.
+
+### 9.2 Gajšt et al. (2016): direct historical observations from Slovenian waters
+
+**Verified reference:** Gajšt, T., Bizjak, T., Palatinus, A., Liubartseva, S., & Kržan, A. (2016). *Sea surface microplastics in Slovenian part of the Northern Adriatic*. Marine Pollution Bulletin, 113(1–2), 392–399. DOI: [10.1016/j.marpolbul.2016.10.031](https://doi.org/10.1016/j.marpolbul.2016.10.031).
+
+The publisher record and indexed abstract identify a 20-month sea-surface monitoring study in the Slovenian part of the Gulf of Trieste, comprising 17 trawls. The reported mean concentration is 406 × 10³ particles/km², equivalent to 5.41 particles/m³ as stated by the article. More than 80% of identified particles were polyethylene. The abstract states that substantial variability among sampling dates was interpreted using surface-current maps and an Adriatic marine-litter distribution model based on a Markov-chain approach.
+
+The publisher's visible experimental description reports an epineuston net with a 0.6 × 0.15 m mouth opening, 1.5 m length and 300 μm mesh. The net was towed alongside the vessel, outside its wake, at approximately 3 knots for about 20 minutes. The article page reports 6,086 particles below 5 mm and 391 particles above 5 mm across the 17 samples. Full sample-level coordinates, dates, counts and supporting metadata have not yet been retrieved in a reusable form; therefore the published mean cannot be converted into a spatially resolved validation dataset.
+
+A separate MICRO 2015 conference abstract reports 471,903 particles/km² for the Slovenian campaign. This is a distinct conference contribution and not the mean reported in the 2016 peer-reviewed article. The dossier should use 406,000 particles/km² when citing Gajšt et al. (2016), and keep the conference figure separately attributed.
+
+**Use for RheoMarine:** the strongest geographically relevant historical benchmark currently identified for surface microplastics in Slovenian waters. It demonstrates a prior scientific effort to relate surface microplastic observations to surface-current patterns. It does not independently validate the new RheoMarine model, provide current conditions, or establish present-day concentrations in the IZOL/KOPER/PIRAN pilot. Quantitative use beyond regional context requires original sample-level data and compatibility checks.
+
+### 9.3 Implications for the RheoMarine validation design
+
+The two studies support a clear evidence hierarchy:
+- Gajšt et al. (2016): historical Slovenian field benchmark (regional context; potentially a quantitative comparison only if original metadata are recovered).
+- Marchetto et al. (2022): Venice-area field study and methodological comparison, not direct Slovenian pilot validation.
+- New contemporaneous observations in the selected pilot: preferred evidence for independent validation, if access, sampling design and resources permit.
+
+The reported areal densities cannot be compared naively across studies without checking mesh size, size cutoffs, sampled area/volume, tow duration, sampled season, polymer-identification protocol and concentration normalization. In particular, the 300 μm epineuston net in Gajšt and the 0.3 mm manta net in Marchetto have similar nominal mesh sizes but differ in study area, sampling design and observation period.
+
+The historic Gajšt mean is a regional benchmark, not a target value that M0/M1 must reproduce. A model evaluation requires sample-level observations paired to modelled locations and times, plus compatible particle-size classes and uncertainty.
+
+**Editorial note:** Cosoli et al. (2010) metadata have been reconciled against the publisher's primary record and the study area is correctly identified as offshore of the Venice Lagoon. Marchetto et al. (2022) and Gajšt et al. (2016) are now reviewed as separate studies, with their geographies, reported values and evidence limitations kept distinct. The access audit differentiates publisher-visible article material and indexed abstracts from confirmed full-PDF access.
