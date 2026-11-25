@@ -45,7 +45,7 @@ def subset(site, dataset, days, timeout):
     e = end.strftime("%Y-%m-%dT%H:%M:%SZ")
     dims = f"[({s}):1:({e})]" + DIMS
     query = ",".join(name + dims for name in ("EWCT", "NSCT", "QCflag"))
-    url = f"{BASE}/{dataset}.csv?{quote(query, safe='[],():,.-TZ_')}"
+    url = f"{BASE}/{dataset}.csv0?{quote(query, safe='[],():,.-TZ_')}"
     body, elapsed, status = fetch(url, timeout)
     rows = list(csv.DictReader(io.StringIO(body.decode("utf-8-sig", "replace"))))
     if not rows:
