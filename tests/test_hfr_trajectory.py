@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from rheomarine_hfr.trajectory import simulate_qc_aware
+from rheomarine_hfr.trajectory import _cells_on_segment, simulate_qc_aware
 from rheomarine_transport import VelocityField
 
 
@@ -65,6 +65,62 @@ class TestQCAwareTrajectory(unittest.TestCase):
         final, alive, stopped, exited = simulate_qc_aware(
             field, np.array([[0.5, 0.5]]))
         np.testing.assert_allclose(final, [[0.5, 0.5]])
+        self.assertFalse(alive[0])
+        self.assertTrue(stopped[0])
+        self.assertFalse(exited[0])
+
+    def test_grazing_corner_crossing_rejected_by_exact_traversal(self):
+        # Adversarial case for a *sampled* pathwise check: node (2,2) is
+        # invalid at both times; its stencil zone is the square
+        # x,y in (1,3). The path from (0.95,1.1) to (1.1,0.95) clips only
+        # the corner of that zone near (1,1) -- a sub-cell excursion that
+        # a fixed sampling density could miss between samples. Both
+        # endpoint stencils exclude node (2,2), so only the pathwise
+        # check can reject the step.
+        x = y = np.array([0.0, 1.0, 2.0, 3.0])
+        times = np.array([0.0, 1.0])
+        velocity = np.zeros((2, 4, 4, 2))
+        velocity[..., 0] = 0.15   # dx = +0.15 over dt = 1
+        velocity[..., 1] = -0.15  # dy = -0.15 over dt = 1
+        valid = np.ones((2, 4, 4), dtype=bool)
+        valid[:, 2, 2] = False
+        field = VelocityField(x, y, times, velocity, valid)
+
+        # sanity: traversal must report the corner cell (iy=1, ix=1)
+        cells = _cells_on_segment(field, np.array([0.95, 1.1]),
+                                  np.array([1.1, 0.95]))
+        self.assertIn((1, 1), cells)
+
+        final, alive, stopped, exited = simulate_qc_aware(
+            field, np.array([[0.95, 1.1]]))
+        np.testing.assert_allclose(final, [[0.95, 1.1]])
+        self.assertFalse(alive[0])
+        self.assertTrue(stopped[0])
+        self.assertFalse(exited[0])
+
+    def test_path_along_grid_edge_adjacent_to_invalid_node_rejected(self):
+        # Conservative edge handling: a path running exactly along the
+        # grid line y=1 touches cells on BOTH sides (iy=0 and iy=1).
+        # Node (0,1) is invalid at both times; it is a corner of cell
+        # (iy=0, ix=0) on the "below" side of the edge, while both
+        # endpoint stencils (rows iy={1,2}) stay clear of row 0 -- so
+        # only the conservative traversal can reject this step.
+        x = y = np.array([0.0, 1.0, 2.0, 3.0])
+        times = np.array([0.0, 1.0])
+        velocity = np.zeros((2, 4, 4, 2))
+        velocity[..., 0] = 0.5   # dx = +0.5 over dt = 1, dy = 0
+        valid = np.ones((2, 4, 4), dtype=bool)
+        valid[:, 0, 1] = False
+        field = VelocityField(x, y, times, velocity, valid)
+
+        cells = _cells_on_segment(field, np.array([0.5, 1.0]),
+                                  np.array([1.0, 1.0]))
+        self.assertIn((0, 0), cells)
+        self.assertIn((1, 0), cells)
+
+        final, alive, stopped, exited = simulate_qc_aware(
+            field, np.array([[0.5, 1.0]]))
+        np.testing.assert_allclose(final, [[0.5, 1.0]])
         self.assertFalse(alive[0])
         self.assertTrue(stopped[0])
         self.assertFalse(exited[0])

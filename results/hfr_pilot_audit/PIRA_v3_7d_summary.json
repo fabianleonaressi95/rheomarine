@@ -53,12 +53,12 @@
       "n_timestamps": 30,
       "n_particles": 39,
       "valid_fraction_t0": 0.75,
-      "alive_count": 30,
-      "qc_stopped_count": 9,
+      "alive_count": 26,
+      "qc_stopped_count": 13,
       "exited_count": 0,
-      "displacement_active_median_m": 2132.5,
+      "displacement_active_median_m": 2297.9,
       "displacement_active_max_m": 3690.1,
-      "displacement_all_initial_median_m": 1564.6,
+      "displacement_all_initial_median_m": 1531.8,
       "displacement_all_initial_max_m": 3690.1
     },
     {
