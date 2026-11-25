@@ -61,21 +61,14 @@ All gate items were executed on this branch:
 
 1. **Test suite run for real** — Python 3.10.12, numpy 2.2.6, scipy
    1.15.3. `PYTHONPATH=src python -m unittest discover -s tests -v`
-   → **31 tests, OK** (25 baseline + 4 endpoint-QC + 2 new pathwise/
-   boundary tests). No test was declared passed without this log.
+   → **33 tests, OK** (25 baseline + 4 endpoint-QC + 2 pathwise/
+   boundary + 2 exact-traversal adversarial). No test was declared
+   passed without this log.
 2. **Inputs verified** — `sha256sum data/hfr/raw/*_7d.nc` reproduces
    the baseline hashes exactly: IZOL
    `d37844f5f0f6c9844e3a585fd75d0b6e4ed0c3625d79f3cd492b5ad9c1adef5d`,
    PIRA `908ee53dc53ec65d272f89596a6a91ac75f8c1bd434dd6126d68a15e4aafc353`.
-3. **Pathwise QC barrier implemented** — `simulate_qc_aware` now
-   substeps each accepted interval at ≤ half the smallest grid spacing
-   (cap 32) and requires a fully valid stencil at every interior path
-   point at both bracketing times; unverifiable steps are rejected.
-   The start stencil is checked at both bracketing times (the engine
-   interpolates velocity between them). New synthetic test proves a
-   step with valid start+endpoint is still rejected when the path
-   crosses an invalid node zone. `exited` (boundary removal) is now
-   tracked separately from `qc_stopped`.
+3. **Pathwise QC barrier implemented, then hardened** — `simulate_qc_aware` first substeps each accepted interval at ≤ half the smallest grid spacing (cap 32) and requires a fully valid stencil at every interior path point at both bracketing times. Post-merge review correctly noted this is a *sampled* check, not a continuous guarantee. The follow-up PR replaces it with exact segment→grid-cell traversal (`_cells_on_segment`): every cell the straight path touches — including all cells adjacent to exact edge/vertex grazes — must have all four corner nodes QC-valid at both bracketing times. Adversarial tests cover a sub-cell corner grazing that a fixed sampling density could miss, and a path running exactly along a grid edge. The start stencil is checked at both bracketing times (the engine interpolates velocity between them). `exited` (boundary removal) is now tracked separately from `qc_stopped`.
 4. **Pilots regenerated** — outputs in `results/hfr_pilot_audit/`
    (block 4, reflect), `results/hfr_pilot_audit_block8/` (block 8,
    reflect), `results/hfr_pilot_audit_absorb/` (block 4, absorb).
@@ -101,10 +94,14 @@ All gate items were executed on this branch:
 | PIRA | 8, reflect | 0 / 27 / 0 | — |
 | PIRA | 4, absorb  | 0 / 0 / 64 | — |
 
-Remaining limitations: the pathwise check validates the straight-line
-Euler path at sub-cell resolution but assumes the velocity is constant
-within an interval (true for the K=0 forward-Euler step); under
-`reflect` a path that would bounce off the artificial boundary is
-checked as a straight line — acceptable for this sensitivity pilot but
-documented, not exact. The 4×4/8×8 windows remain computational
-selections, not validated pilot polygons.
+Remaining limitations: the pathwise check is now an *exact*
+segment→cell traversal, but it certifies only the straight-line
+Euler path per interval — it assumes the velocity is constant within
+an interval (true for the K=0 forward-Euler step); under `reflect` a
+path that would bounce off the artificial boundary is checked as a
+straight line to the reflected endpoint — documented, not exact. The
+4×4/8×8 windows remain computational selections, not validated pilot
+polygons. Pilot outputs were regenerated once more after the
+exact-traversal upgrade; longest-segment headline numbers are
+unchanged, intermediate PIRA segments show slightly higher QC
+attrition (e.g. seg 1: 26/13 vs 30/9 alive/stopped).

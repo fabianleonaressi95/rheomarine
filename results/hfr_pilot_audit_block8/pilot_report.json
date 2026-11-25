@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-25T17:23:35.437115+00:00",
+  "generated_at_utc": "2026-11-25T17:33:21.811305+00:00",
   "engine": "QC-aware forward Euler surface advection, K=0",
   "files": [
     {
@@ -175,7 +175,7 @@
           "exited_count": 0,
           "displacement_active_median_m": 7364.7,
           "displacement_active_max_m": 7835.5,
-          "displacement_all_initial_median_m": 2154.1,
+          "displacement_all_initial_median_m": 2219.2,
           "displacement_all_initial_max_m": 9728.0
         },
         {
@@ -207,8 +207,8 @@
           "exited_count": 0,
           "displacement_active_median_m": null,
           "displacement_active_max_m": null,
-          "displacement_all_initial_median_m": 605.4,
-          "displacement_all_initial_max_m": 1072.9
+          "displacement_all_initial_median_m": 0.0,
+          "displacement_all_initial_max_m": 948.2
         },
         {
           "segment": 3,

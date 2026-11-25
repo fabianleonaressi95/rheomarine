@@ -1,9 +1,11 @@
 """QC-aware Lagrangian stepping for HFR-forced particles.
 
 A step is accepted only when the bilinear interpolation stencil is valid
-at the observed start, at every interior point of the advected path, and
-at the advected endpoint of the interval. Rejected steps leave the
-particle at its last accepted position.
+at the observed start, at every grid cell touched by the advected path,
+and at the advected endpoint of the interval. Cell traversal is exact
+(conservative DDA over the rectilinear grid), not a fixed sampling
+density. Rejected steps leave the particle at its last accepted
+position.
 """
 from __future__ import annotations
 
@@ -11,11 +13,7 @@ import numpy as np
 
 from rheomarine_transport import VelocityField, simulate_m0
 
-# pathwise QC check resolves the straight-line step at sub-cell spacing;
-# steps whose required subdivision exceeds this cap are unverifiable and
-# the particle is stopped rather than trusted blindly
-MAX_PATH_SUBSTEPS = 32
-PATH_EDGE_FRACTION = 0.5  # substep target <= half the smallest grid spacing
+_EPS = 1e-9
 
 
 def _stencil_valid(field: VelocityField, positions: np.ndarray, time_index: int) -> np.ndarray:
@@ -37,6 +35,67 @@ def _stencil_valid(field: VelocityField, positions: np.ndarray, time_index: int)
     return ok
 
 
+def _cell_index(coord: float, axis: np.ndarray) -> int:
+    """Cell index containing ``coord`` on a node axis (clamped to edges)."""
+    i = int(np.searchsorted(axis, coord, side="right")) - 1
+    return min(max(i, 0), axis.size - 2)
+
+
+def _cells_on_segment(field: VelocityField, p0, p1) -> set[tuple[int, int]]:
+    """All grid cells (iy, ix) touched by the closed segment p0->p1.
+
+    Conservative traversal: the segment is split at every crossing of an
+    interior grid line; each open sub-interval contributes its containing
+    cell, and every event point (grid-line/vertex touch, including exact
+    grazes) contributes ALL cells adjacent to that point, so a path
+    running exactly along an edge or corner cannot slip through.
+    """
+    x, y = field.x, field.y
+    dx, dy = p1[0] - p0[0], p1[1] - p0[1]
+    cells: set[tuple[int, int]] = set()
+
+    # event parameters t in [0,1] where the path crosses a grid line
+    ts = {0.0, 1.0}
+    for k in range(1, x.size - 1):
+        if abs(dx) > _EPS:
+            t = (x[k] - p0[0]) / dx
+            if -_EPS <= t <= 1 + _EPS:
+                ts.add(min(max(t, 0.0), 1.0))
+    for l in range(1, y.size - 1):
+        if abs(dy) > _EPS:
+            t = (y[l] - p0[1]) / dy
+            if -_EPS <= t <= 1 + _EPS:
+                ts.add(min(max(t, 0.0), 1.0))
+    ts = sorted(ts)
+
+    # midpoint of each open sub-interval -> its unique cell
+    for a, b in zip(ts[:-1], ts[1:]):
+        if b - a <= _EPS:
+            continue
+        tm = 0.5 * (a + b)
+        px, py = p0[0] + tm * dx, p0[1] + tm * dy
+        cells.add((_cell_index(py, y), _cell_index(px, x)))
+
+    # each event point: all cells adjacent to the touched grid feature
+    for t in ts:
+        px, py = p0[0] + t * dx, p0[1] + t * dy
+        ix_cands = {_cell_index(px, x)}
+        iy_cands = {_cell_index(py, y)}
+        for k in range(1, x.size - 1):
+            if abs(px - x[k]) <= _EPS * max(1.0, abs(x[k])):
+                ix_cands |= {_cell_index(px - _EPS, x),
+                             _cell_index(px + _EPS, x)}
+        for l in range(1, y.size - 1):
+            if abs(py - y[l]) <= _EPS * max(1.0, abs(y[l])):
+                iy_cands |= {_cell_index(py - _EPS, y),
+                             _cell_index(py + _EPS, y)}
+        for iy in iy_cands:
+            for ix in ix_cands:
+                if 0 <= iy < y.size - 1 and 0 <= ix < x.size - 1:
+                    cells.add((iy, ix))
+    return cells
+
+
 def _path_clear(
     field: VelocityField,
     start: np.ndarray,
@@ -44,31 +103,29 @@ def _path_clear(
     it0: int,
     it1: int,
 ) -> np.ndarray:
-    """True where the straight advected path stays inside valid stencils.
+    """Exact pathwise QC check via grid-cell traversal.
 
-    Forward Euler produces a straight path per interval, so the check
-    samples interior points at a spacing tied to the grid: each interior
-    point must have a fully valid bilinear stencil at BOTH bracketing
-    observation times (conservative: the field is only defined at
-    observations). Steps needing more than MAX_PATH_SUBSTEPS are treated
-    as unverifiable and rejected.
+    Forward Euler produces a straight path per interval. Every cell the
+    segment touches must have all four corner nodes QC-valid at BOTH
+    bracketing observation times (conservative: the field is only defined
+    at observations). Returns one bool per particle; True = path fully
+    supported. No sampling density is involved, so grazing corner
+    crossings cannot evade the check.
     """
     p0 = np.asarray(start, dtype=float)
     p1 = np.asarray(end, dtype=float)
     if p0.size == 0:
         return np.zeros(0, dtype=bool)
-    dx_min = float(np.min(np.diff(field.x)))
-    dy_min = float(np.min(np.diff(field.y)))
-    spacing = min(dx_min, dy_min)
-    dist = np.linalg.norm(p1 - p0, axis=1)
-    need = np.ceil(dist / (PATH_EDGE_FRACTION * spacing)).astype(int)
-    ok = need <= MAX_PATH_SUBSTEPS
-    n_sub = int(need[ok].max()) if np.any(ok) else 1
-    n_sub = max(n_sub, 1)
-    for k in range(1, n_sub):
-        frac = k / n_sub
-        mid = p0 + frac * (p1 - p0)
-        ok &= _stencil_valid(field, mid, it0) & _stencil_valid(field, mid, it1)
+    ok = np.ones(len(p0), dtype=bool)
+    for n in range(len(p0)):
+        for iy, ix in _cells_on_segment(field, p0[n], p1[n]):
+            corners = (field.valid[it0, iy, ix] & field.valid[it0, iy, ix + 1]
+                       & field.valid[it0, iy + 1, ix] & field.valid[it0, iy + 1, ix + 1]
+                       & field.valid[it1, iy, ix] & field.valid[it1, iy, ix + 1]
+                       & field.valid[it1, iy + 1, ix] & field.valid[it1, iy + 1, ix + 1])
+            if not corners:
+                ok[n] = False
+                break
     return ok
 
 
