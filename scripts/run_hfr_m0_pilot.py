@@ -7,8 +7,8 @@ For each site file this script:
      gaps > 3 h so no trajectory crosses unobserved intervals);
   3. releases a deterministic particle grid inside cells that are QC-valid
      at segment start;
-  4. runs ``simulate_m0`` per segment and writes a JSON summary plus a
-     compressed .npz of final positions under ``results/hfr_pilot/``.
+  4. advances particles with endpoint-validated QC-aware forward Euler and
+     writes JSON summaries plus compressed final-position arrays.
 
 This is a numerical pilot on surface currents. It is NOT a validation
 against observations and says nothing about vertical transport or
