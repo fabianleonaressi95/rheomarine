@@ -1,7 +1,7 @@
 # Priority literature review for RheoMarine-SLO
 **Prepared:** 25 November 2026  
 **Purpose:** scientific basis for the RISTANC v5 proposal and the 26 November OGS discussion.  
-**Scope:** critical synthesis of the ten technical priority readings completed in the first pass, with Marchetto et al. (2022) retained as an additional priority local-field study in the verified bibliography and queued for the next full-text reading pass. This is not a claim that every publisher full text was accessible.
+**Scope:** critical synthesis of the first-pass technical readings, now supplemented by detailed examination of Marchetto et al. (2022) and the primary regional field study by Gajšt et al. (2016). Access is distinguished explicitly: publisher full text/visible article sections, indexed abstract, metadata and dataset material are not treated as equivalent.
 
 ## Executive synthesis
 
@@ -178,6 +178,43 @@ At minimum, report:
 | Mrokowska & Krztoń-Maziopa (2024), Data in Brief | Full text | Experimental design and DS1 dataset |
 | Mrokowska et al. (2025), stratification dataset | Dataset metadata/data resource | DS2 experimental structure |
 | HFR-NAdr network record | Metadata | Local network configuration |
-| Marchetto et al. (2022) | Bibliographic metadata verified; full-text analysis pending | Northern Adriatic field evidence; retained as priority reading |
+| Marchetto et al. (2022) | Article text/sections consulted; sampling design and reported results reviewed | Venice Lagoon inlet field observations; comparison with Slovenian literature; not pilot-site validation |\n| Gajšt et al. (2016) | Publisher article page and indexed abstract/results consulted; full PDF access not confirmed | Primary historical surface-microplastic observations from Slovenian waters; 17 trawls over 20 months; 406,000 particles/km²; >80% PE |
 
-**Editorial note:** bibliographic metadata for Cosoli et al. (2010) have been reconciled against the publisher's primary record. The title previously used in this review was incorrect and has been replaced. Marchetto et al. (2022) remains a priority item because Appendix B marks it as such; it is explicitly identified above as pending detailed reading rather than being presented as already reviewed. The access audit distinguishes full-text reading from abstract/metadata-level consultation.
+## 9. Northern Adriatic microplastic field evidence: Marchetto and Gajšt
+
+### 9.1 Marchetto et al. (2022): Venice Lagoon inlet observations
+
+Marchetto, D., de Ferri, L., Latella, A., & Pojana, G. (2022). *Micro- and mesoplastics in sea surface water from a Northern Adriatic coastal area*. Environmental Science and Pollution Research, 29, 37471–37497. DOI: [10.1007/s11356-021-17874-9](https://doi.org/10.1007/s11356-021-17874-9).
+
+The study sampled two transects in the coastal waters in front of the Venice Lagoon inlet near Malamocco, in October and December 2015. A manta net with 0.3 mm mesh was used, covering the reported 0.3–10 mm particle interval. Five tows were performed along each transect. The reported mean areal densities were 51.4 × 10³ particles/km² in October and 121.9 × 10³ particles/km² in December. The combined size distribution was dominated by the 0.3–1 mm fraction (70.3%), followed by 1–5 mm (27.5%) and 5–10 mm (2.2%). PE and PP were the most frequently identified polymers, with campaign-dependent proportions.
+
+The authors discuss wind-driven mixing, seasonal circulation, coastal transport and possible resuspension as processes relevant to the observed variability. These are interpretations of the field observations, not direct measurements of the fate of each particle or of seabed deposition.
+
+**Use for RheoMarine:** methodological and regional context for surface sampling, size classes, polymer composition and the sensitivity of observed concentrations to environmental conditions. The Venice observations are not direct data for the Slovenian pilot and must not be used as its calibration or present-day baseline.
+
+The paper's comparison table reports Slovenian observations from Gajšt et al. (2016). Those figures must be attributed to the original Gajšt study, not treated as measurements collected by Marchetto et al.
+
+### 9.2 Gajšt et al. (2016): direct historical observations from Slovenian waters
+
+**Verified reference:** Gajšt, T., Bizjak, T., Palatinus, A., Liubartseva, S., & Kržan, A. (2016). *Sea surface microplastics in Slovenian part of the Northern Adriatic*. Marine Pollution Bulletin, 113(1–2), 392–399. DOI: [10.1016/j.marpolbul.2016.10.031](https://doi.org/10.1016/j.marpolbul.2016.10.031).
+
+The publisher record and indexed abstract identify a 20-month sea-surface monitoring study in the Slovenian part of the Gulf of Trieste, comprising 17 trawls. The reported mean concentration is 406 × 10³ particles/km², equivalent to 5.41 particles/m³ as stated by the article. More than 80% of identified particles were polyethylene. The abstract states that substantial variability among sampling dates was interpreted using surface-current maps and an Adriatic marine-litter distribution model based on a Markov-chain approach.
+
+The publisher's visible experimental description reports an epineuston net with a 0.6 × 0.15 m mouth opening, 1.5 m length and 300 μm mesh. The net was towed alongside the vessel, outside its wake, at approximately 3 knots for about 20 minutes. The article page reports 6,086 particles below 5 mm and 391 particles above 5 mm across the 17 samples. Full sample-level coordinates, dates, counts and supporting metadata have not yet been retrieved in a reusable form; therefore the published mean cannot be converted into a spatially resolved validation dataset.
+
+A separate MICRO 2015 conference abstract reports 471,903 particles/km² for the Slovenian campaign. This is a distinct conference contribution and not the mean reported in the 2016 peer-reviewed article. The dossier should use 406,000 particles/km² when citing Gajšt et al. (2016), and keep the conference figure separately attributed.
+
+**Use for RheoMarine:** the strongest geographically relevant historical benchmark currently identified for surface microplastics in Slovenian waters. It demonstrates a prior scientific effort to relate surface microplastic observations to surface-current patterns. It does not independently validate the new RheoMarine model, provide current conditions, or establish present-day concentrations in the IZOL/KOPER/PIRAN pilot. Quantitative use beyond regional context requires original sample-level data and compatibility checks.
+
+### 9.3 Implications for the RheoMarine validation design
+
+The two studies support a clear evidence hierarchy:
+- Gajšt et al. (2016): historical Slovenian field benchmark (regional context; potentially a quantitative comparison only if original metadata are recovered).
+- Marchetto et al. (2022): Venice-area field study and methodological comparison, not direct Slovenian pilot validation.
+- New contemporaneous observations in the selected pilot: preferred evidence for independent validation, if access, sampling design and resources permit.
+
+The reported areal densities cannot be compared naively across studies without checking mesh size, size cutoffs, sampled area/volume, tow duration, sampled season, polymer-identification protocol and concentration normalization. In particular, the 300 μm epineuston net in Gajšt and the 0.3 mm manta net in Marchetto have similar nominal mesh sizes but differ in study area, sampling design and observation period.
+
+The historic Gajšt mean is a regional benchmark, not a target value that M0/M1 must reproduce. A model evaluation requires sample-level observations paired to modelled locations and times, plus compatible particle-size classes and uncertainty.
+
+**Editorial note:** Cosoli et al. (2010) metadata have been reconciled against the publisher's primary record and the study area is correctly identified as offshore of the Venice Lagoon. Marchetto et al. (2022) and Gajšt et al. (2016) are now reviewed as separate studies, with their geographies, reported values and evidence limitations kept distinct. The access audit differentiates publisher-visible article material and indexed abstracts from confirmed full-PDF access.
