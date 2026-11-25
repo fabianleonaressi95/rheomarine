@@ -64,3 +64,17 @@ Before fixing the pilot polygon or analysis window:
 ## Live endpoint and calibration follow-up (25 November 2026)
 
 A separate live check now records the current metadata, the old calibration dates, and a reproducible short-window response/QC benchmark: [HFR live endpoint and calibration-metadata check](HFR_LIVE_ENDPOINT_AND_CALIBRATION_CHECK_2026-11-25.md). The benchmark script is `scripts/audit_hfr_endpoints.py`. The full multi-year request is not a suitable responsiveness test. Endpoint latency, cell-level completeness, QC acceptance and coastal-sector overlap remain pending execution and analysis. Do not describe the feed as stopped: the current metadata advertise same-day observations at 13:00 UTC on 25 November 2026.
+
+## Technical integration results (25 November 2026, second pass)
+
+A reproducible audit of both nodes has now been executed and documented in `docs/hfr/` (README, optimized queries, archive-size estimates, download plan). Results relevant to the application:
+
+- **IZOLA (NIB) is the initial pilot-data candidate.** Verified archive span 2022-11-24 → 2026-11-25; QCflag==1 fraction ~51% over the last 30 days and ~53% over 90 days (denominator: all 440 grid cells per timestamp, including empty cells).
+- **PIRAN (ARSO) is a complementary node subject to stronger QC screening.** Longer nominal span (from 2021-01-01) but substantially more fragmented (~2000 gaps >1 h, max outage ~51 days) and lower QC acceptance (~25% flag=1 over the measured 30-day window).
+- **Window strategy:** 30 days is the initial verified window (measured, reproducible); 90 days is the proposed extension (~113 MB IZOL / ~105 MB PIRA in CSV0, or ~10× smaller in NetCDF); 12 months or longer only after month-by-month QC verification, because the IZOL flag=1 fraction drops to ~23% over the last 12 months.
+- **Temporal gaps and irregular sampling must be treated explicitly** in any downstream analysis: nominal PT30M but irregular timestamps, documented max outages of ~65 days (IZOL) and ~51 days (PIRA). Missing cells are never zero current and flagged cells are not valid observations.
+- **No mass download has been launched.** All >90-day requests remain estimates pending approval of `docs/hfr/hfr_download_plan.md`.
+
+### RISTANC-ready paragraph (English)
+
+> Public HF-radar surface-current observations for the Gulf of Trieste are available through the European HFR Node for two Slovenian-adjacent stations: Izola (operated by NIB, dataset `EUHFR_NRTcurrent_HFR-NAdr-IZOL_v3`) and Piran (operated by ARSO, dataset `EUHFR_NRTcurrent_HFR-NAdr-PIRA_v3`). A reproducible endpoint audit performed on 25 November 2026 confirmed live data streams with same-day observations, measured response times of ~1–37 s for 1–30-day subsets, and cell-level quality-flag fractions of approximately 51% (Izola) and 25% (Piran) over the most recent 30 days. The project will use Izola as the initial pilot-data candidate and Piran as a complementary node pending stronger quality-control screening; the initial verified window is 30 days, with a proposed extension to 90 days and any longer archive conditioned on month-by-month QC verification. Sampling is nominally 30-minute but irregular, with documented multi-week outages, so temporal gaps will be propagated explicitly through the analysis rather than interpolated silently. These are surface-current observations only (upper ~0.3–2.5 m) and will not be represented as validated, vertically resolved circulation or as direct evidence of seabed deposition.

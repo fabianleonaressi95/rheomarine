@@ -1,5 +1,47 @@
 #!/usr/bin/env python3
-"""Benchmark live ERDDAP HFR endpoints with short subsets; standard library only."""
+"""Benchmark live ERDDAP HFR endpoints with short subsets; standard library only.
+
+Reproducibility notes
+---------------------
+Endpoints (ERDDAP griddap, European HFR Node):
+  BASE = https://erddap.hfrnode.eu/erddap/griddap
+  IZOL -> EUHFR_NRTcurrent_HFR-NAdr-IZOL_v3  (NIB)
+  PIRA -> EUHFR_NRTcurrent_HFR-NAdr-PIRA_v3  (ARSO)
+
+Parameters
+  --days N [N ...]   trailing windows in days, each 1..31 (default 1 7).
+                     Windows are anchored to (now_utc - 3 h), not to now,
+                     because the NRT feed lags real time ~1-2 h and ERDDAP
+                     returns 404 if the requested end is in the future.
+  --timeout SEC      per-request timeout (default 120).
+
+Spatial subset (common bbox, single depth level):
+  depth 0.0; latitude 45.52685:1:45.78333; longitude 13.375:1:13.78056
+  -> 20 x 22 = 440 cells per timestamp. All cells are returned, including
+  empty/NaN ones; missing data cannot be filtered server-side.
+
+Variables requested: EWCT, NSCT, QCflag only (no RDVA/DRVA).
+
+Output format: .csv0 has NO header row. Columns are positional:
+  time, depth, latitude, longitude, EWCT, NSCT, QCflag (indices 0..6).
+
+QC / denominator definitions used in the JSON report
+  data_rows        = number of CSV rows = n_timestamps_returned x 440.
+  EWCT_valid       = count of EWCT values not in {"", "NaN", "nan",
+                     "-32.767", "-127"}. Same definition for NSCT_valid.
+                     Denominator for percentages = data_rows.
+  QCflag_counts    = histogram over all cells of the raw QCflag string
+                     ("1" pass, "4" flagged, "NaN" missing, ...).
+                     A cell is "non-fill" when QCflag != -127 in the
+                     NetCDF product; in csv0 missing cells appear as NaN.
+
+Interpretation limits
+  A successful short-window request shows endpoint responsiveness at that
+  retrieval time only. It does NOT establish continuous availability,
+  data validity, or fitness for model forcing/validation. Compare
+  first_returned_time/last_returned_time against requested_start/end_utc
+  to detect partial coverage; large archives must be pulled in chunks.
+"""
 from __future__ import annotations
 import argparse, csv, io, json, re, time
 from datetime import datetime, timezone, timedelta
@@ -67,11 +109,19 @@ def subset(site, dataset, days, timeout):
     flags = {}
     for v in qcf:
         flags[v] = flags.get(v, 0) + 1
+    first_t, last_t = (min(times) if times else None,
+                       max(times) if times else None)
+    # flag partial coverage: returned span should reach both window edges
+    # (allowing for the ~3 h end clamp and edge timestamps)
+    coverage = None
+    if first_t and last_t:
+        coverage = (first_t[:10] <= s[:10] and last_t[:10] >= e[:10])
     return {"site": site, "window_days": days, "requested_start_utc": s,
             "requested_end_utc": e, "http_status": status,
             "elapsed_seconds": elapsed, "bytes": len(body), "data_rows": len(rows),
-            "first_returned_time": min(times) if times else None,
-            "last_returned_time": max(times) if times else None,
+            "first_returned_time": first_t,
+            "last_returned_time": last_t,
+            "window_span_covered": coverage,
             "EWCT_valid": valid(ewct), "NSCT_valid": valid(nsct),
             "QCflag_counts": flags, "request_url": url}
 
