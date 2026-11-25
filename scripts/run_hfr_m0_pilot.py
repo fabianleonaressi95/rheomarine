@@ -29,8 +29,7 @@ from pathlib import Path
 import numpy as np
 
 from rheomarine_hfr import (crop_field, hfr_valid_mask, load_erddap_netcdf,
-                           to_velocity_fields)
-from rheomarine_transport import simulate_m0
+                           simulate_qc_aware, to_velocity_fields)
 
 
 def sha256(path: Path) -> str:
@@ -58,53 +57,6 @@ def release_positions(field, n_side: int = 8):
     return np.array(keep)
 
 
-def _stencil_valid(field, positions, it):
-    """True where the bilinear stencil at time index ``it`` is all-valid."""
-    ix1 = np.clip(np.searchsorted(field.x, positions[:, 0], "right"),
-                  1, len(field.x) - 1)
-    iy1 = np.clip(np.searchsorted(field.y, positions[:, 1], "right"),
-                  1, len(field.y) - 1)
-    ix0, iy0 = ix1 - 1, iy1 - 1
-    ok = np.ones(len(positions), dtype=bool)
-    for dx in (0, 1):
-        for dy in (0, 1):
-            ok &= field.valid[it, iy0 + dy, ix0 + dx]
-    return ok
-
-
-def simulate_qc_aware(field, pos0, *, seed: int):
-    """Advance particles interval-by-interval on observed timestamps only.
-
-    A particle is marked ``qc_stopped`` (trajectory ends at its last
-    fully-observed position) as soon as its bilinear stencil touches a
-    QC-invalid cell at either bracketing timestamp. Particles are never
-    interpolated through missing data and never see placeholder zeros.
-    Returns (final_positions, alive_mask, qc_stopped_mask).
-    """
-    pos = pos0.copy()
-    n = len(pos)
-    alive = np.ones(n, dtype=bool)
-    qc_stopped = np.zeros(n, dtype=bool)
-    for i in range(len(field.times) - 1):
-        ids = np.flatnonzero(alive)
-        if ids.size == 0:
-            break
-        t_i, t_j = float(field.times[i]), float(field.times[i + 1])
-        ok = (_stencil_valid(field, pos[ids], i)
-              & _stencil_valid(field, pos[ids], i + 1))
-        stop_ids = ids[~ok]
-        qc_stopped[stop_ids] = True
-        alive[stop_ids] = False
-        ids = ids[ok]
-        if ids.size == 0:
-            continue
-        step = simulate_m0(field, pos[ids], start_time=t_i, end_time=t_j,
-                           dt=t_j - t_i, diffusivity=0.0,
-                           boundary="reflect", seed=seed)
-        pos[ids] = step.final_positions
-    return pos, alive, qc_stopped
-
-
 def best_block(mask2d: np.ndarray, block: int) -> tuple[slice, slice, float]:
     """Locate the ``block`` x ``block`` cell window with highest mean
     temporal validity. Returns (iy_slice, ix_slice, mean_validity)."""
@@ -121,7 +73,7 @@ def best_block(mask2d: np.ndarray, block: int) -> tuple[slice, slice, float]:
 
 
 def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
-             seed: int) -> dict:
+             seed: int, output_dir: Path) -> dict:
     ds = load_erddap_netcdf(str(path))
     fields = to_velocity_fields(ds, max_gap_s=max_gap_s)
     # restrict the pilot to the highest-coverage sub-region: documented,
@@ -145,6 +97,7 @@ def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
         final_pos, alive, qc_stopped = simulate_qc_aware(field, pos0,
                                                          seed=seed)
         disp = np.linalg.norm(final_pos - pos0, axis=1)
+        active_disp = disp[alive]
         segments.append({
             "segment": i,
             "start_utc": datetime.fromtimestamp(t0, timezone.utc).isoformat(),
@@ -155,12 +108,19 @@ def run_file(path: Path, *, max_gap_s: float, n_side: int, block: int,
             "valid_fraction_t0": round(float(field.valid[0].mean()), 4),
             "alive_count": int(alive.sum()),
             "qc_stopped_count": int(qc_stopped.sum()),
-            "displacement_m_median": round(float(np.median(disp)), 1),
-            "displacement_m_max": round(float(disp.max()), 1),
+            "displacement_active_median_m": (
+                round(float(np.median(active_disp)), 1) if active_disp.size else None
+            ),
+            "displacement_active_max_m": (
+                round(float(active_disp.max()), 1) if active_disp.size else None
+            ),
+            "displacement_all_initial_median_m": round(float(np.median(disp)), 1),
+            "displacement_all_initial_max_m": round(float(disp.max()), 1),
         })
+        output_dir.mkdir(parents=True, exist_ok=True)
         np.savez_compressed(
-            Path(__file__).resolve().parents[1] / "results" / "hfr_pilot" /
-            f"{site}_seg{i}_final_positions.npz",
+            output_dir / f"{site}_seg{i}_final_positions.npz",
+            displacement_m=disp,
             final_positions=final_pos, initial_positions=pos0,
             alive=alive, qc_stopped=qc_stopped, times=field.times)
     return {
@@ -204,12 +164,13 @@ def main() -> None:
     outdir = Path(a.out)
     outdir.mkdir(parents=True, exist_ok=True)
     report = {"generated_at_utc": datetime.now(timezone.utc).isoformat(),
-              "engine": "simulate_m0 (Euler-Maruyama, K=0)",
+              "engine": "QC-aware forward Euler surface advection, K=0",
               "files": []}
     for pattern in a.inputs:
         for path in sorted(Path(".").glob(pattern)):
             entry = run_file(path, max_gap_s=a.max_gap_s,
-                             n_side=a.n_side, block=a.block, seed=a.seed)
+                             n_side=a.n_side, block=a.block, seed=a.seed,
+                             output_dir=outdir)
             report["files"].append(entry)
             stem = path.stem.replace("EUHFR_NRTcurrent_HFR-NAdr-", "")
             (outdir / f"{stem}_summary.json").write_text(
