@@ -88,3 +88,21 @@ L'accordo di finanziamento non è incluso tra i documenti pubblicati. Prima dell
 - Application form: https://www.ristanc.eu/storage/doc/202610/02applicationformristancv5.docx
 
 Audit interpretativo dei documenti della call; non sostituisce il contratto definitivo né una determinazione fiscale basata sul testo contrattuale.
+
+## Addendum — FAQ ufficiale aggiornata al 5 novembre 2026
+
+La FAQ inglese corrente è stata pubblicata all'indirizzo ufficiale
+https://www.ristanc.eu/storage/doc/202611/qa-ristancen-gbv3.pdf .
+Il PDF `qa-ristanc-v2.pdf` archiviato in questa repository è la versione precedente (9 pagine, contenuto fermo al 20 ottobre 2026) e non deve essere citato come FAQ corrente. La versione inglese è una traduzione automatica: in caso di divergenze prevale il testo sloveno.
+
+Ulteriori chiarimenti della versione del 5 novembre:
+- La persona fisica deve essere maggiorenne e avere residenza permanente in uno Stato UE; la residenza temporanea in Slovenia non sostituisce quella permanente UE. Il Regno Unito non è UE per questo requisito.
+- Un'attività registrata come s.p. segue il requisito di sede registrata/attività economica previsto per le entità registrate; il richiedente persona fisica non registrato deve avere residenza permanente UE.
+- Per i partner è sufficiente indicarli nella sezione C.7 descrivendone competenze, ruolo e responsabilità. La FAQ dice che non occorrono allegati amministrativi, estratti di registro o firme separate dei partner. L'accordo di cofinanziamento è stipulato tra ZRS Koper e il solo lead applicant.
+- I costi del personale dei partner possono essere inclusi in A se il personale partecipa direttamente alle attività.
+- Le relazioni con il consorzio RISTANC da parte di applicant, partner, dipendenti e subappaltatori proposti vanno dichiarate nella sezione B. I fornitori vanno scelti secondo trasparenza, parità di trattamento e concorrenza.
+- Le vendite di prodotti creati con il finanziamento (es. pubblicazioni) devono essere dichiarate come entrate nel budget; i ricavi dei prodotti stampati con il contributo vanno reinvestiti nelle attività del progetto entro la sua conclusione. Il Q&A fornisce anche regole specifiche per copie gratuite e deposito open access.
+- Un'asta benefica con devoluzione dei ricavi a un'altra organizzazione non è ammissibile come attività finanziata: le entrate da vendite devono restare destinate all'implementazione del progetto.
+- I comuni di Piran, Izola, Koper e Ankaran, in quanto partner del consorzio RISTANC, non possono partecipare come applicant o partner; società pubbliche da essi fondate, se entità giuridiche separate, non sono automaticamente escluse.
+
+Implicazioni operative: non aggiungere partner OGS come formalmente confermati senza consenso; se inseriti in C.7, descrivere ruolo e competenze e considerare che il lead applicant mantiene responsabilità piena. Verificare conflitti anche per fornitori e collaboratori. Qualsiasi entrata diversa dal contributo va esplicitata nel budget.

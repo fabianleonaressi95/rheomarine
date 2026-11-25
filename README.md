@@ -77,6 +77,6 @@ rheology (see `papers/RheoMarine_Dossier_Unico.pdf`).
 
 Official v2 source PDFs are stored in `docs/references/ristanc/`:
 - [Guidelines for Applicants v2](docs/references/ristanc/01callguidelinesforapplicantsristancv5.pdf)
-- [Q&A v2](docs/references/ristanc/qa-ristanc-v2.pdf)
+- [Current Q&A (5 November 2026) — official PDF](https://www.ristanc.eu/storage/doc/202611/qa-ristancen-gbv3.pdf)\n- [Current Q&A review](docs/references/ristanc/RISTANC_QA_2026-11-05_REVIEW.md)\n- [Archived earlier Q&A PDF (20 October 2026)](docs/references/ristanc/archive/qa-ristanc-202610-20.pdf)
 - [Operational audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
 - [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
