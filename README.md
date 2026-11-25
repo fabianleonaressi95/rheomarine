@@ -87,6 +87,9 @@ Reviews and working documents:
 - [Call requirements audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
 - [Evaluation criteria review](docs/references/ristanc/RISTANC_EVALUATION_REVIEW_2026-11-25.md)
 - [Ethical and open-science review](docs/references/ristanc/RISTANC_ETHICS_REVIEW_2026-11-25.md)
+- [Application form — full text extraction](docs/references/ristanc/02_APPLICATION_FORM_FULL_TEXT.md)
+- [Application form — field map](docs/references/ristanc/02_APPLICATION_FORM_FIELD_MAP.md)
+- [Application form — cross-check](docs/references/ristanc/RISTANC_APPLICATION_FORM_CROSSCHECK_2026-11-25.md)
 - [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
 - Application preparation files: `docs/ristanc/application-support/`
 
