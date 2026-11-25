@@ -63,6 +63,6 @@ This is a concrete, testable WP1 data-readiness task. It avoids unsupported clai
 
 - Live catalogue and same-day advertised observation: **documented at snapshot time**.
 - Old calibration dates exposed in metadata: **documented; interpretation requires operator confirmation**.
-- Endpoint response-time benchmark: **pending execution from the project Codespace**.
-- Per-cell completeness, QC acceptance and coastal-sector overlap: **pending extraction and analysis**.
+- Endpoint response-time benchmark: **executed 25 November 2026** for 1/7/30-day windows on both nodes (HTTP 200; see `docs/hfr/` and `scripts/audit_hfr_endpoints.py`).
+- Per-cell completeness, QC acceptance and coastal-sector overlap: **partially quantified** — cell-level QCflag fractions measured for both nodes over 30 days (IZOL ~51% flag=1; PIRA ~25%); spatial overlap analysis still pending.
 - Instrument obsolescence or measurement inaccuracy: **not established and must not be claimed**.

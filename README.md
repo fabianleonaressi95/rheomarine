@@ -83,6 +83,16 @@ The modelling design is maintained separately from the application narrative:
 
 These documents define the scientific workstream independently of the ongoing HFR ingestion implementation. The HFR module should provide documented model-ready surface-current fields, QC/coverage masks and provenance; it should not implement or assume the particle-physics modules. The specifications explicitly distinguish surface transport from vertical circulation and seabed deposition, and laboratory proxies from natural marine EPS.
 
+## Transport engine implementation
+
+The first independent numerical transport core is now available:
+
+- [M0/M1 transport engine and HFR interface contract](docs/model/TRANSPORT_ENGINE_INTERFACE.md)
+- `src/rheomarine_transport/`: conservative finite-volume surface advection–diffusion and particle-property primitives.
+- `tests/test_transport.py`: deterministic tests for zero-flow invariance, closed-domain mass conservation, diffusion, source/sink budget, stability guard and Stokes sign.
+
+Run with `PYTHONPATH=src python -m unittest discover -s tests -v`. This is a controlled closed-rectangle baseline. Coastline masks, open boundaries, nonuniform/spherical metrics and HFR adapter are not yet implemented; it is not yet a pilot-ready or independently validated forecast model.
+
 ## Literature review and scientific basis
 
 The project's working scientific review is maintained directly in Markdown; it is the readable, citable synthesis and the first point of reference for project decisions. It is not necessary to start from a compiled PDF dossier.
