@@ -73,10 +73,13 @@ velocity signature — **not** verified against the paywalled paper;
 exact fluid recipes remain an open item, as does the anomalous set3
 bottom density (~1038 kg/m³).
 
-## Literature
+## Literature review and scientific basis
 
-- [Priority literature review for RheoMarine-SLO (25 November 2026)](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md) — critical synthesis of HFR validation and Gulf circulation, HFR-driven particle tracking, rheological settling/stratification, methodological limitations, and implications for the RISTANC work plan.
-- Reference papers and dossier: `papers/` (including `papers/RheoMarine_Dossier_Unico.pdf`).
+The project's working scientific review is maintained directly in Markdown; it is the readable, citable synthesis and the first point of reference for project decisions. It is not necessary to start from a compiled PDF dossier.
+
+- **[Priority literature review — RheoMarine-SLO](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md)** — critical synthesis of the ten priority readings: HFR validation and Gulf circulation; HFR-NAdr station history; HFR-driven microplastic tracking; particle-tracking good practice; rheological settling and stratification; dataset methods; limitations and implications for WP1–WP4.
+- The review includes an access audit that distinguishes full-text readings from abstracts, institutional records and dataset metadata. It also identifies three further North Adriatic papers for the next reading pass.
+- Source papers and datasets are retained under `papers/` and linked from the relevant entries in the Markdown review. The PDF dossier is supplementary archival material, not the project's documentation entry point.
 
 ## RISTANC call documents
 
