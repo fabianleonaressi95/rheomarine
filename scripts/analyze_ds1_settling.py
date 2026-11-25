@@ -45,7 +45,7 @@ SOL_ORDER = ["AS", "AS_XG0.5", "AS_XG1", "AS_CR0.5", "AS_CR1",
 
 
 def load_dims() -> dict:
-    """spec -> (L,I,S) in mm, averaged over measured particles."""
+    """spec -> (L,I,S) in mm; source is measured except manufacturer S_PS."""
     dims = {}
     for f in ROOT.glob("*.csv"):
         stem = f.stem
@@ -123,7 +123,7 @@ def main() -> None:
             dim_rows.append({
                 "spec": s, "L_mm": L, "I_mm": I, "S_mm": S,
                 "size_mm": vol_eq_d, "aspect_LS": L / S,
-                "aspect_LI": L / I, "dims_source": "measured",
+                "aspect_LI": L / I, "dims_source": "manufacturer" if s == "S_PS" else "measured",
             })
         else:
             dim_rows.append({"spec": s, "size_mm": "",
