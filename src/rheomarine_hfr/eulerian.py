@@ -66,6 +66,16 @@ class EulerianHFRForcing:
         object.__setattr__(self, "v", v)
         object.__setattr__(self, "valid", valid)
 
+    @property
+    def cell_center_x(self) -> FloatArray:
+        """x coordinates of finite-volume cell centres (metres)."""
+        return 0.5 * (self.x_edges[:-1] + self.x_edges[1:])
+
+    @property
+    def cell_center_y(self) -> FloatArray:
+        """y coordinates of finite-volume cell centres (metres)."""
+        return 0.5 * (self.y_edges[:-1] + self.y_edges[1:])
+
     def sample(self, time_s: float) -> tuple[FloatArray, FloatArray, BoolArray]:
         """Return (u, v, valid) at a time inside this segment.
 
@@ -103,14 +113,30 @@ class EulerianHFRForcing:
         source: float | FloatArray = 0.0,
         sink_rate: float | FloatArray = 0.0,
         enforce_stability: bool = True,
+        wet: BoolArray | None = None,
+        open_edges: tuple[str, ...] = (),
+        qc_holes: str = "fail",
     ) -> TransportResult:
         """Advance one Eulerian step using forcing sampled at its midpoint.
 
-        The whole step must lie within this segment. Any QC-invalid cell at
-        the midpoint propagates as NaN and is rejected by the solver. This
-        strict rectangular-domain policy prevents silent hole filling;
-        callers must select a fully supported subdomain before stepping.
+        The whole step must lie within this segment. ``qc_holes`` selects
+        the policy for cells whose sampled forcing is QC-invalid:
+
+        * ``"fail"`` (default): the NaN forcing reaches the solver, which
+          rejects it — the historical fail-closed behaviour.
+        * ``"barrier"``: QC-invalid cells become zero-flux barriers for
+          this step (conservative ``active`` mask). Tracer mass inside a
+          hole is retained unchanged and resumes when QC support returns;
+          no interpolation or zero-fill is performed.
+
+        ``wet`` is an optional static land mask and ``open_edges`` an
+        optional subset of {"west","east","south","north"}; see
+        ``step_advection_diffusion`` for their exact semantics. With the
+        defaults the step still requires every cell in the stepped domain
+        to be QC-supported at the midpoint.
         """
+        if qc_holes not in ("fail", "barrier"):
+            raise ValueError("qc_holes must be 'fail' or 'barrier'")
         start = float(start_time_s)
         dt = float(dt_s)
         end = start + dt
@@ -118,11 +144,13 @@ class EulerianHFRForcing:
             raise ValueError("start_time_s must be finite and dt_s finite and positive")
         if start < self.times[0] or end > self.times[-1]:
             raise ValueError("Eulerian step must lie entirely within one HFR segment")
-        uu, vv, _ = self.sample(start + 0.5 * dt)
+        uu, vv, mask = self.sample(start + 0.5 * dt)
+        active = mask if qc_holes == "barrier" else None
         return step_advection_diffusion(
             concentration, uu, vv, diffusivity, dt, self.grid,
             source=source, sink_rate=sink_rate,
             enforce_stability=enforce_stability,
+            wet=wet, active=active, open_edges=open_edges,
         )
 
 
