@@ -124,3 +124,10 @@ These are drafting controls and must **not** be pasted as claims into the applic
 8. **Ethics and AI:** align the final wording with the actual use of AI, any stakeholder contact, personal-data collection, laboratory waste arrangements and the RISTANC consent form.
 9. **Budget consistency:** use the [A.3/C budget and dissemination plan](RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md) for the proposed 220 hours × EUR 30 all-in and the itemised EUR 600 C allocation. Confirm the fiscal treatment and ensure travel, venue, translation and printing assumptions match the actual delivery plan. Keep B.1 at EUR 3,000 only if a suitable laboratory scope and quote are secured; avoid double-counting any consumables included in B.1.
 10. **Start date:** use the effective date of the signed funding agreement, not a pre-agreement fixed start date.
+
+
+---
+
+### Feasibility and risk-control annex
+
+The detailed feasibility assessment, risk register (R1–R12), decision gates (G0–G4), minimum laboratory request-for-quotation specification and verification evidence pack are maintained in [`FEASIBILITY_RISK_AND_VERIFICATION_MATRIX_2026-11-26.md`](FEASIBILITY_RISK_AND_VERIFICATION_MATRIX_2026-11-26.md). This annex supports the staged scope described above; it does not represent the laboratory service, independent validation datasets or stakeholder participation as secured.
