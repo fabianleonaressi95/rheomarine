@@ -4,6 +4,36 @@ Mathematical and computational modelling of microplastic transport,
 biological aggregation and rheological effects in the North Adriatic
 Sea — experimental data + analysis.
 
+## Project status and evidence boundaries (26 November 2026)
+
+RheoMarine combines published-data analysis, HFR data preparation and transport-model development. The repository deliberately separates implemented software, verified input data, independent physical evidence and predictive validation: passing software tests does not establish a validated marine forecast.
+
+### Current workstreams
+- **Published rheology datasets:** DS1 contains 722 PTV trajectories; DS2 contains stratified-set experiments. Derived analyses and their assumptions are documented above and in `analysis/DS2_V2_NOTES.md`.
+- **HFR inputs:** ingestion/QC work and source audits are maintained under `src/rheomarine_hfr/`, `docs/hfr/` and the HFR audit reports. HFR surface currents are not direct observations of vertical circulation or seabed deposition.
+- **Transport:** Eulerian finite-volume and Lagrangian particle implementations are distinct. Their tests, input contracts and pilot outputs must not be conflated. Neither is, by itself, an independently validated coastal forecast.
+- **Independent evidence:** the µFTIR quotation from Measurlabs is a proposed analytical route and cost estimate, not a completed analysis, sample result or institutional partnership. No laboratory result is claimed here.
+- **External collaboration:** meetings, enquiries and expressions of interest are tracked as contacts unless written partner commitments are obtained.
+
+### RISTANC timetable
+- Application deadline: **28 November 2026, 23:59 CET**.
+- Expected selection publication: **15 December 2026**.
+- Agreement signature window: **15–21 December 2026**.
+- Project starts on the **funding-agreement signature date**, not before **1 January 2027**.
+- Duration: **6–12 months**; completion no later than **28 February 2028**.
+- Final project report: **within 30 days after project completion**.
+
+The M0–M5 GitHub milestone dates are a 12-month planning baseline only. They are not contractual dates; revise them against the signed agreement and actual start date.
+
+### Repository navigation
+- [Scientific question and falsifiable hypotheses](docs/science/RESEARCH_QUESTION_AND_HYPOTHESES.md)
+- [M0/M1/M2 model specification](docs/model/M0_M1_M2_MODEL_SPECIFICATION.md)
+- [Transport engine interface](docs/model/TRANSPORT_ENGINE_INTERFACE.md)
+- [Independent validation protocol](docs/validation/INDEPENDENT_VALIDATION_PROTOCOL.md)
+- [Priority literature review](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md)
+- [RISTANC call-document audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
+- [RISTANC milestone schedule](docs/ristanc/PROJECT_MILESTONES.md)
+
 ## Data sources (Mendeley Data, CC BY 4.0, IG PAS)
 
 | Dir | Dataset | Content |
