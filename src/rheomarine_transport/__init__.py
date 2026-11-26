@@ -4,6 +4,7 @@ The Eulerian finite-volume solver and the Lagrangian particle tracker are
 separate implementations. HFR ingestion remains in rheomarine_hfr.
 """
 from .grid import (
+    OPEN_EDGES,
     Grid2D,
     TransportResult,
     stability_timestep,
@@ -13,6 +14,7 @@ from .m0 import SimulationResult, VelocityField, simulate_m0
 from .particles import ParticleClass, stokes_settling_velocity
 
 __all__ = [
+    "OPEN_EDGES",
     "Grid2D",
     "TransportResult",
     "stability_timestep",
