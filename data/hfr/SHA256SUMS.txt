@@ -1,0 +1,6 @@
+# SHA-256 checksums for the git-ignored raw HFR pilot inputs.
+# Verify from data/hfr/:  sha256sum -c SHA256SUMS.txt
+# The same files are published as assets of release
+# hfr-m0-pilot-inputs-2026-11-25.
+d37844f5f0f6c9844e3a585fd75d0b6e4ed0c3625d79f3cd492b5ad9c1adef5d  raw/EUHFR_NRTcurrent_HFR-NAdr-IZOL_v3_7d.nc
+908ee53dc53ec65d272f89596a6a91ac75f8c1bd434dd6126d68a15e4aafc353  raw/EUHFR_NRTcurrent_HFR-NAdr-PIRA_v3_7d.nc
