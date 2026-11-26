@@ -1,6 +1,6 @@
 # RheoMarine-SLO — GitHub milestones
 
-These native GitHub milestones organize the project by evidence gates. Dates below are a **planning baseline for a 12-month implementation**, not a substitute for the signed funding agreement. The RISTANC call permits projects of 6–12 months, starting no earlier than 1 January 2027 and ending no later than 28 February 2028. If the approved duration or start date differs, milestone dates must be recalculated.
+These native GitHub milestones organize the project by evidence gates. Dates below are a **planning baseline for a 12-month implementation**, not a substitute for the signed funding agreement. The RISTANC call permits projects of 6–12 months. The project starts on the funding-agreement signature date, which cannot be earlier than 1 January 2027, and must end no later than 28 February 2028. The final project report is due within 30 days after project completion. If the approved duration or start date differs, milestone dates must be recalculated.
 
 ## External call deadlines
 
