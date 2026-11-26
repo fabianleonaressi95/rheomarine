@@ -11,7 +11,13 @@
 4. The repository also contains a distinct Eulerian finite-volume solver in `src/rheomarine_transport/grid.py` (`Grid2D`, `step_advection_diffusion`). That solver accepts instantaneous arrays `u,v` but currently has no HFR adapter, no QC mask argument, and no temporal forcing/provenance object. It must not be described as HFR-integrated.
 5. The HFR adapter's existing tests cover metric coordinate conversion, QC policy, time segmentation, masks, and crop behaviour. The HFR trajectory pilots documented in `docs/hfr/M0_HFR_PILOT_2026-11-25.md` are K=0 Lagrangian path simulations, not runs of the Eulerian finite-volume advection–diffusion solver.
 
-## Defect found and corrected on this branch
+## Defects found and corrected on this branch
+
+### Package export collision
+
+The transport package initializer contained two successive public-API declarations. The second `__all__` replaced the first and omitted `VelocityField`, `simulate_m0`, and `SimulationResult`, while the HFR adapter and tests import those names from the package root. The initializer now exports the Eulerian, Lagrangian and particle-property APIs together. Existing test-module imports exercise this contract.
+
+### NetCDF timestamp alignment
 
 The NetCDF loader sorted the time coordinate but did not apply the same permutation to EWCT, NSCT and QCflag. If a file contained unsorted timestamps, the velocity/QC slices could silently be associated with the wrong times. The loader now sorts all four arrays together, retains the first occurrence of duplicate timestamps, and validates the expected singleton surface-depth and matching array shapes. A regression test constructs a synthetic NetCDF file with deliberately unsorted timestamps and checks that both velocity components and QC flags remain aligned.
 
