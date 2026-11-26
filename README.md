@@ -115,15 +115,17 @@ These documents define the scientific workstream independently of the ongoing HF
 
 ## Transport engine implementation
 
-The repository currently contains two distinct M0 transport implementations; do not conflate their evidence:
+The repository contains two distinct M0 formulations, with separate numerical and evidential status:
 
 - [M0/M1 transport engine and HFR interface contract](docs/model/TRANSPORT_ENGINE_INTERFACE.md)
-- **Eulerian finite-volume solver:** `src/rheomarine_transport/grid.py` (`Grid2D`, `step_advection_diffusion`), a conservative advection–diffusion baseline on a uniform Cartesian grid. It currently has no HFR temporal-forcing/QC-mask adapter.
-- **Lagrangian particle solver:** `src/rheomarine_transport/m0.py` (`VelocityField`, `simulate_m0`), with the HFR NetCDF adapter in `src/rheomarine_hfr/`. This path applies the documented strict QC mask, metric coordinate conversion and temporal segmentation. Its HFR pilots are particle-path sensitivity experiments, not Eulerian concentration forecasts.
-- `tests/test_transport.py`, `tests/test_m0.py`, `tests/test_hfr_adapter.py` and `tests/test_hfr_trajectory.py` cover separate components; see the linked implementation and pilot reports for their actual scope.
+- **Lagrangian particle solver:** `src/rheomarine_transport/m0.py` (`VelocityField`, `simulate_m0`), driven by the existing HFR NetCDF adapter in `src/rheomarine_hfr/adapter.py`. It applies the strict default `QCflag == 1` mask, metric coordinate conversion, and contiguous-time segmentation. The QC-aware trajectory driver is `src/rheomarine_hfr/trajectory.py`.
+- **Eulerian finite-volume solver:** `src/rheomarine_transport/grid.py` (`Grid2D`, `step_advection_diffusion`), with the HFR cell-centred forcing adapter in `src/rheomarine_hfr/eulerian.py` (`EulerianHFRForcing`, `to_eulerian_forcing`). It converts four valid HFR corner nodes to each cell-centred velocity, interpolates only within one observed segment, and fails closed on QC holes or out-of-segment times.
+- **Eulerian limitations:** the present finite-volume solver uses a uniform metric grid and zero-normal-flux outer boundaries. It does not yet implement coastline/wet-cell masks, open-boundary exchange, wet/dry cells, nonuniform/spherical metrics, or fluxes around internal QC holes. A fully QC-supported rectangular subdomain is therefore required for a step; QC holes are not interpreted as coast.
+- **Existing HFR pilots:** `docs/hfr/M0_HFR_PILOT_2026-11-25.md` and `docs/hfr/INDEPENDENT_M0_PILOT_AUDIT_2026-11-25.md` document separate IZOL and PIRA Lagrangian surface-advection sensitivity runs, including regenerated QC-audited variants. They are not Eulerian concentration forecasts and are not independent physical validation.
+- **Morandotti:** `docs/model/MORANDOTTI_MICROSWIMMER_COMPATIBILITY.md` records the decision to keep active, shape-changing microswimmers outside passive microplastic M0; a biological active-particle module would be a separate future workstream.
 
-Run with `PYTHONPATH=src python -m unittest discover -s tests -v`. Neither implementation is an independently validated coastal forecast model. The finite-volume solver still needs an explicit, fail-closed HFR/QC forcing contract, coastline/wet-cell masks, open-boundary treatment and appropriate grid metrics before a coastal concentration pilot.
-
+The full software suite was run in GitHub Actions on the PR #18 merge candidate using `PYTHONPATH=src python -m unittest discover -s tests -v`: **45 tests passed** (Python 3.11.18). This verifies software behaviour, including the synthetic HFR-to-Eulerian handoff; it does not validate coastal predictive skill. Independent ADCP/buoy/drifter or compatible particle observations, plus coastline and open-boundary treatment, remain necessary before a coastal forecast claim.
+ 
 ## Literature review and scientific basis
 
 The project's working scientific review is maintained directly in Markdown; it is the readable, citable synthesis and the first point of reference for project decisions. It is not necessary to start from a compiled PDF dossier.
