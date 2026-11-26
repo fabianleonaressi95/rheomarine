@@ -1,0 +1,124 @@
+name: Validation log
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Python tests and reproducibility log
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Record environment
+        run: |
+          mkdir -p validation-artifacts
+          {
+            echo "RheoMarine validation log"
+            echo "UTC: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            echo "Repository: $GITHUB_REPOSITORY"
+            echo "Workflow: $GITHUB_WORKFLOW"
+            echo "Run ID: $GITHUB_RUN_ID"
+            echo "Run attempt: $GITHUB_RUN_ATTEMPT"
+            echo "Event: $GITHUB_EVENT_NAME"
+            echo "Ref: $GITHUB_REF"
+            echo "Commit: $GITHUB_SHA"
+            echo
+            python --version
+            python -m pip freeze
+          } | tee validation-artifacts/environment.log
+
+      - name: Run unit test suite
+        id: tests
+        shell: bash
+        run: |
+          set +e
+          PYTHONPATH=src python -m unittest discover -s tests -v 2>&1 | tee validation-artifacts/tests.log
+          test_status=${PIPESTATUS[0]}
+          echo "$test_status" > validation-artifacts/test-exit-code.txt
+          echo "Test exit code: $test_status" | tee -a validation-artifacts/tests.log
+          exit 0
+
+      - name: Write machine-readable summary
+        if: always()
+        env:
+          TEST_EXIT_CODE: ${{ steps.tests.outcome == 'success' && 'captured' || 'step_error' }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          code_path = Path("validation-artifacts/test-exit-code.txt")
+          raw = code_path.read_text().strip() if code_path.exists() else None
+          summary = {
+              "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+              "repository": os.environ.get("GITHUB_REPOSITORY"),
+              "workflow": os.environ.get("GITHUB_WORKFLOW"),
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+              "event": os.environ.get("GITHUB_EVENT_NAME"),
+              "ref": os.environ.get("GITHUB_REF"),
+              "commit": os.environ.get("GITHUB_SHA"),
+              "python": os.sys.version,
+              "test_command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+              "test_exit_code": int(raw) if raw is not None else None,
+              "test_status": (
+                  "passed" if raw == "0" else
+                  "failed" if raw is not None else
+                  "not_run"
+              ),
+          }
+          Path("validation-artifacts/validation.json").write_text(
+              json.dumps(summary, indent=2) + "\n", encoding="utf-8"
+          )
+          print(json.dumps(summary, indent=2))
+          PY
+
+      - name: Upload validation logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rheomarine-validation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: validation-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Fail workflow if tests failed
+        if: always()
+        run: |
+          if [ ! -f validation-artifacts/test-exit-code.txt ]; then
+            echo "Test process did not produce an exit code."
+            exit 1
+          fi
+          code="$(cat validation-artifacts/test-exit-code.txt)"
+          if [ "$code" != "0" ]; then
+            echo "Unit tests failed with exit code $code."
+            exit 1
+          fi

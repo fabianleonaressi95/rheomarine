@@ -1,12 +1,25 @@
-"""Independent particle-transport engine for RheoMarine.
+"""Public API for RheoMarine surface-transport components.
 
-This package is deliberately independent of HFR ingestion. The caller supplies
-model-ready velocity fields and their QC mask through :class:`VelocityField`.
+The Eulerian finite-volume solver and the Lagrangian particle tracker are
+separate implementations. HFR ingestion remains in rheomarine_hfr.
 """
+from .grid import (
+    Grid2D,
+    TransportResult,
+    stability_timestep,
+    step_advection_diffusion,
+)
 from .m0 import SimulationResult, VelocityField, simulate_m0
-
-__all__ = ["SimulationResult", "VelocityField", "simulate_m0"]
-"""Independent surface transport engine for RheoMarine-SLO."""
-from .grid import Grid2D, TransportResult, stability_timestep, step_advection_diffusion
 from .particles import ParticleClass, stokes_settling_velocity
-__all__ = ["Grid2D","TransportResult","stability_timestep","step_advection_diffusion","ParticleClass","stokes_settling_velocity"]
+
+__all__ = [
+    "Grid2D",
+    "TransportResult",
+    "stability_timestep",
+    "step_advection_diffusion",
+    "SimulationResult",
+    "VelocityField",
+    "simulate_m0",
+    "ParticleClass",
+    "stokes_settling_velocity",
+]

@@ -93,20 +93,45 @@ def load_erddap_netcdf(path: str) -> HFRDataset:
         q = np.asarray(f.variables["QCflag"][:])
     finally:
         f.close()
-    # squeeze singleton depth axis -> (nt, ny, nx)
-    u = u.reshape(u.shape[0], -1, u.shape[-1]) if u.ndim == 4 and u.shape[1] == 1 else u
-    v = v.reshape(v.shape[0], -1, v.shape[-1]) if v.ndim == 4 and v.shape[1] == 1 else v
-    q = q.reshape(q.shape[0], -1, q.shape[-1]) if q.ndim == 4 and q.shape[1] == 1 else q
-    if u.shape[1] != lat.size or u.shape[2] != lon.size:
-        raise ValueError(f"{path}: grid axes inconsistent with variable shape {u.shape}")
+    # squeeze only the documented singleton depth axis -> (nt, ny, nx)
+    for name, arr in (("EWCT", u), ("NSCT", v), ("QCflag", q)):
+        if arr.ndim == 4:
+            if arr.shape[1] != 1:
+                raise ValueError(
+                    f"{path}: {name} has {arr.shape[1]} depth levels; "
+                    "this adapter requires one explicitly selected surface level"
+                )
+            arr = arr[:, 0, :, :]
+        if arr.ndim != 3:
+            raise ValueError(f"{path}: {name} must have (time, latitude, longitude) dimensions")
+        if name == "EWCT":
+            u = arr
+        elif name == "NSCT":
+            v = arr
+        else:
+            q = arr
+    if u.shape != v.shape or u.shape != q.shape:
+        raise ValueError(
+            f"{path}: EWCT, NSCT and QCflag shapes must match; "
+            f"got {u.shape}, {v.shape}, {q.shape}"
+        )
+    if u.shape != (t.size, lat.size, lon.size):
+        raise ValueError(
+            f"{path}: variable shape {u.shape} inconsistent with "
+            f"(time, latitude, longitude)=({t.size}, {lat.size}, {lon.size})"
+        )
+    if not (np.all(np.isfinite(t)) and np.all(np.isfinite(lat))
+            and np.all(np.isfinite(lon))):
+        raise ValueError(f"{path}: time/latitude/longitude contain non-finite coordinates")
     if not (np.all(np.diff(lat) > 0) and np.all(np.diff(lon) > 0)):
         raise ValueError(f"{path}: latitude/longitude must be strictly increasing")
+    # Sort every time-dependent variable with the time coordinate. Sorting
+    # only t silently mislabels velocity and QC slices for unsorted inputs.
     order = np.argsort(t, kind="stable")
-    t = t[order]
-    keep = np.concatenate(([True], np.diff(t) > 0))  # drop duplicate timestamps
+    t, u, v, q = t[order], u[order], v[order], q[order]
+    keep = np.concatenate(([True], np.diff(t) > 0))  # retain first duplicate
     if not np.all(keep):
-        u, v, q = u[keep], v[keep], q[keep]
-        t = t[keep]
+        t, u, v, q = t[keep], u[keep], v[keep], q[keep]
     return HFRDataset(t, lat, lon, u, v, q.astype(np.int16))
 
 
