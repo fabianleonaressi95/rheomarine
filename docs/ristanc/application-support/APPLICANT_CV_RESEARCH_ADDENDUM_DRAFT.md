@@ -40,9 +40,11 @@ These are computational research outputs. They are not represented here as peer-
 
 ## Journalism and research communication
 
+**Name continuity for historical records:** The applicant legally changed their name in 2021. The byline “Fabiano Naressi” appearing on the 2019 *ParmAteneo* article is the applicant's former legal name and refers to the same person now identified as Fabian Leo Naressi. The original byline is retained faithfully for bibliographic accuracy. Documentary evidence of the legal name change can be supplied if required for verification.
+
 **Journalistic collaboration — *La Voce di Parma* (February–September 2019).** The period of collaboration is supported by the applicant's CV and contemporaneous email correspondence. The newspaper is listed as a weekly periodical in a Comune di Parma document concerning supplies to the municipal library system for October 2019–September 2021. This does not yet verify preservation of the specific 2019 issues; a holdings enquiry to the Biblioteca Civica is pending.
 
-**Published article — *ParmAteneo* (19 September 2019):** “Senza peli sulla lingua: intervista a Massimo Fini”, byline “Fabiano Naressi”; historical URL: https://www.parmateneo.it/?p=52962. The URL is retained in the applicant's email correspondence; direct access to the former site is currently unreliable.
+**Published article — *ParmAteneo* (19 September 2019):** “Senza peli sulla lingua: intervista a Massimo Fini”, byline “Fabiano Naressi” (the applicant's former legal name before the 2021 legal name change); historical URL: https://www.parmateneo.it/?p=52962. The URL is retained in the applicant's email correspondence; direct access to the former site is currently unreliable.
 
 These are journalism/public-communication activities and should be listed separately from scientific publications. Do not use the previously stated aggregate count of 13 articles unless a complete, checkable bibliography is recovered. The applicant's formal education in journalism and publishing culture supports literature synthesis, technical writing and dissemination.
 
