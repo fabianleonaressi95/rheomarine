@@ -23,7 +23,13 @@ The strongest evidence for this role is not a generic skills statement. It is th
 
 These qualifications support research communication, literature synthesis, technical writing and dissemination. They are not represented as formal training in marine science or numerical modelling.
 
-## 3. Direct, project-specific computational evidence
+## 3. Additional verified professional training
+
+The applicant holds a final certificate for the 124-hour professional training course **“Digital Office Assistant with Google Workspace and Gemini AI”**, delivered by METHOD JOB B.V. as promoter and implementing body, with Forma.Temp as funding body. The course ran from **4 March to 25 March 2026** under project code **225PROTD2612479**.
+
+This certificate provides documentary evidence of recent structured training in digital office workflows, Google Workspace and practical use of generative AI tools. It supports digital productivity, collaborative documentation and AI-assisted office workflows. It is **not** a qualification in Python programming, scientific computing, oceanography, environmental science or numerical modelling.
+
+## 4. Direct, project-specific computational evidence
 
 | Evidence | Work completed and traceable artefacts | Competence demonstrated | Boundary of the claim |
 |---|---|---|---|
@@ -33,7 +39,7 @@ These qualifications support research communication, literature synthesis, techn
 | **E4 — HFR data-readiness and provenance analysis** | docs/validation/INDEPENDENT_HFR_EVIDENCE_AUDIT_2026-11-25.md; docs/ristanc/application-support/HFR_LIVE_ENDPOINT_AND_CALIBRATION_CHECK_2026-11-25.md; docs/ristanc/application-support/HFR_SLOVENIAN_TERRITORIAL_SEA_DATA_AUDIT_2026-11-25.md. The work records endpoint checks, QC-flag coverage, temporal gaps, metadata and calibration questions for Izola and Piran. | Retrieval and inspection of real observational data products; metadata and provenance review; QC/coverage summarisation; identification of limits before model use. | This is a desk-based data audit, not operation or calibration of HFR instruments, not an ADCP validation campaign and not proof of full three-dimensional circulation. |
 | **E5 — Research software and documentation practice** | Public repositories https://github.com/fabianleonaressi95/rheomarine and https://github.com/fabianleonaressi95/theorem; Code Ocean capsules https://codeocean.com/capsule/3674340/tree/v1 and https://codeocean.com/capsule/1970808/tree/v1. | Version-controlled research organisation; computational notebooks/scripts; structured reporting of methods, assumptions and numerical outputs. | The Code Ocean projects are exploratory computational outputs. The broader mathematical repository is supporting evidence of research practice, not evidence of oceanographic expertise or peer-reviewed validation of a marine model. |
 
-## 4. Match between demonstrated competence and RheoMarine-SLO tasks
+## 5. Match between demonstrated competence and RheoMarine-SLO tasks
 
 The applicant's personal responsibilities are restricted to tasks that can be performed and evidenced through computational work:
 
@@ -45,7 +51,7 @@ The applicant's personal responsibilities are restricted to tasks that can be pe
 
 The existing M0 code is a preliminary numerical core, not a completed coastal forecasting system. Full integration with the selected HFR fields, realistic coastal boundaries and independent observations remains project work.
 
-## 5. Specialist competence gaps and mitigation
+## 6. Specialist competence gaps and mitigation
 
 The project does not conceal the applicant's lack of a formal marine-science or laboratory-rheometry qualification. It manages this limitation through a deliberately staged design:
 
@@ -57,7 +63,7 @@ The project does not conceal the applicant's lack of a formal marine-science or 
 
 This allocation makes the project feasible within the applicant's demonstrated computational competence while placing specialist experimental tasks with appropriately qualified providers.
 
-## 6. Evidence index
+## 7. Publications and research dissemination evidence\n\nOne SSRN research paper is independently identifiable and linked to the applicant's ORCID notification: **Fabian Leo Naressi, “Governance Concentration in Decentralized Finance: A Comparative Analysis of MakerDAO, Lido, and Ethereum Name Service Using the Zero Point Senemosìa Framework”**, dated 28 June 2026 and posted to SSRN on 6 July 2026, DOI [10.2139/ssrn.7015478](https://doi.org/10.2139/ssrn.7015478). It is an SSRN working paper/preprint record, not evidence of peer review or journal acceptance.\n\nThe applicant also reports earlier journalistic articles for a newspaper that has since ceased publication. The outlet name, article titles, publication dates and archived URLs have not yet been established from the email evidence inspected so far; these articles should be listed separately as journalism/public communication once supporting records or archived copies are recovered. They should not be presented as peer-reviewed scientific publications.\n\nA July 2026 email documents submission of a separate manuscript, “Quasicrystalline Governance Structures in European Financial Systems: A Novel Framework for Systemic Stability and Adaptive Regulation”, to *Economia&Lavoro*. The email proves submission only; no acceptance or publication confirmation has been located, so this item must be classified as a submitted manuscript, not a publication.\n\n## 8. Evidence index
 
 Primary project evidence:
 
@@ -72,12 +78,12 @@ Primary project evidence:
 - Broader computational research: https://github.com/fabianleonaressi95/theorem
 - Code Ocean capsules: https://codeocean.com/capsule/3674340/tree/v1 and https://codeocean.com/capsule/1970808/tree/v1
 
-## 7. Applicant verification and submission checklist
+## 9. Applicant verification and submission checklist
 
 Before submission:
 
 1. Attach a current, signed and dated CV together with the proposed [research and computational project addendum](APPLICANT_CV_RESEARCH_ADDENDUM_DRAFT.md). The current CV does not yet list the Python/scientific-computing skills or the RheoMarine DS1, DS2, M0 and HFR work; verify each description and contribution before attaching it.
-2. Add a selected list of the 13 articles reported in the CV, with titles, outlets, dates and URLs. Do not rely on an unreferenced count.
+2. Recover and list the earlier newspaper articles separately, with title, outlet, date and archived URL or saved copy. The outlet is reported to have closed; do not rely on an unverified count. List the SSRN paper separately with its DOI, and label the *Economia&Lavoro* manuscript as submitted only unless acceptance/publication evidence is found.
 3. Verify the applicant's authorship/contribution to every repository, script and Code Ocean capsule cited above.
 4. If available, attach verifiable certificates or training records for Python, numerical methods, data analysis or scientific computing. Do not imply that such certificates exist if they do not.
 5. Keep the education titles and dates exactly as shown on the official degree records and CV.
