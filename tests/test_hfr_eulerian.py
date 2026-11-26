@@ -41,7 +41,7 @@ class TestHFRToEulerian(unittest.TestCase):
         np.testing.assert_allclose(v0, -0.05)
 
         um, _, valid_mid = forcing.sample(5.0)
-        self.assertAlmostEqual(um[0, 0], 0.15)
+        self.assertAlmostEqual(um[2, 2], 0.15)
         self.assertFalse(valid_mid[0, 0])
         self.assertTrue(np.isnan(um[0, 0]))
 
