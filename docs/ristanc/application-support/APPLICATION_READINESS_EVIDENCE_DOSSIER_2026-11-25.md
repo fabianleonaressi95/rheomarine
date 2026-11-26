@@ -53,11 +53,11 @@ The project will not promise direct removal of plastic pollution or immediate ch
 
 | Potential user group | Concrete relevance | Project output they could use | Engagement route | Planned reach |
 |---|---|---|---|---:|
-| Slovenian marine/environmental monitoring bodies, including ARSO and NIB/Marine Biology Station | Interpret surface-current observations and understand limits when inferring particle transport | HFR data/QC note, model-comparison brief, data-gap recommendations | Public institutional contact channels; send final technical brief; invite to an open online briefing | 5–10 people |
-| Coastal environmental/public-service stakeholders in the Slovenian coastal area | Understand what the model can/cannot say about microplastic transport and what monitoring is needed | Short non-specialist summary and local pilot map | Publicly available municipal/environmental contact channels; open invitation | 10–15 people |
-| Researchers, students and technical specialists in marine science, environmental modelling and particle processes | Reuse methods and assess model assumptions | Versioned code, metadata, methods and technical report | Repository publication, research mailing lists and open briefing | 10–20 people |
+| Slovenian marine/environmental monitoring practitioners and relevant public-sector technical staff | Interpret surface-current observations and understand limits when inferring particle transport | HFR coverage/QC note, model-comparison brief and data-gap recommendations | Targeted circulation through public professional contact channels and invitation to the final briefing | 8 people |
+| Researchers, postgraduate students and technical specialists in marine pollution, environmental modelling and particle processes | Reuse methods and assess model assumptions | Versioned code, metadata, methods and technical report | Repository publication, targeted research contacts and open briefing | 12 people |
+| Coastal communities, environmental organisations and interested coastal stakeholders | Understand what the model can/cannot say about microplastic transport and what monitoring is needed | Two-page non-technical summary in English and Slovenian and accessible briefing | Relevant coastal/community channels and invitation to the final briefing | 10 people |
 
-**Estimated reach:** 25–45 unique people, with overlap deduplicated. These are planning estimates, not confirmed attendance, endorsements, letters of support or commitments by ARSO, NIB, OGS or municipalities. If the application form asks for target-group reach, retain this caveat and explain the channels.
+**Estimated reach:** 30 unique people, with overlap deduplicated. These are planning targets, not confirmed attendance, endorsements, letters of support or commitments by ARSO, NIB, OGS or municipalities. The target is supported by one final briefing (15–20 attendees, included within the 30) and targeted circulation to approximately 40–50 relevant public/professional contacts; actual reach will be logged and deduplicated.
 
 ### 1.4 Applicant competencies — evidence map
 
@@ -108,11 +108,16 @@ Current budget retained unchanged pending quote and itemisation:
 
 | Form line | Current amount | Completion needed |
 |---|---:|---|
-| A.3 — applicant work | €6,600 | Specify hours/months, unit cost and gross cost basis as required by the current FAQ |
-| B.1 — external laboratory service | €3,000 | Obtain real quote; define methods, samples, outputs, schedule and VAT treatment |
-| C — direct purchases | €600 | Allocate only to actual eligible subcategories C.1–C.6; avoid double-counting lab consumables |
-| E — indirect costs | €1,800 | 25% × (A+C) = €1,800; verify exact form calculation |
-| **Total** | **€12,000** | Within the stated call range, subject to final eligibility checks |
+| A.3 — applicant work | €6,600 | Proposed 220 hours × €30/hour all-in (27.5 hours/month average); fiscal treatment for Italian-resident natural person still to be confirmed |
+| B.1 — external laboratory service | €3,000 | Obtain real quote; define methods, samples, outputs, schedule, VAT and included consumables |
+| C.1 — travel/subsistence | €240 | Planning estimate: up to four project trips at €60 each; verify actual route and necessity |
+| C.2 — equipment | €0 | No purchase planned; use existing equipment |
+| C.3 — consumables | €0 | Avoid overlap with B.1 laboratory quote |
+| C.4 — meetings/seminars | €120 | One final online/hybrid briefing; reduce if free venue/platform available |
+| C.5 — communication | €240 | Slovenian translation/proofreading (€140) and limited printing/distribution (€100) |
+| C.6 — other | €0 | No other direct purchase currently identified |
+| E — indirect costs | €1,800 | 25% × (A+C) = €1,800 |
+| **Total** | **€12,000** | Arithmetically reconciled; assumptions and fiscal treatment still require final confirmation |
 
 Do not invent the laboratory quote, quantities, unit prices or purchases. If a cost cannot be supported, revise the allocation transparently before submission.
 
@@ -123,7 +128,7 @@ Do not invent the laboratory quote, quantities, unit prices or purchases. If a c
 | Section C narrative | **Drafted** | Final form-length and consistency check |
 | Slovenian territorial data pathway | **Documented** | Download/QC actual HFR subset and define pilot |
 | No-OGS implementation fallback | **Documented** | Keep OGS out of partner list absent written agreement |
-| Local impact pathway | **Drafted; estimates only** | Finalise dissemination channels and plausible reach |
+| Local impact pathway | **Defined: 30 unique people** | Deliver the M6–M8 report, bilingual summary, repository release and one briefing; record actual reach |
 | Applicant competence evidence | **Partly documented** | Assemble concise CV and links to artefacts |
 | Laboratory quote | **Open dependency** | Obtain supplier quote or reduce scope |
 | C €600 itemisation | **Open** | Populate from actual planned costs only |
@@ -132,6 +137,8 @@ Do not invent the laboratory quote, quantities, unit prices or purchases. If a c
 | Final form visual inspection | **Open** | Check checkboxes, signatures, income table and attachments |
 
 ## 5. Immediate sequence
+
+The detailed proposed allocation and dissemination indicators are recorded in [RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md](RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md).
 
 1. Download the Izola and Piran HFR subsets and create a coverage/QC summary.
 2. Assemble the two-to-three-page CV evidence annex.
