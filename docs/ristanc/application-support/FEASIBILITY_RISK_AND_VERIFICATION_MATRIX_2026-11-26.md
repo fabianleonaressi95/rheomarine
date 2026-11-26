@@ -98,3 +98,7 @@ Maintain one project evidence folder with a dated index. The minimum evidence pa
 - [ ] Preserve the fallback: M0 + uncertainty + reproducible report remain deliverable if laboratory work or M2 cannot proceed.
 
 ---
+
+## 8. B.1 market estimate and RFQ annex
+
+A separate source-based planning estimate is maintained in [B.1 Laboratory Cost Estimate and RFQ Plan](B1_LABORATORY_COST_ESTIMATE_AND_RFQ_PLAN_2026-11-26.md). It distinguishes public tariff benchmarks from supplier quotations, flags Measurlabs' stated restriction to companies and organisations, and requires written confirmation of seawater suitability, sample preparation, field-blank handling, turnaround, VAT and total cost. The €3,000 B.1 amount remains a ceiling, not a confirmed offer. No laboratory provider is represented as having agreed to participate.
