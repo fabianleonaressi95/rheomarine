@@ -12,7 +12,7 @@ Voci marcate **[bando]** vanno confrontate col testo ufficiale (non disponibile 
 ## Allegati consigliati (dal dossier App. A)
 - [ ] CV sintetico
 - [ ] Lavori pertinenti documentati
-- [ ] Preventivo di laboratorio (solo se ricevuto, mai bozze)
+- [x] Preventivo di laboratorio ricevuto: Measurlabs M49249 (€390/campione + €97/ordine; dettaglio in MEASURLABS_QUOTATION_M49249_2026-11-26.md)
 - [ ] Manifestazioni di interesse OGS (solo se ricevute e concordate)
 - [ ] Piano dei dati e delle licenze
 
@@ -26,7 +26,7 @@ Voci marcate **[bando]** vanno confrontate col testo ufficiale (non disponibile 
 
 ## Verifiche economiche
 - [ ] Totale 12.000 ≤ massimale ufficiale
-- [ ] Preventivo lab coerente con B.1 (IVA inclusa/esclusa chiarita)
+- [ ] Verificare preventivo Measurlabs rispetto a B.1: 5 campioni = €2.047 prima di IVA/logistica; IVA e spedizione da chiarire; pagamento anticipato per nuovi clienti
 - [ ] Indiretti e base di calcolo confermati
 - [ ] Ripartizione A.3 per WP definita
 
@@ -36,7 +36,7 @@ Voci marcate **[bando]** vanno confrontate col testo ufficiale (non disponibile 
 - [ ] Calendario compatibile con la data di avvio
 
 ## Controlli di non-dichiarazione
-- [ ] OGS non indicata come partner
+- [ ] OGS non indicata come partner; incontro tecnico del 26/11 con Laura Ursella e Cinzia De Vittor da verbalizzare senza attribuire impegni
 - [ ] Nessun laboratorio, campione o strumento dichiarato disponibile senza conferma scritta
 - [ ] Nessuna lettera/preventivo inventati
 
