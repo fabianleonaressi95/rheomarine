@@ -7,6 +7,12 @@
 
 Independent researcher developing mathematical and computational workflows, with a focus on numerical analysis, data processing, reproducible computation and technical research documentation. For RheoMarine-SLO, the applicant's proposed contribution is the computational workstream: observational/experimental data handling, numerical implementation, model comparison, uncertainty analysis and reporting.
 
+## Professional training
+
+**Digital Office Assistant with Google Workspace and Gemini AI** — 124 hours, 4–25 March 2026.  
+Promoter and implementing body: METHOD JOB B.V. | Funding body: Forma.Temp | Project code: 225PROTD2612479.  
+Completed professional training in digital office workflows, Google Workspace and Gemini AI. The certificate supports digital productivity and AI-assisted collaboration; it is not a specialist qualification in scientific programming or marine science.
+
 ## Selected computational research projects
 
 ### RheoMarine-SLO — microplastic settling and transport analysis (2026)
@@ -36,7 +42,7 @@ These are computational research outputs. They are not represented here as peer-
 
 The existing CV reports 13 published articles in the listed editorial outlets. A selected publication list with titles, dates and URLs should accompany this addendum. The applicant's formal education in journalism and publishing culture supports literature synthesis, technical writing and dissemination.
 
-## Education and languages
+## Manuscripts submitted\n\n- “Quasicrystalline Governance Structures in European Financial Systems: A Novel Framework for Systemic Stability and Adaptive Regulation” — submitted to *Economia&Lavoro* on 8 July 2026; editorial outcome not verified.\n\n## Education and languages
 
 - MA in Journalism and Publishing Culture, University of Parma (2021).
 - BA in Italian Literature, University of Bologna (2018).
