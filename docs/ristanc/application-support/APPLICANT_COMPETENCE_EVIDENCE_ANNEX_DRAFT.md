@@ -76,7 +76,7 @@ Primary project evidence:
 
 Before submission:
 
-1. Attach a current, signed and dated CV. The current CV does not yet list the Python/scientific-computing skills or the RheoMarine DS1, DS2, M0 and HFR work; add a clearly labelled **Research and computational projects** section, but only after checking that each description accurately reflects the applicant's own contribution.
+1. Attach a current, signed and dated CV together with the proposed [research and computational project addendum](APPLICANT_CV_RESEARCH_ADDENDUM_DRAFT.md). The current CV does not yet list the Python/scientific-computing skills or the RheoMarine DS1, DS2, M0 and HFR work; verify each description and contribution before attaching it.
 2. Add a selected list of the 13 articles reported in the CV, with titles, outlets, dates and URLs. Do not rely on an unreferenced count.
 3. Verify the applicant's authorship/contribution to every repository, script and Code Ocean capsule cited above.
 4. If available, attach verifiable certificates or training records for Python, numerical methods, data analysis or scientific computing. Do not imply that such certificates exist if they do not.
