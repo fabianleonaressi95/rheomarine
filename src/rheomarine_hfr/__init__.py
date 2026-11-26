@@ -1,8 +1,8 @@
 """HFR ingestion adapter for the RheoMarine transport engine.
 
-Converts European HFR Node ERDDAP NetCDF subsets into QC-masked
-``VelocityField`` objects on a local metric grid. Performs no download;
-the caller supplies already-acquired files (see docs/hfr/).
+Converts European HFR Node ERDDAP NetCDF subsets into QC-masked velocity
+fields on a local metric grid. Provides both Lagrangian and Eulerian
+handoffs; performs no download, and callers supply acquired files.
 """
 from .adapter import (
     EARTH_RADIUS_M,
@@ -14,6 +14,7 @@ from .adapter import (
     load_erddap_netcdf,
     to_velocity_fields,
 )
+from .eulerian import EulerianHFRForcing, to_eulerian_forcing
 from .trajectory import simulate_qc_aware
 
 __all__ = [
@@ -26,4 +27,6 @@ __all__ = [
     "load_erddap_netcdf",
     "simulate_qc_aware",
     "to_velocity_fields",
+    "EulerianHFRForcing",
+    "to_eulerian_forcing",
 ]
