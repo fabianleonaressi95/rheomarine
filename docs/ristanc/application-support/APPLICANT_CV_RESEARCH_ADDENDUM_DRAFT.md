@@ -1,0 +1,50 @@
+# Fabian Leo Naressi — Research and computational project addendum
+
+**Purpose:** Supplement to the applicant's existing CV for the RISTANC RheoMarine-SLO application.  
+**Status:** Draft for applicant verification; attach only after confirming personal contribution and dates.
+
+## Research profile
+
+Independent researcher developing mathematical and computational workflows, with a focus on numerical analysis, data processing, reproducible computation and technical research documentation. For RheoMarine-SLO, the applicant's proposed contribution is the computational workstream: observational/experimental data handling, numerical implementation, model comparison, uncertainty analysis and reporting.
+
+## Selected computational research projects
+
+### RheoMarine-SLO — microplastic settling and transport analysis (2026)
+
+Repository: https://github.com/fabianleonaressi95/rheomarine
+
+- Developed a Python workflow to analyse 722 particle-tracking runs from a published laboratory dataset on microplastic settling in polymer-modified fluids.
+- Derived and compared material-specific settling ratios against artificial-seawater baselines; documented unresolved absolute coordinate calibration and the limits of equal-weight aggregation.
+- Developed a second analysis of 108 ensemble-averaged trajectory records from published stratified-settling experiments, including timestamp resampling, smoothed kinematic analysis, interface-zone classification and coverage checks.
+- Produced a post-analysis audit that corrected interpretation risks and distinguished descriptive patterns from causal or universal claims.
+- Contributed to a first finite-volume surface-transport baseline documented with six deterministic tests for invariance, mass conservation, source/sink bookkeeping, numerical stability and settling-sign validation.
+- Conducted a desk-based data-readiness audit of public Izola and Piran HFR feeds, covering QC flags, temporal gaps, metadata and calibration questions. This was not operation or calibration of the radar instruments.
+
+**Methods evidenced in the project:** Python; NumPy; scientific data processing; numerical differentiation and smoothing; trajectory analysis; comparative statistics; data-quality checks; reproducible scripts; Git/GitHub documentation; deterministic software testing.
+
+**Scope:** Analyses use published datasets; the applicant did not conduct the underlying laboratory experiments. The transport code is a preliminary numerical baseline, not an independently validated operational coastal forecast model.
+
+### Computational physics and mathematical modelling
+
+- Code Ocean capsule 3674340: https://codeocean.com/capsule/3674340/tree/v1 — computational exploration of spin-chain models and entropy-related quantities.
+- Code Ocean capsule 1970808: https://codeocean.com/capsule/1970808/tree/v1 — computational exploration involving geometric coupling and aperiodic lattices.
+- Mathematical/computational research repository: https://github.com/fabianleonaressi95/theorem — structured records of mathematical statements, numerical checks, conjectures and open problems.
+
+These are computational research outputs. They are not represented here as peer-reviewed evidence of a general physical law or as marine-science qualifications.
+
+## Research communication
+
+The existing CV reports 13 published articles in the listed editorial outlets. A selected publication list with titles, dates and URLs should accompany this addendum. The applicant's formal education in journalism and publishing culture supports literature synthesis, technical writing and dissemination.
+
+## Education and languages
+
+- MA in Journalism and Publishing Culture, University of Parma (2021).
+- BA in Italian Literature, University of Bologna (2018).
+- Classical high-school diploma, Liceo G. Leopardi–E. Majorana (2014).
+- Languages as stated in the existing CV: Italian (native), German B2, English B1, French A2.
+
+## Competence boundaries
+
+The applicant does not claim formal qualifications or professional experience in operational oceanography, marine field sampling, HFR instrument operation/calibration or laboratory rheometry. These specialist activities require qualified external providers or explicitly confirmed scientific collaborators. No institutional affiliation or partnership should be inferred from this addendum.
+
+**Applicant check before use:** verify all dates, authorship/contributions, capsule contents, publication count and language levels; add the selected publication bibliography; sign/date the final CV package.
