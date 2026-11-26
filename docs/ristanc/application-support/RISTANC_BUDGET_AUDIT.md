@@ -35,3 +35,16 @@ Il calcolo è internamente coerente. Rapporto indiretti/totale 15%; indiretti ca
 | Indiretti | 1.800 | trasversale WP1–WP4 | D1–D4 |
 
 La ripartizione di A.3 tra WP non è nel dossier: va decisa dal proponente, non l'ho inventata.
+
+
+## 4. Preventivo ricevuto — Measurlabs M49249 (26 novembre 2026)
+
+È ora disponibile un preventivo formale. Measurlabs (Measur Oy, Helsinki) ha emesso l'offerta M49249 a Fabian Leo Atlas (persona fisica), valida fino al 30 aprile 2027. Referente: Arto Talvinen, arto.talvinen@measurlabs.com, +358 40 526 9966.
+
+Il fornitore conferma per iscritto: applicabilità della µFTIR all'acqua marina del Golfo di Trieste; €390/campione inclusi preparazione e reporting; €97 di service fee per ordine; bianco di campo fatturato come campione completo; rapporto con polimero, conteggio e dimensione particelle fino a 10 µm; contenitore microplastic-free (l'offerta specifica vetro e barriera in alluminio se il tappo è plastico); turnaround stimato 4–5 settimane; disponibilità a lavorare con committente persona fisica o società.
+
+**Caso base richiesto: 4 campioni ambientali + 1 bianco = 5 × €390 + €97 = €2.047 prima di IVA e logistica.** Rispetto a B.1 provvisorio di €3.000 restano €953 prima di IVA/logistica. Sette campioni costano €2.827 prima di IVA; otto €3.217 e superano B.1 già prima dell'IVA.
+
+**Questioni aperte:** il prospetto esclude IVA e imposte applicabili; l'email afferma che si applica l'IVA nazionale del cliente. Confermare con ZRS trattamento IVA per persona fisica residente in Italia e ammissibilità nel budget. L'email definisce la fee come unico extra costo del servizio, ma le condizioni generali attribuiscono al cliente imballaggio, spedizione e assicurazione: chiarire per iscritto logistica e costi. Per nuovi clienti è previsto pagamento anticipato. La stima di 4–5 settimane è indicativa.
+
+Il preventivo documenta disponibilità commerciale e costo per WP2/B.1, ma **non** costituisce ordine, campionamento autorizzato, validazione fisica già svolta o partnership scientifica. Non dichiarare acquisiti campioni o permessi di prelievo. Dettaglio: docs/ristanc/application-support/MEASURLABS_QUOTATION_M49249_2026-11-26.md.
