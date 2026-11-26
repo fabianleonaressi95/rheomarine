@@ -1,0 +1,74 @@
+name: Create or update project milestones
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/create-project-milestones.yml"
+      - "docs/ristanc/PROJECT_MILESTONES.md"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+concurrency:
+  group: project-milestones
+  cancel-in-progress: false
+
+jobs:
+  sync-milestones:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or update native GitHub milestones
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const milestones = [
+              {
+                title: "M0 — Data readiness",
+                description: "HFR-NAdr, QC, observational datasets, permissions and provenance. Exit: required datasets inventoried; coverage, QC, licensing/access conditions and gaps documented."
+              },
+              {
+                title: "M1 — Baseline transport validation",
+                description: "Independent Eulerian M0 baseline and HFR handoff. Exit: reproducible pilot runs; QC-preserving inputs; quantitative diagnostics and limitations documented."
+              },
+              {
+                title: "M2 — Independent laboratory evidence",
+                description: "µFTIR microplastics pilot and sample logistics. Exit: sampling protocol/permissions resolved; laboratory report received; blanks and QA/QC reviewed."
+              },
+              {
+                title: "M3 — Evidence-gated rheological extension",
+                description: "EPS/aggregation/reology extensions. Exit: parameters supported by independent measurements; extension compared against M0 baseline; unsupported effects excluded."
+              },
+              {
+                title: "M4 — Predictive validation",
+                description: "Independent observations, sensitivity and uncertainty. Exit: predefined validation metrics computed on independent evidence; uncertainty and failure cases reported."
+              },
+              {
+                title: "M5 — RISTANC delivery and dissemination",
+                description: "Deliverables, reproducibility, reporting and dissemination. Exit: required deliverables complete; evidence linked; reproducible archive and dissemination record checked."
+              }
+            ];
+
+            const { owner, repo } = context.repo;
+            const existing = await github.paginate(
+              github.rest.issues.listMilestones,
+              { owner, repo, state: "all", per_page: 100 }
+            );
+
+            for (const item of milestones) {
+              const found = existing.find(m => m.title === item.title);
+              if (found) {
+                await github.rest.issues.updateMilestone({
+                  owner, repo, milestone_number: found.number,
+                  title: item.title, description: item.description
+                });
+                core.info(`Updated milestone #${found.number}: ${item.title}`);
+              } else {
+                const created = await github.rest.issues.createMilestone({
+                  owner, repo, title: item.title, description: item.description
+                });
+                core.info(`Created milestone #${created.data.number}: ${item.title}`);
+              }
+            }
