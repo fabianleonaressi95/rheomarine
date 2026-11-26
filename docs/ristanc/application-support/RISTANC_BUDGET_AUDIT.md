@@ -1,37 +1,60 @@
-# Audit del budget — RheoMarine-SLO (dossier App. A)
+# RISTANC budget audit — RheoMarine-SLO
 
-Importi **non modificati**. Non conosco il massimale né le regole del bando; ciò che dipende da ZRS Koper è marcato **[CONFERMA ZRS]**.
+**Status snapshot: 26 November 2026.** This audit is aligned with the revised RISTANC Guidelines v2 and the Q&A updated 5 November 2026. It is a planning check, not a tax opinion or confirmation of award.
 
-## 1. Verifica aritmetica
-| Voce | Importo (EUR) | Note |
-|------|---------------|------|
-| A.3 lavoro del richiedente | 6.600 | "incluse imposte e contributi ove applicabili" |
-| B.1 servizi esterni | 3.000 | stanziamento, non dimostrazione di sufficienza |
-| C acquisti | 600 | contenuto da dettagliare |
-| Costi indiretti | 1.800 | 25% × (6.600 + 600) = 1.800 ✔ |
-| **Totale** | **12.000** | 6.600 + 3.000 + 600 + 1.800 = 12.000 ✔ |
+## 1. Official budget rules
 
-Il calcolo è internamente coerente. Rapporto indiretti/totale 15%; indiretti calcolati su A + C, **escludendo B.1**: [CONFERMA ZRS] che sia la base prevista.
+- Grant per project: **EUR 7,500–12,000**, up to 100% of the estimated eligible project budget.
+- Funding is a **lump sum** linked to activities/results, not reimbursement of actual costs against invoices.
+- A.3 may include the natural-person applicant's own work. State quantity and unit cost; the amount is the total gross cost (“bruto bruto”/gross 2), including applicable taxes and contributions.
+- B.1 covers direct subcontracting, including external laboratory analysis and expertise.
+- Indirect costs are **25% × (A + C)**; B (subcontracting) is excluded from this calculation.
+- Payment schedule in the call documentation: 20% at signature, 30% after approval of interim results/milestones and 50% after final results/report. Actual acceptance and payment conditions are governed by the funding agreement.
+- Keep supplier quotations, selection rationale, orders/contracts and deliverables as evidence of implementation even though the lump sum is not an actual-cost reimbursement.
 
-## 2. Punti che richiedono conferma
-1. **Compenso (A.3):** se 6.600 è lordo comprensivo di imposte e contributi (come indicato dalla FAQ via nota fiscale), il netto dipende dal regime; su 8 mesi equivale a 825 EUR/mese lordi. Trattamento fiscale/contributivo per residente in Italia: [CONFERMA ZRS] + parere di un commercialista. La nota fiscale preliminare (art. 14, 22 Convenzione Italia–Slovenia, ecc.) è un'analisi non verificata da me e va confermata da un professionista.
-2. **Servizi di laboratorio (B.1):** 3.000 è comprensivo o al netto di IVA? Per un committente persona fisica l'IVA può essere un costo; il preventivo deve indicarla. [CONFERMA ZRS] ammissibilità IVA e procedure di selezione fornitori.
-3. **Materiali (C):** 600 senza dettaglio. Candidati da confermare (ipotesi, non preventivati): polimeri proxy, sale per acqua marina artificiale, particelle di riferimento, contenitori. Eventuale sovrapposizione con consumabili inclusi nel preventivo lab da evitare.
-4. **Costi indiretti:** ammissibili? Aliquota 25% e base: [CONFERMA ZRS].
-5. **Forfait vs. preventivo:** se il finanziamento è forfettario senza fatture, chiarire se serva comunque il preventivo e come vengano valutati gli scostamenti.
-6. **Pagamento:** tranche, milestone, valuta, conto estero: [CONFERMA ZRS].
-7. **Massimale del bando:** 12.000 EUR va confrontato col massimale ufficiale (non noto qui).
-8. **Calendario:** costi di laboratorio in WP2 (mesi 2–4) → spese anticipate dal richiedente prima di eventuali pagamenti?
+## 2. Current working allocation
 
-## 3. Collegamento spese → attività → deliverable
-| Spesa | Importo | Attività / WP | Deliverable |
-|-------|---------|---------------|-------------|
-| A.3 audit dati HFR, perimetro | quota di 6.600 [ripartizione da definire] | WP1 (mesi 1–2) | D1 rapporto dati e perimetro pilota |
-| A.3 coordinamento protocollo, analisi dati lab | quota | WP2 (mesi 2–4) | D2 (con B.1) |
-| A.3 sviluppo M0/M1/M2, verifica, confronti | quota | WP3 (mesi 3–7) | D3 prototipo e rapporto comparativo |
-| A.3 sintesi, pubblicazione, incontro | quota | WP4 (mesi 7–8) | D4 rapporto finale, documentazione, briefing |
-| B.1 servizi lab | 3.000 | WP2 | D2 caratterizzazione / rapporto dati di riferimento |
-| C materiali | 600 | WP2 (materiali proxy); eventuale supporto WP4 (incontro) [da confermare] | D2 |
-| Indiretti | 1.800 | trasversale WP1–WP4 | D1–D4 |
+| Category | Amount (EUR) | Audit |
+|---|---:|---|
+| A.3 applicant work | 6,600 | Must be justified by hours/units × gross unit cost, including applicable charges |
+| B.1 external services | 3,000 | Planning allowance; supplier scope and VAT treatment must fit |
+| C direct purchases | 600 | Must be itemised across the relevant C.1–C.6 lines |
+| E indirect costs | 1,800 | 25% × (A + C) = 25% × 7,200 |
+| **Total** | **12,000** | 6,600 + 3,000 + 600 + 1,800 = 12,000 |
 
-La ripartizione di A.3 tra WP non è nel dossier: va decisa dal proponente, non l'ho inventata.
+The arithmetic is consistent with the official indirect-cost base and the EUR 12,000 ceiling. The cost allocation is not yet a substitute for a complete financial plan with quantities, unit costs and WP links.
+
+## 3. Measurlabs quotation — B.1 feasibility check
+
+The Measurlabs quotation M49249 dated 26 November 2026 states:
+- µFTIR analysis: EUR 390 per sample, including preparation and report;
+- order service fee: EUR 97 once per order;
+- blank charged as a full sample;
+- report includes polymer types, particle counts and size classes;
+- 500 ml sample; detection from 10 µm;
+- estimated turnaround: 4–5 weeks;
+- prices are exclusive of VAT; clarify the applicable VAT treatment and shipping/insurance arrangements before ordering.
+
+Indicative totals before VAT and shipping:
+- 5 samples (4 environmental + 1 blank): **EUR 2,047**;
+- 7 samples: **EUR 2,827**;
+- 8 samples: **EUR 3,217**.
+
+Thus the EUR 3,000 B.1 allowance could cover the five-sample option before VAT/logistics, but not the eight-sample option before VAT/logistics. This is a feasibility comparison only. No order has been placed and no sample has been analysed; no laboratory result is available.
+
+## 4. Remaining budget work
+
+- [ ] Define A.3 hours/units, unit rate and gross-2 calculation with a qualified tax/payroll adviser.
+- [ ] Allocate the EUR 600 across C.1–C.6 with quantities, unit prices and a direct link to project tasks.
+- [ ] Confirm whether the selected laboratory quote includes all necessary preparation, containers, shipping and insurance; obtain a written final quotation if scope changes.
+- [ ] Determine VAT treatment from the supplier's invoice/contract and the applicant's actual tax status; do not assume VAT is recoverable or automatically ineligible.
+- [ ] Document supplier selection and value-for-money rationale under the call's transparency, equal-treatment and competition principles.
+- [ ] Verify all budget rows against the final implementation plan and the signed funding agreement.
+- [ ] Ensure other income or contributions are disclosed in the application income section.
+
+## 5. Interpretation boundaries
+
+- The supplier quote is not a completed purchase, analysis, result or partnership.
+- The lump sum does not remove the need to demonstrate that the activities and results were delivered.
+- The repository's Italy–Slovenia tax discussion is preliminary; the funding agreement and the applicant's actual legal/tax circumstances must be reviewed by a qualified professional.
+- Do not deduct an assumed net amount from A.3 or add VAT without a defensible legal/accounting basis.
