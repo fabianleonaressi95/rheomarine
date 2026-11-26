@@ -1,12 +1,15 @@
 import unittest
+import tempfile
 
 import numpy as np
+from scipy.io import netcdf_file
 
 from rheomarine_hfr import (
     build_segments,
     crop_field,
     equirectangular_grid,
     hfr_valid_mask,
+    load_erddap_netcdf,
     to_velocity_fields,
 )
 from rheomarine_hfr.adapter import HFRDataset
@@ -30,6 +33,46 @@ def make_dataset(times, u_fill_frac=0.0, gap_after=None):
         times[gap_after:] += 1e6
     return HFRDataset(times_s=np.asarray(times, float), latitude=lat,
                       longitude=lon, u=u, v=v, qcflag=q)
+
+
+
+class TestNetCDFLoader(unittest.TestCase):
+    def test_unsorted_timestamps_reorder_all_forcing_and_qc_slices(self):
+        with tempfile.NamedTemporaryFile(suffix=".nc") as tmp:
+            f = netcdf_file(tmp.name, "w")
+            try:
+                f.createDimension("time", 3)
+                f.createDimension("depth", 1)
+                f.createDimension("latitude", 2)
+                f.createDimension("longitude", 2)
+                time = f.createVariable("time", "d", ("time",))
+                lat = f.createVariable("latitude", "d", ("latitude",))
+                lon = f.createVariable("longitude", "d", ("longitude",))
+                ewct = f.createVariable(
+                    "EWCT", "f", ("time", "depth", "latitude", "longitude")
+                )
+                nsct = f.createVariable(
+                    "NSCT", "f", ("time", "depth", "latitude", "longitude")
+                )
+                qc = f.createVariable(
+                    "QCflag", "h", ("time", "depth", "latitude", "longitude")
+                )
+                time[:] = [3600.0, 0.0, 1800.0]
+                lat[:] = [45.5, 45.6]
+                lon[:] = [13.3, 13.4]
+                for i, value in enumerate((3.0, 1.0, 2.0)):
+                    ewct[i, 0, :, :] = value
+                    nsct[i, 0, :, :] = -value
+                    qc[i, 0, :, :] = int(value)
+            finally:
+                f.close()
+
+            ds = load_erddap_netcdf(tmp.name)
+
+        np.testing.assert_array_equal(ds.times_s, [0.0, 1800.0, 3600.0])
+        np.testing.assert_array_equal(ds.u[:, 0, 0], [1.0, 2.0, 3.0])
+        np.testing.assert_array_equal(ds.v[:, 0, 0], [-1.0, -2.0, -3.0])
+        np.testing.assert_array_equal(ds.qcflag[:, 0, 0], [1, 2, 3])
 
 
 class TestCoordinates(unittest.TestCase):
