@@ -27,26 +27,32 @@ jobs:
             const milestones = [
               {
                 title: "M0 — Data readiness",
+                due_on: "2027-01-31T23:59:59Z",
                 description: "HFR-NAdr, QC, observational datasets, permissions and provenance. Exit: required datasets inventoried; coverage, QC, licensing/access conditions and gaps documented."
               },
               {
                 title: "M1 — Baseline transport validation",
+                due_on: "2027-04-30T23:59:59Z",
                 description: "Independent Eulerian M0 baseline and HFR handoff. Exit: reproducible pilot runs; QC-preserving inputs; quantitative diagnostics and limitations documented."
               },
               {
                 title: "M2 — Independent laboratory evidence",
+                due_on: "2027-06-30T23:59:59Z",
                 description: "µFTIR microplastics pilot and sample logistics. Exit: sampling protocol/permissions resolved; laboratory report received; blanks and QA/QC reviewed."
               },
               {
                 title: "M3 — Evidence-gated rheological extension",
+                due_on: "2027-09-30T23:59:59Z",
                 description: "EPS/aggregation/reology extensions. Exit: parameters supported by independent measurements; extension compared against M0 baseline; unsupported effects excluded."
               },
               {
                 title: "M4 — Predictive validation",
+                due_on: "2027-12-31T23:59:59Z",
                 description: "Independent observations, sensitivity and uncertainty. Exit: predefined validation metrics computed on independent evidence; uncertainty and failure cases reported."
               },
               {
                 title: "M5 — RISTANC delivery and dissemination",
+                due_on: "2028-02-28T23:59:59Z",
                 description: "Deliverables, reproducibility, reporting and dissemination. Exit: required deliverables complete; evidence linked; reproducible archive and dissemination record checked."
               }
             ];
@@ -62,12 +68,12 @@ jobs:
               if (found) {
                 await github.rest.issues.updateMilestone({
                   owner, repo, milestone_number: found.number,
-                  title: item.title, description: item.description
+                  title: item.title, description: item.description, due_on: item.due_on
                 });
                 core.info(`Updated milestone #${found.number}: ${item.title}`);
               } else {
                 const created = await github.rest.issues.createMilestone({
-                  owner, repo, title: item.title, description: item.description
+                  owner, repo, title: item.title, description: item.description, due_on: item.due_on
                 });
                 core.info(`Created milestone #${created.data.number}: ${item.title}`);
               }
