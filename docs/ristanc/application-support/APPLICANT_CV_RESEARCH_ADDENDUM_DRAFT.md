@@ -38,9 +38,13 @@ Repository: https://github.com/fabianleonaressi95/rheomarine
 
 These are computational research outputs. They are not represented here as peer-reviewed evidence of a general physical law or as marine-science qualifications.
 
-## Research communication
+## Journalism and research communication
 
-The existing CV reports 13 published articles in the listed editorial outlets. A selected publication list with titles, dates and URLs should accompany this addendum. The applicant's formal education in journalism and publishing culture supports literature synthesis, technical writing and dissemination.
+**Journalistic collaboration — *La Voce di Parma* (February–September 2019).** The period of collaboration is supported by the applicant's CV and contemporaneous email correspondence. The newspaper is listed as a weekly periodical in a Comune di Parma document concerning supplies to the municipal library system for October 2019–September 2021. This does not yet verify preservation of the specific 2019 issues; a holdings enquiry to the Biblioteca Civica is pending.
+
+**Published article — *ParmAteneo* (19 September 2019):** “Senza peli sulla lingua: intervista a Massimo Fini”, byline “Fabiano Naressi”; historical URL: https://www.parmateneo.it/?p=52962. The URL is retained in the applicant's email correspondence; direct access to the former site is currently unreliable.
+
+These are journalism/public-communication activities and should be listed separately from scientific publications. Do not use the previously stated aggregate count of 13 articles unless a complete, checkable bibliography is recovered. The applicant's formal education in journalism and publishing culture supports literature synthesis, technical writing and dissemination.
 
 ## Manuscripts submitted\n\n- “Quasicrystalline Governance Structures in European Financial Systems: A Novel Framework for Systemic Stability and Adaptive Regulation” — submitted to *Economia&Lavoro* on 8 July 2026; editorial outcome not verified.\n\n## Education and languages
 
