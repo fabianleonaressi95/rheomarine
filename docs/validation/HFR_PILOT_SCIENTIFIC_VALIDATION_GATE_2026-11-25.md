@@ -1,5 +1,20 @@
 # HFR pilot — scientific validation gate assessment
 
+> **Addendum 26 Nov 2026:** two evidence items changed after this gate was
+> written; the gate decision is unchanged.
+> - **Inputs recovered and pilot reproduced:** the raw seven-day IZOL/PIRA
+>   NetCDF subsets were found, SHA-256 verified, published as release
+>   `hfr-m0-pilot-inputs-2026-11-25`, and the pilot rerun reproduces
+>   `results/hfr_pilot_audit/` bit-identically — see
+>   `docs/hfr/M0_PILOT_REPRODUCTION_2026-11-26.md` (PR #21). Label:
+>   **PILOT-REPRODUCED** for the Lagrangian K=0 sensitivity experiment.
+> - **Eulerian solver boundary options:** wet-cell mask, QC-barrier
+>   (`active`) mask and open edges are implemented and software-tested in
+>   PR #20. This is solver capability, not validation evidence.
+> - **Independent validation: still BLOCKED / DATA-BLOCKED.** No
+>   contemporaneous independent current or particle observations have been
+>   acquired; §2–§3 candidate inventory and §8 data requests stand.
+
 **Date:** 25 November 2026
 **Branch basis:** `main` at `6da85c2` (post PR #5 merge)
 **Scope:** the IZOL/PIRA 7-day Lagrangian pilot (`results/hfr_pilot_audit*`,
