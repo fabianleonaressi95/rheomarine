@@ -85,13 +85,14 @@ These documents define the scientific workstream independently of the ongoing HF
 
 ## Transport engine implementation
 
-The first independent numerical transport core is now available:
+The repository currently contains two distinct M0 transport implementations; do not conflate their evidence:
 
 - [M0/M1 transport engine and HFR interface contract](docs/model/TRANSPORT_ENGINE_INTERFACE.md)
-- `src/rheomarine_transport/`: conservative finite-volume surface advection–diffusion and particle-property primitives.
-- `tests/test_transport.py`: deterministic tests for zero-flow invariance, closed-domain mass conservation, diffusion, source/sink budget, stability guard and Stokes sign.
+- **Eulerian finite-volume solver:** `src/rheomarine_transport/grid.py` (`Grid2D`, `step_advection_diffusion`), a conservative advection–diffusion baseline on a uniform Cartesian grid. It currently has no HFR temporal-forcing/QC-mask adapter.
+- **Lagrangian particle solver:** `src/rheomarine_transport/m0.py` (`VelocityField`, `simulate_m0`), with the HFR NetCDF adapter in `src/rheomarine_hfr/`. This path applies the documented strict QC mask, metric coordinate conversion and temporal segmentation. Its HFR pilots are particle-path sensitivity experiments, not Eulerian concentration forecasts.
+- `tests/test_transport.py`, `tests/test_m0.py`, `tests/test_hfr_adapter.py` and `tests/test_hfr_trajectory.py` cover separate components; see the linked implementation and pilot reports for their actual scope.
 
-Run with `PYTHONPATH=src python -m unittest discover -s tests -v`. This is a controlled closed-rectangle baseline. Coastline masks, open boundaries, nonuniform/spherical metrics and HFR adapter are not yet implemented; it is not yet a pilot-ready or independently validated forecast model.
+Run with `PYTHONPATH=src python -m unittest discover -s tests -v`. Neither implementation is an independently validated coastal forecast model. The finite-volume solver still needs an explicit, fail-closed HFR/QC forcing contract, coastline/wet-cell masks, open-boundary treatment and appropriate grid metrics before a coastal concentration pilot.
 
 ## Literature review and scientific basis
 
