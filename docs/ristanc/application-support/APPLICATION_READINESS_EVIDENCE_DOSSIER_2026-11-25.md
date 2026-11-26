@@ -131,14 +131,18 @@ Do not invent the laboratory quote, quantities, unit prices or purchases. If a c
 | Local impact pathway | **Defined: 30 unique people** | Deliver the M6–M8 report, bilingual summary, repository release and one briefing; record actual reach |
 | Applicant competence evidence | **Partly documented** | Assemble concise CV and links to artefacts |
 | Laboratory quote | **Open dependency** | Obtain supplier quote or reduce scope |
-| C €600 itemisation | **Open** | Populate from actual planned costs only |
-| A.3 hours/unit cost | **Open** | Decide defensible time allocation |
+| C €600 itemisation | **Proposed and itemised** | C.1 €240, C.2 €0, C.3 €0, C.4 €120, C.5 €240, C.6 €0; verify travel and communication assumptions |
+| A.3 hours/unit cost | **Proposed and itemised** | 220 h × €30/h all-in; confirm Italian-resident natural-person fiscal treatment with ZRS/tax adviser |
 | Administrative declarations | **Open** | Complete official form and verify ZRS requirements |
 | Final form visual inspection | **Open** | Check checkboxes, signatures, income table and attachments |
 
-## 5. Immediate sequence
+## 5. Feasibility and risk controls
 
-The detailed proposed allocation and dissemination indicators are recorded in [RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md](RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md).
+RheoMarine-SLO is presented as a staged eight-month pilot, not as an already validated operational forecast system. M0 is the mandatory core; M1 is limited to traceable particle-property evidence; M2 is conditional on the M4 gate. HFR is treated as surface-current forcing only. The new feasibility matrix defines risks R1–R12, gates G0–G4, the minimum laboratory procurement specification and the evidence to retain. The principal unresolved feasibility dependency remains the B.1 laboratory quote; the A.3 and C allocations are proposed and itemised but still require fiscal and cost-basis checks.
+
+## 6. Immediate sequence
+
+The detailed proposed allocation and dissemination indicators are recorded in [RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md](RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md). The project-level feasibility judgement, risk register, decision gates, laboratory request-for-quotation specification and verification evidence pack are recorded in [FEASIBILITY_RISK_AND_VERIFICATION_MATRIX_2026-11-26.md](FEASIBILITY_RISK_AND_VERIFICATION_MATRIX_2026-11-26.md).
 
 1. Download the Izola and Piran HFR subsets and create a coverage/QC summary.
 2. Assemble the two-to-three-page CV evidence annex.
@@ -147,7 +151,7 @@ The detailed proposed allocation and dissemination indicators are recorded in [R
 5. Populate the official application form and visually inspect every page.
 6. Run a final factual, budget, ethics and administrative audit before submission.
 
-## 6. Sources
+## 7. Sources
 
 - NIB HF radar overview: https://www.nib.si/mbp/en/oceanographic-data-and-measurements/other-oceanographic-data/hf-radar-2
 - Izola ERDDAP dataset: https://erddap.hfrnode.eu/erddap/griddap/EUHFR_NRTcurrent_HFR-NAdr-IZOL_v3.html
