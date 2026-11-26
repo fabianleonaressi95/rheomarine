@@ -13,9 +13,9 @@
 
 ## Defects found and corrected on this branch
 
-### Package export collision
+### Package export-list inconsistency
 
-The transport package initializer contained two successive public-API declarations. The second `__all__` replaced the first and omitted `VelocityField`, `simulate_m0`, and `SimulationResult`, while the HFR adapter and tests import those names from the package root. The initializer now exports the Eulerian, Lagrangian and particle-property APIs together. Existing test-module imports exercise this contract.
+The transport package initializer contained two successive `__all__` declarations. The second replaced the first, so wildcard imports omitted `VelocityField`, `simulate_m0`, and `SimulationResult`. Explicit imports such as `from rheomarine_transport import VelocityField` remained available; the issue was an inconsistent public wildcard-export list, not a failure of those explicit imports. The initializer now declares one combined public API for the Eulerian, Lagrangian and particle-property components.
 
 ### NetCDF timestamp alignment
 
