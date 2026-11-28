@@ -114,13 +114,13 @@ The applicant will personally lead data processing and QC, computational impleme
 
 These are drafting controls and must **not** be pasted as claims into the application unless verified.
 
-1. **Pilot area:** confirm which of Ankaran, Koper, Izola and Piran actually falls within the selected data footprint and whether the final pilot should be narrower. Confirm the HFR stations/cells, period, quality flags, data-access conditions and any complementary ADCP or sampling data.
-2. **Laboratory:** obtain the quote and confirm the provider, protocol, sample types/counts, instruments, deliverables, turnaround time, VAT and whether consumables are included in B.1.
+1. **Pilot area:** quantitative HFR data-readiness evidence is now documented in HFR_QUANTITATIVE_COVERAGE_2026-11-28.md. The final common valid-cell/time mask and clipping to the official Slovenian territorial boundary remain a WP1 task; do not claim a fully validated polygon at submission.
+2. **Laboratory:** written Measurlabs offer M49249 has been received and recorded. Confirm final VAT treatment and order only after funding agreement and protocol/sample requirements are settled.
 3. **Natural samples and permits:** decide whether natural seawater/EPS/biological samples are actually needed. Do not promise collection before permissions and availability are confirmed.
 4. **Independent validation:** identify the independent dataset for each metric and ensure it is not also used for calibration. If no independent observations exist for a metric, do not present the metric as validated.
 5. **Target-group reach:** the revised planning target is 30 unique people (8 monitoring/public-sector practitioners, 12 researchers/students/specialists, 10 coastal/community stakeholders), with 15–20 attendees targeted for one final briefing. These are targets, not confirmed participants; record actual reach and deduplicate overlaps.
-6. **Applicant evidence:** map the CV and specific repository/code outputs to the competencies paragraph; attach a concise CV under “OTHER” only if permitted/appropriate.
+6. **Applicant evidence:** the C6 evidence annex has been completed from the CV and repository artefacts; attach the CV and annex under “OTHER” if permitted. Applicant must verify the factual descriptions.
 7. **Language and character limits:** confirm whether the form must be submitted in English and whether the submission platform or call administrator imposes limits not shown in the DOCX.
 8. **Ethics and AI:** align the final wording with the actual use of AI, any stakeholder contact, personal-data collection, laboratory waste arrangements and the RISTANC consent form.
-9. **Budget consistency:** use the [A.3/C budget and dissemination plan](RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md) for the proposed 220 hours × EUR 30 all-in and the itemised EUR 600 C allocation. Confirm the fiscal treatment and ensure travel, venue, translation and printing assumptions match the actual delivery plan. Keep B.1 at EUR 3,000 only if a suitable laboratory scope and quote are secured; avoid double-counting any consumables included in B.1.
+9. **Budget consistency:** use the revised budget plan: A.3 EUR 6,600; B.1 EUR 2,497.34 (Measurlabs five-sample offer plus indicative 22% Italian VAT); C EUR 600; E EUR 1,800; total EUR 11,497.34. Confirm final VAT and fiscal treatment; ensure C.1/C.4/C.5 estimates match the actual delivery plan.
 10. **Start date:** use the effective date of the signed funding agreement, not a pre-agreement fixed start date.
