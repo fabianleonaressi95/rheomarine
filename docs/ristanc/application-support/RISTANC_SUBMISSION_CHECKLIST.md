@@ -4,10 +4,10 @@
 
 ## 1. Submission package
 
-- [ ] Complete the official Application Form v2 in English or Slovenian.
+- [ ] Transfer the completed content from RISTANC_APPLICATION_FORM_COMPLETED_DRAFT.md and SECTION_C_DRAFT_RHEOMARINE_SLO_EN.md into the official Application Form v2 in English or Slovenian.
 - [ ] Complete all applicable applicant details in Section A: use A.1 for a legal entity or A.2 for a natural person; complete A.3/contact details as applicable.
 - [ ] Complete Section B: conflict-of-interest declaration, acknowledgement of Ethical Aspects and double-funding declaration.
-- [ ] Complete all Section C fields, including project title, duration, challenge/relevance, objectives, implementation plan, innovation, impact, sustainability and competencies/experience. If partners are included, identify them and their roles in the partner section (C.7).
+- [x] Section C content drafted in full, including quantified HFR data-readiness, applicant competencies and Measurlabs offer; transfer into official form and verify final layout/character limits. If partners are included, identify them and their roles in the partner section (C.7).
 - [ ] Complete the financial plan and check the arithmetic and eligibility of each cost category.
 - [ ] Sign the application as the applicant or authorised legal representative.
 - [ ] Attach the annexes applicable to the applicant type, as identified in the form:
@@ -27,13 +27,13 @@ The form does not list a general identity-card or residence-certificate attachme
 - [ ] Do not present hypotheses or model outputs as independent physical validation.
 - [ ] Separate calibration data from independent validation data and state metrics/uncertainty.
 - [ ] Do not claim OGS, NIB, FVO, IzVRS, a university or a laboratory as a confirmed project partner without written agreement.
-- [ ] Treat the Measurlabs M49249 quotation as a supplier quotation only; no µFTIR sample analysis or result is completed until the work is ordered and the report is received.
+- [x] Written Measurlabs M49249 quotation received and checked: five-sample µFTIR scope; EUR 2,047 before customer-country VAT; indicative EUR 2,497.34 including 22% Italian VAT. It remains a supplier offer, not a completed analysis or partner commitment.
 
 ## 3. Budget checks
 
 - [ ] Requested contribution is between EUR 7,500 and EUR 12,000.
 - [ ] A.3 is expressed as the applicant's total applicable gross cost (“bruto bruto”/gross 2), including applicable taxes and contributions; it is not a net take-home amount.
-- [ ] B.1 subcontracting includes a defensible scope, supplier basis, VAT treatment and procurement/selection rationale.
+- [x] B.1 scope and supplier basis documented using Measurlabs M49249; final VAT treatment must still be confirmed before ordering.
 - [ ] C.1–C.6 are itemised and linked to activities; no double counting with supplier-provided consumables.
 - [ ] Indirect costs are calculated as 25% × (A + C), excluding B.
 - [ ] Total costs are calculated as A + B + C + E and reconciled with the requested lump sum.
@@ -70,3 +70,14 @@ The form does not list a general identity-card or residence-certificate attachme
 - [Q&A updated 5 November 2026](https://www.ristanc.eu/storage/doc/202611/qa-ristancen-gbv3.pdf)
 
 This checklist tracks requirements and evidence; it does not certify that the application has been submitted or accepted.
+
+
+## 6. Evidence files updated 28 November 2026
+
+- Completed content draft: `docs/ristanc/application-support/RISTANC_APPLICATION_FORM_COMPLETED_DRAFT.md`.
+- Applicant competence annex: `docs/ristanc/application-support/APPLICANT_COMPETENCE_EVIDENCE_ANNEX_DRAFT.md`.
+- Quantitative HFR note: `docs/ristanc/application-support/HFR_QUANTITATIVE_COVERAGE_2026-11-28.md`.
+- Supplier offer record: `docs/ristanc/application-support/MEASURLABS_QUOTATION_M49249_2026-11-28.md`.
+- Revised budget: `docs/ristanc/application-support/RISTANC_A3_C_BUDGET_AND_DISSEMINATION_PLAN_2026-11-26.md`.
+
+The remaining applicant-only fields are tax number, permanent address, mobile, personal declarations, other-income confirmation, date and signature. The final official DOCX must be exported to PDF and sent by the applicant.
