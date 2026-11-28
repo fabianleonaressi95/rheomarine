@@ -3,7 +3,7 @@
 **Applicant:** Fabian Leo Naressi  
 **Project:** RheoMarine-SLO  
 **Purpose:** Evidence supporting evaluation criterion C6 (competences and experience).  
-**Status:** Evidence-based draft for applicant verification before submission.
+**Status:** Evidence-based submission annex, updated 28 November 2026; applicant must verify factual particulars and sign the application.
 
 ## 1. Competence profile and fit to the assigned role
 
@@ -94,3 +94,8 @@ Before submission:
 6. Keep the distinction between completed computational analyses and future oceanographic/laboratory work visible in the application.
 
 **Assessment boundary:** this annex supports competence in computational analysis, numerical implementation, data handling, reproducibility and scientific communication. It does not establish a formal marine-science qualification, professional oceanographic field experience or laboratory-rheometry expertise.
+
+
+## 10. Quantified HFR evidence added for the RISTANC application
+
+The project repository now contains a quantitative, carefully bounded HFR evidence note at [HFR_QUANTITATIVE_COVERAGE_2026-11-28.md](HFR_QUANTITATIVE_COVERAGE_2026-11-28.md). The measured evidence includes: 20×22 = 440 nominal grid cells per node; seven-day retrievals of 337 IZOL and 325 PIRA timestamps (18–25 November 2026); mean valid-cell fractions of 88.43% and 93.40% in the respective selected 4×4 computational subregions; and 30-day QCflag==1 fractions of approximately 51% for IZOL and 25% for PIRA over the full nominal grid-time denominator. These statistics have different denominators and must not be conflated. The selected blocks are computational pilot windows, not a validated continuous coastal polygon. The work demonstrates data processing and QC audit competence, not radar operation, calibration or independent oceanographic validation.
