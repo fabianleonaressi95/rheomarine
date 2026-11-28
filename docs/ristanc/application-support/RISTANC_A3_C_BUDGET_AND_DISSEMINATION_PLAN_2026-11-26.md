@@ -1,7 +1,7 @@
 # RheoMarine-SLO — A.3 personnel, C.1–C.6 itemisation and dissemination plan
 
 **Date:** 26 November 2026  
-**Status:** Proposed budget allocation for applicant review; not a tax determination, supplier quote or confirmed stakeholder commitment.  
+**Status:** Revised 28 November 2026 using written Measurlabs offer M49249; VAT amount remains subject to supplier's final tax treatment.  
 **Project duration:** 8 months from the effective date of the signed funding agreement.  
 **Requested lump sum:** EUR 12,000.
 
@@ -57,7 +57,7 @@ The following allocation uses the direct-purchase lines in the application form.
 | Budget line | Amount |
 |---|---:|
 | A.3 — applicant's own work (220 hours × EUR 30 all-in) | EUR 6,600 |
-| B.1 — external laboratory service (subject to quote and scope confirmation) | EUR 3,000 |
+| B.1 — Measurlabs µFTIR service (five samples + fee + indicative 22% Italian VAT) | EUR 2,497.34 |
 | C.1 — travel and subsistence | EUR 240 |
 | C.2 — equipment | EUR 0 |
 | C.3 — consumables | EUR 0 |
@@ -66,7 +66,7 @@ The following allocation uses the direct-purchase lines in the application form.
 | C.6 — other | EUR 0 |
 | **C subtotal** | **EUR 600** |
 | E — indirect costs: 25% × (A + C) = 25% × EUR 7,200 | **EUR 1,800** |
-| **TOTAL REQUESTED** | **EUR 12,000** |
+| **TOTAL REQUESTED** | **EUR 11,497.34** |
 
 The calculation excludes B.1 from the indirect-cost base. The current RISTANC guidance states that indirect costs are a flat rate of 25% of personnel and purchase costs (A+C). The lump sum is assessed against activities and results, not reimbursement of submitted invoices; however, all budget items must remain directly linked, necessary and proportionate to the approved project.
 
@@ -102,7 +102,7 @@ The invitation will be circulated to approximately 40–50 relevant contacts whe
 - [ ] Confirm the C.1 travel estimate against the actual travel base, route and work plan.
 - [ ] Confirm whether a no-cost venue/platform is available; reduce C.4 if so.
 - [ ] Obtain a language-service/printing estimate for C.5 or adjust it to actual planned costs.
-- [ ] Obtain a B.1 laboratory quote and check whether it includes consumables and VAT; remove any duplication.
+- [ ] Use written Measurlabs offer M49249: five samples × EUR 390 + EUR 97 service fee = EUR 2,047 before customer-country VAT; indicative 22% Italian VAT gives EUR 2,497.34. Confirm final VAT treatment before ordering.
 - [ ] Verify the official form's C.1–C.6 labels against the current version 2 form before transferring the figures.
 - [ ] Recalculate E as 25% of A+C and confirm the requested total remains EUR 12,000.
 - [ ] Keep all target-group counts as estimates and avoid naming any organisation as a committed recipient or partner without written confirmation.
@@ -115,3 +115,8 @@ The invitation will be circulated to approximately 40–50 relevant contacts whe
 
 Official call page: https://www.ristanc.eu/en/ristanc-call  
 Q&A PDF: https://www.ristanc.eu/storage/doc/202610/qa-ristanc-v2.pdf
+
+
+## 7. Written Measurlabs offer received 26 November 2026
+
+The written offer M49249 is documented in [MEASURLABS_QUOTATION_M49249_2026-11-28.md](MEASURLABS_QUOTATION_M49249_2026-11-28.md). The supplier confirms suitability for Gulf of Trieste seawater, preparation/reporting, polymer type, particle count and size, field blank charged as a full sample, 4–5 week turnaround, microplastic-free containers and acceptance of an individual applicant. Five samples cost EUR 2,047 before customer-country VAT. Applying an indicative 22% Italian VAT gives EUR 2,497.34. The revised requested total is EUR 11,497.34 (A.3 6,600 + B.1 2,497.34 + C 600 + E 1,800). The supplier's final VAT treatment must be confirmed before ordering.
