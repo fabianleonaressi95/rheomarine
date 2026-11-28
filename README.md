@@ -33,6 +33,10 @@ The M0–M5 GitHub milestone dates are a 12-month planning baseline only. They a
 - [Priority literature review](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md)
 - [RISTANC call-document audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
 - [RISTANC milestone schedule](docs/ristanc/PROJECT_MILESTONES.md)
+- [Completed application content draft](docs/ristanc/application-support/RISTANC_APPLICATION_FORM_COMPLETED_DRAFT.md)
+- [Applicant competence evidence annex](docs/ristanc/application-support/APPLICANT_COMPETENCE_EVIDENCE_ANNEX_DRAFT.md)
+- [Quantitative HFR coverage note](docs/ristanc/application-support/HFR_QUANTITATIVE_COVERAGE_2026-11-28.md)
+- [Measurlabs quotation M49249](docs/ristanc/application-support/MEASURLABS_QUOTATION_M49249_2026-11-28.md)
 
 ## Data sources (Mendeley Data, CC BY 4.0, IG PAS)
 
