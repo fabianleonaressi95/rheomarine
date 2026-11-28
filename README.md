@@ -12,18 +12,8 @@ RheoMarine combines published-data analysis, HFR data preparation and transport-
 - **Published rheology datasets:** DS1 contains 722 PTV trajectories; DS2 contains stratified-set experiments. Derived analyses and their assumptions are documented above and in `analysis/DS2_V2_NOTES.md`.
 - **HFR inputs:** ingestion/QC work and source audits are maintained under `src/rheomarine_hfr/`, `docs/hfr/` and the HFR audit reports. HFR surface currents are not direct observations of vertical circulation or seabed deposition.
 - **Transport:** Eulerian finite-volume and Lagrangian particle implementations are distinct. Their tests, input contracts and pilot outputs must not be conflated. Neither is, by itself, an independently validated coastal forecast.
-- **Independent evidence:** the µFTIR quotation from Measurlabs is a proposed analytical route and cost estimate, not a completed analysis, sample result or institutional partnership. No laboratory result is claimed here.
+- **Independent evidence:** no laboratory result or independent physical validation is claimed here; these remain separate evidence gates.
 - **External collaboration:** meetings, enquiries and expressions of interest are tracked as contacts unless written partner commitments are obtained.
-
-### RISTANC timetable
-- Application deadline: **28 November 2026, 23:59 CET**.
-- Expected selection publication: **15 December 2026**.
-- Agreement signature window: **15–21 December 2026**.
-- Project starts on the **funding-agreement signature date**, not before **1 January 2027**.
-- Duration: **6–12 months**; completion no later than **28 February 2028**.
-- Final project report: **within 30 days after project completion**.
-
-The M0–M5 GitHub milestone dates are a 12-month planning baseline only. They are not contractual dates; revise them against the signed agreement and actual start date.
 
 ### Repository navigation
 - [Scientific question and falsifiable hypotheses](docs/science/RESEARCH_QUESTION_AND_HYPOTHESES.md)
@@ -31,12 +21,6 @@ The M0–M5 GitHub milestone dates are a 12-month planning baseline only. They a
 - [Transport engine interface](docs/model/TRANSPORT_ENGINE_INTERFACE.md)
 - [Independent validation protocol](docs/validation/INDEPENDENT_VALIDATION_PROTOCOL.md)
 - [Priority literature review](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md)
-- [RISTANC call-document audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
-- [RISTANC milestone schedule](docs/ristanc/PROJECT_MILESTONES.md)
-- [Completed application content draft](docs/ristanc/application-support/RISTANC_APPLICATION_FORM_COMPLETED_DRAFT.md)
-- [Applicant competence evidence annex](docs/ristanc/application-support/APPLICANT_COMPETENCE_EVIDENCE_ANNEX_DRAFT.md)
-- [Quantitative HFR coverage note](docs/ristanc/application-support/HFR_QUANTITATIVE_COVERAGE_2026-11-28.md)
-- [Measurlabs quotation M49249](docs/ristanc/application-support/MEASURLABS_QUOTATION_M49249_2026-11-28.md)
 
 ## Data sources (Mendeley Data, CC BY 4.0, IG PAS)
 
@@ -137,35 +121,3 @@ The project's working scientific review is maintained directly in Markdown; it i
 - **[Priority literature review — RheoMarine-SLO](docs/literature/PRIORITY_LITERATURE_REVIEW_2026-11-25.md)** — critical synthesis of the technical readings, including the detailed review of Marchetto et al. (2022) and the primary Slovenian field study by Gajšt et al. (2016): HFR validation and Gulf circulation; HFR-NAdr station history; HFR-driven microplastic tracking; particle-tracking good practice; rheological settling and stratification; dataset methods; Northern Adriatic field observations; limitations and implications for WP1–WP4.
 - The review includes an access audit that distinguishes full-text readings from publisher-visible article sections, abstracts, institutional records and dataset metadata. It also identifies further North Adriatic hydrodynamic papers for subsequent reading.
 - Source papers and datasets are retained under `papers/` and linked from the relevant entries in the Markdown review. The PDF dossier is supplementary archival material, not the project's documentation entry point.
-
-## RISTANC call documents
-
-Primary sources (valid version 2):
-- [Guidelines for Applicants](docs/references/ristanc/01callguidelinesforapplicantsristancv5.pdf)
-- [Application Form (DOCX)](docs/references/ristanc/02applicationformristancv5.docx)
-- [Evaluation Criteria](docs/references/ristanc/03evaluationcriteriaristancv5.pdf)
-- [Ethical Aspects](docs/references/ristanc/04ethical-aspectsristancv5.pdf)
-- [Current Q&A (5 November 2026)](https://www.ristanc.eu/storage/doc/202611/qa-ristancen-gbv3.pdf)
-- [Archived earlier Q&A (20 October 2026)](docs/references/ristanc/archive/qa-ristanc-202610-20.pdf)
-
-Reviews and working documents:
-- [Call requirements audit](docs/references/ristanc/RISTANC_DOCUMENTS_AUDIT_2026-11-25.md)
-- [Evaluation criteria review](docs/references/ristanc/RISTANC_EVALUATION_REVIEW_2026-11-25.md)
-- [Ethical and open-science review](docs/references/ristanc/RISTANC_ETHICS_REVIEW_2026-11-25.md)
-- [Application form — full text extraction](docs/references/ristanc/02_APPLICATION_FORM_FULL_TEXT.md)
-- [Application form — field map](docs/references/ristanc/02_APPLICATION_FORM_FIELD_MAP.md)
-- [Application form — cross-check](docs/references/ristanc/RISTANC_APPLICATION_FORM_CROSSCHECK_2026-11-25.md)
-- [Section C draft — RheoMarine-SLO (English)](docs/ristanc/application-support/SECTION_C_DRAFT_RHEOMARINE_SLO_EN.md)
-- [Tax and funding-agreement review](legal/RISTANC_TAX_AND_FUNDING_AGREEMENT_REVIEW_2026-11-25.md)
-- Application preparation files: `docs/ristanc/application-support/`
-
-## RISTANC readiness and territorial evidence
-
-- [Application readiness and evidence dossier](docs/ristanc/application-support/APPLICATION_READINESS_EVIDENCE_DOSSIER_2026-11-25.md)
-- [Slovenian territorial-sea HFR data audit](docs/ristanc/application-support/HFR_SLOVENIAN_TERRITORIAL_SEA_DATA_AUDIT_2026-11-25.md)
-- [HFR live endpoint and calibration-metadata check](docs/ristanc/application-support/HFR_LIVE_ENDPOINT_AND_CALIBRATION_CHECK_2026-11-25.md)
-- Reproducible short-window benchmark: `python scripts/audit_hfr_endpoints.py --days 1 7 --timeout 120`
-- [Applicant competence evidence annex (draft)](docs/ristanc/application-support/APPLICANT_COMPETENCE_EVIDENCE_ANNEX_DRAFT.md)
-- [Laboratory provider shortlist and tailored quotation requests](docs/ristanc/application-support/LABORATORY_PROVIDER_SHORTLIST_AND_REQUESTS.md)
-- [OGS meeting brief — 26 November 2026](docs/ristanc/application-support/OGS_MEETING_BRIEF_2026-11-26.md)
-- [Funding pathways beyond RISTANC](docs/ristanc/application-support/FUNDING_PATHWAYS_BEYOND_RISTANC_2026-11-25.md)
