@@ -92,7 +92,6 @@ The application should evidence the computational and documentation work directl
 Personal identifiers and banking details must be entered only in the official application form, not committed to this public repository.
 
 - [ ] Complete the natural-person applicant section using the applicant's legal name and current registered residence.
-- [ ] Where relevant and accepted by the form, state the capacity in which the applicant acts (trustee) without representing the trust as a separate legal person unless the programme confirms that classification.
 - [ ] Leave legal-entity fields blank if the application is formally submitted by a natural person.
 - [ ] Complete the contact-person section only if the contact person differs from the applicant.
 - [ ] Attach only identity/residence evidence required or accepted by ZRS; do not assume an apostille authenticates the truth of every private declaration.
