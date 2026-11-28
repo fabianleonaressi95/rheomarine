@@ -3,7 +3,7 @@
 **Date:** 26 November 2026  
 **Status:** Revised 28 November 2026 using written Measurlabs offer M49249; VAT amount remains subject to supplier's final tax treatment.  
 **Project duration:** 8 months from the effective date of the signed funding agreement.  
-**Requested lump sum:** EUR 12,000.
+**Requested amount after supplier quotation:** EUR 11,497.34 (below the EUR 12,000 call ceiling).
 
 ## 1. Proposed A.3 calculation
 
@@ -49,7 +49,7 @@ The following allocation uses the direct-purchase lines in the application form.
 2. Keep the four travel trips only if they are genuinely required by the final pilot and work plan. The EUR 60/trip assumption must be checked against the actual starting point, route and travel mode before the form is signed.
 3. The briefing should be online or use a no-cost venue if possible. The EUR 120 is a ceiling for necessary room/AV/technical support, not a fee for attendance.
 4. The C.5 allowance is for a short public-facing summary and limited circulation, not a commercial advertising campaign. Do not charge the applicant's own writing, layout or dissemination hours again under C.5.
-5. The B.1 laboratory supplier quote must state whether consumables, sample preparation, analysis and VAT are included. Remove any overlapping C.3 amount if the supplier includes them.
+5. The Measurlabs M49249 offer includes sample preparation and reporting; customer-country VAT is additional and is budgeted provisionally at 22%. No overlapping C.3 cost is claimed.
 6. If a cost is unnecessary or cannot be justified, set that sub-line to zero and revise the allocation transparently. Do not invent purchases to reach EUR 600.
 
 ## 3. Reconciled financial plan
@@ -104,7 +104,7 @@ The invitation will be circulated to approximately 40–50 relevant contacts whe
 - [ ] Obtain a language-service/printing estimate for C.5 or adjust it to actual planned costs.
 - [ ] Use written Measurlabs offer M49249: five samples × EUR 390 + EUR 97 service fee = EUR 2,047 before customer-country VAT; indicative 22% Italian VAT gives EUR 2,497.34. Confirm final VAT treatment before ordering.
 - [ ] Verify the official form's C.1–C.6 labels against the current version 2 form before transferring the figures.
-- [ ] Recalculate E as 25% of A+C and confirm the requested total remains EUR 12,000.
+- [ ] Recalculate E as 25% of A+C = EUR 1,800; current requested total is EUR 11,497.34.
 - [ ] Keep all target-group counts as estimates and avoid naming any organisation as a committed recipient or partner without written confirmation.
 
 ## 6. Sources and governing rules
