@@ -21,7 +21,7 @@
 
 ## Section A.3 — Contact person
 
-Leave blank because the contact person is the natural-person applicant, unless the current DOCX requires repetition; if repetition is required, repeat the applicant's name and contact details from A.2. No representative, trustee or proxy is identified.
+Leave blank because the contact person is the natural-person applicant, unless the current DOCX requires repetition; if repetition is required, repeat the applicant's name and contact details from A.2. No representative or proxy is identified.
 
 ## Section B — Conflict of interest, ethics and double funding
 
@@ -73,4 +73,4 @@ Enter EUR 0.00 and “None” only if the applicant confirms that no other incom
 4. Applicant's date and handwritten/digital signature.
 5. Confirmation of final VAT treatment on the Measurlabs offer before contracting.
 
-No trustee, trust, legal entity, institutional consortium or unconfirmed research organisation is represented as applicant or partner.
+The applicant is presented solely as a natural person; no legal entity or institutional consortium is represented as applicant or confirmed partner.
